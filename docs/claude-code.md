@@ -1,0 +1,330 @@
+---
+sidebar_position: 1
+---
+
+# Claude Code 配置教程
+
+Claude Code 是 Anthropic 官方推出的命令行 AI 编程助手。本教程将指导你如何在 Windows、macOS 和 Linux 系统上安装并配置 Claude Code 以使用 QiubiHub API。
+
+## 系统要求
+
+- **操作系统**: Windows 10/11, macOS 12+, 或 Ubuntu 20.04+
+- **Node.js**: v18.0.0 或更高版本
+- **网络**: 稳定的互联网连接
+
+---
+
+## Windows 安装指南
+
+### 1. 安装 Node.js 和 Git
+
+**安装 Node.js**
+
+前往 [Node.js 官网](https://nodejs.org/en/download) 下载并安装 LTS 版本。
+
+验证安装：
+```powershell
+node --version
+```
+
+:::caution 版本要求
+Node.js 版本必须为 18+。如果低于此版本，请先升级 Node.js。
+:::
+
+![Node.js版本检查](/img/1769236302904-c4111827-cce4-4373-a0b6-9fadb2fd5783.png)
+
+**安装 Git**
+
+前往 [Git 官网](https://git-scm.com/download/win) 下载安装包，一路默认安装即可。
+
+![Git安装向导](/img/1769744581907-7399da60-33fa-47fb-8d92-fa16f240d8b9.png)
+
+### 2. 安装 Claude Code CLI
+
+打开 **PowerShell**（建议以管理员身份运行）并执行：
+
+```powershell
+npm install -g @anthropic-ai/claude-code --registry=https://registry.npmmirror.com/
+```
+
+:::tip 权限问题
+如果遇到"在此系统上禁止运行脚本"，请以管理员身份运行 PowerShell，然后执行：
+```powershell
+Set-ExecutionPolicy Unrestricted
+```
+:::
+
+![ClaudeCode安装](/img/1769236261656-99a81168-363a-4652-90c3-59a34c1c961b.png)
+
+### 3. 创建配置文件
+
+打开 **PowerShell** 并执行以下命令：
+
+```powershell
+# 目标目录
+$dir = Join-Path $env:USERPROFILE ".claude"
+$settingsFile = Join-Path $dir "settings.json"
+$claudeJsonFile = Join-Path $env:USERPROFILE ".claude.json"
+
+# 创建目录
+New-Item -ItemType Directory -Path $dir -Force | Out-Null
+
+# 写入 settings.json
+$settingsJson = @'
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "在这里替换成你的_API_KEY",
+    "ANTHROPIC_BASE_URL": "https://api.qiubithub.com"
+  }
+}
+'@
+[System.IO.File]::WriteAllText($settingsFile, $settingsJson)
+
+# 写入 .claude.json
+$claudeJson = @'
+{
+  "hasCompletedOnboarding": true
+}
+'@
+[System.IO.File]::WriteAllText($claudeJsonFile, $claudeJson)
+
+Write-Host "配置完成！"
+```
+
+![配置文件创建](/img/1769356582275-c900d57a-858b-47e1-ad85-f855f1f4e8cf.png)
+
+**⚠️ 重要：替换 API Key**
+
+使用以下命令查看配置文件，**务必将 API Key 替换为你的实际 Key**：
+
+```powershell
+cat "$env:USERPROFILE\.claude\settings.json"
+```
+
+### 4. 验证安装
+
+重新打开 PowerShell 或 IDE，运行：
+
+```powershell
+claude
+```
+
+首次运行会提示授权，选择第一个 "Yes" 并按回车。这是在授权 Claude Code 访问并执行当前文件夹里的代码。
+
+![授权提示](/img/1769237758834-74eabb00-a19c-47b6-b0fe-06773cfdaf97.png)
+
+输入测试消息：
+```
+你好，请介绍一下自己
+```
+
+如果正常回复，并且后台有正确的调用记录，则说明配置成功！
+
+![运行成功](/img/1769238083994-b6588f91-1d8a-4fb7-b992-4014860c2945.png)
+
+![调用记录](/img/1769239304868-b0dc3988-002d-4567-af07-09af3868675e.png)
+
+---
+
+## macOS 安装指南
+
+### 1. 安装 Node.js
+
+首先需要确认已安装 [Homebrew](https://brew.sh/)。如果没有，执行：
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+![Homebrew安装](/img/1769242462453-ed58b463-4883-4263-ae85-569ff225282e.png)
+
+使用 Homebrew 安装 Node.js：
+
+```bash
+brew install node
+```
+
+![Node.js安装macOS](/img/1769243887300-44dbcf3e-cb58-4e46-9622-3cb977b08967.png)
+
+验证安装：
+```bash
+node --version
+```
+
+![Node.js版本macOS](/img/1769243912026-37c64881-3bda-477e-8886-8fd7e828a05d.png)
+
+:::caution 版本要求
+Node.js 版本必须为 18+。如果低于此版本，请运行 `brew upgrade node` 升级。
+:::
+
+### 2. 安装 Claude Code CLI
+
+```bash
+npm install -g @anthropic-ai/claude-code --registry=https://registry.npmmirror.com/
+```
+
+![ClaudeCode安装macOS](/img/1769244053225-798377e0-64ed-4f1a-aa8f-663bf3c967a7.png)
+
+### 3. 创建配置文件
+
+```bash
+# 目标目录
+dir="$HOME/.claude"
+settingsFile="$dir/settings.json"
+claudeJsonFile="$HOME/.claude.json"
+
+# 创建目录
+mkdir -p "$dir"
+
+# 写入 settings.json
+cat > "$settingsFile" << 'EOF'
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "在这里替换成你的_API_KEY",
+    "ANTHROPIC_BASE_URL": "https://api.qiubithub.com"
+  }
+}
+EOF
+
+# 写入 .claude.json
+cat > "$claudeJsonFile" << 'EOF'
+{
+  "hasCompletedOnboarding": true
+}
+EOF
+
+echo "配置完成！"
+```
+
+![配置文件macOS](/img/1769357049399-c28495e8-69f4-4e76-ad6a-9f3b6d464839.png)
+
+**⚠️ 重要：替换 API Key**
+
+```bash
+cat "$HOME/.claude/settings.json"
+```
+
+### 4. 验证安装
+
+```bash
+claude
+```
+
+选择 Yes 授权，然后输入测试消息验证。
+
+![授权提示macOS](/img/1769244726291-40036c37-3378-4c4a-8255-4fb317feef53.png)
+
+![运行成功macOS](/img/1769244802326-c2582a05-3299-4621-87cb-d162cd4971fe.png)
+
+---
+
+## Linux 安装指南
+
+### 1. 安装 Node.js
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+验证安装：
+```bash
+node --version
+```
+
+![Node.js版本Linux](/img/1769271471052-733b781c-90a9-4378-a550-6156adfbd09e.png)
+
+### 2. 安装 Claude Code CLI
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+![ClaudeCode安装Linux](/img/1769271556685-9a06458d-caa1-4969-9875-3827a9d1d542.png)
+
+### 3. 创建配置文件
+
+与 macOS 相同：
+
+```bash
+dir="$HOME/.claude"
+settingsFile="$dir/settings.json"
+claudeJsonFile="$HOME/.claude.json"
+
+mkdir -p "$dir"
+
+cat > "$settingsFile" << 'EOF'
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "your-api-key-here",
+    "ANTHROPIC_BASE_URL": "https://api.qiubithub.com"
+  }
+}
+EOF
+
+cat > "$claudeJsonFile" << 'EOF'
+{
+  "hasCompletedOnboarding": true
+}
+EOF
+```
+
+![配置文件Linux](/img/1769357370426-87f69229-b7fa-4f62-9079-a696d2810440.png)
+
+### 4. 验证安装
+
+```bash
+claude
+```
+
+![运行Linux](/img/1769273466342-02bc47e3-50b6-4ceb-8de0-672a560c6a48.png)
+
+---
+
+## 常见问题
+
+### 1. 无法连接到 Anthropic 服务
+
+![连接错误](/img/1769272611253-07d970db-c1a7-43fa-a968-efd5ba1a3d55.png)
+
+**解决办法：**
+
+在 `~/.claude.json` 文件中，确保包含以下内容：
+
+```json
+{
+  "hasCompletedOnboarding": true
+}
+```
+
+![解决办法](/img/1769272499741-89e8ffe3-3fe7-4814-b3f6-63b44c0fea52.png)
+
+### 2. 无效的 API 密钥 · 请运行 /login
+
+![无效密钥错误](/img/1769272842448-9874b9fc-9fc6-4b87-888e-790c36286350.png)
+
+**解决办法：**
+
+检查环境变量是否正确设置：
+- `ANTHROPIC_BASE_URL`: `https://api.qiubithub.com`
+- `ANTHROPIC_AUTH_TOKEN`: 你的 API Key
+
+重新执行配置步骤 3。
+
+### 3. 401 错误
+
+![401错误](/img/1769273312084-1fe79126-1666-4417-8136-0460c04dbf11.png)
+
+**解决办法：**
+
+API Key 设置错误。请前往 QiubiHub 控制台重新生成 API Key，并更新配置文件中的 `ANTHROPIC_AUTH_TOKEN`。
+
+---
+
+## 获取帮助
+
+如果以上方法都无法解决问题：
+
+1. **询问 AI**: 将本页面内容和错误截图复制给豆包或 DeepSeek，让 AI 帮你分析
+2. **联系客服**: 发送邮件至 support@qiubithub.com
+3. **社区支持**: 加入我们的 Discord 获取实时帮助

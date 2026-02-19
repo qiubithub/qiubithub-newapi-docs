@@ -1,0 +1,206 @@
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.heroSubtitle {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.heroSlogan {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffd700;
+  margin-bottom: 2rem;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.primaryBtn {
+  background: #1890ff !important;
+  border-color: #1890ff !important;
+  color: white !important;
+  padding: 0.75rem 2rem !important;
+  font-size: 1.1rem !important;
+  border-radius: 50px !important;
+}
+
+.primaryBtn:hover {
+  background: #40a9ff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.4);
+}
+
+.secondaryBtn {
+  border-color: white !important;
+  color: white !important;
+  padding: 0.75rem 2rem !important;
+  font-size: 1.1rem !important;
+  border-radius: 50px !important;
+}
+
+.secondaryBtn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Features Section */
+.featuresSection {
+  padding: 60px 20px;
+  background: #f8f9fa;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  padding: 2rem;
+  border-radius: 16px;
+  border: 2px solid;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.featureIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.featureCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.featureDesc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.featureDesc li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.featureDesc li:last-child {
+  border-bottom: none;
+}
+
+/* Docs Section */
+.docsSection,
+.moreToolsSection {
+  padding: 60px 20px;
+  background: white;
+}
+
+.moreToolsSection {
+  background: #f8f9fa;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.docsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.docCard {
+  display: block;
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.docCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-color: #1890ff;
+}
+
+.docCardIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.docCard h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.docCard p {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+  
+  .heroSlogan {
+    font-size: 1.2rem;
+  }
+  
+  .featuresGrid,
+  .docsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
