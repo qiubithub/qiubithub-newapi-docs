@@ -97,6 +97,10 @@
   margin-bottom: 1rem;
 }
 
+.featureDesc {
+  color: #333;
+}
+
 .featureDesc ul {
   list-style: none;
   padding: 0;
@@ -106,6 +110,8 @@
 .featureDesc li {
   padding: 0.5rem 0;
   border-bottom: 1px dashed #e0e0e0;
+  color: #333;
+  font-weight: 500;
 }
 
 .featureDesc li:last-child {
