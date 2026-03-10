@@ -1,5 +1,26 @@
 .page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   color: #11223c;
+  background:
+    radial-gradient(circle at 10% 8%, rgba(34, 211, 238, 0.16), transparent 24%),
+    radial-gradient(circle at 88% 10%, rgba(99, 102, 241, 0.18), transparent 24%),
+    radial-gradient(circle at 56% 36%, rgba(59, 130, 246, 0.08), transparent 30%),
+    linear-gradient(180deg, #eef7ff 0%, #f7fbff 34%, #fcfeff 100%);
+}
+
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
+    linear-gradient(rgba(148, 163, 184, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.62), transparent 92%);
+  opacity: 0.18;
 }
 
 .hero {
@@ -7,9 +28,10 @@
   overflow: hidden;
   padding: 72px 0 44px;
   background:
-    radial-gradient(circle at 18% 20%, rgba(96, 165, 250, 0.24), transparent 24%),
-    radial-gradient(circle at 82% 16%, rgba(129, 140, 248, 0.2), transparent 22%),
-    linear-gradient(180deg, #eff6ff 0%, #f8fbff 72%, #ffffff 100%);
+    radial-gradient(circle at 18% 18%, rgba(45, 212, 191, 0.18), transparent 24%),
+    radial-gradient(circle at 82% 16%, rgba(99, 102, 241, 0.18), transparent 22%),
+    radial-gradient(circle at 70% 70%, rgba(37, 99, 235, 0.16), transparent 28%),
+    linear-gradient(180deg, #edf7ff 0%, #f7fbff 68%, rgba(255, 255, 255, 0) 100%);
 }
 
 .hero::before {
@@ -17,8 +39,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(135deg, rgba(15, 23, 42, 0.02), transparent 48%),
-    linear-gradient(180deg, transparent 0%, rgba(191, 219, 254, 0.24) 100%);
+    linear-gradient(135deg, rgba(15, 23, 42, 0.04), transparent 48%),
+    linear-gradient(180deg, transparent 0%, rgba(37, 99, 235, 0.14) 100%);
   pointer-events: none;
 }
 
@@ -41,10 +63,10 @@
   gap: 10px;
   padding: 10px 16px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid rgba(148, 163, 184, 0.18);
-  box-shadow: 0 18px 48px rgba(148, 163, 184, 0.12);
-  color: #2563eb;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(96, 165, 250, 0.18);
+  box-shadow: 0 18px 44px rgba(96, 165, 250, 0.12);
+  color: #115e59;
   font-size: 0.86rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -57,13 +79,14 @@
   line-height: 1;
   letter-spacing: -0.065em;
   font-weight: 780;
-  color: #0f172a;
+  color: #081223;
 }
 
 .heroTitleAccent {
+  color: #0f766e;
   display: block;
   margin-top: 12px;
-  background: linear-gradient(90deg, #2563eb 0%, #4f46e5 50%, #14b8a6 100%);
+  background: linear-gradient(90deg, #0f766e 0%, #22c55e 46%, #f59e0b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -109,21 +132,21 @@
 
 .primaryButton {
   color: #fff !important;
-  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.22);
+  background: linear-gradient(135deg, #0f766e 0%, #22c55e 54%, #f59e0b 100%);
+  box-shadow: 0 20px 44px rgba(15, 118, 110, 0.24);
 }
 
 .secondaryButton {
-  color: #1e3a8a !important;
-  background: rgba(255, 255, 255, 0.82);
+  color: #13408f !important;
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(96, 165, 250, 0.22);
-  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 18px 36px rgba(37, 99, 235, 0.08);
 }
 
 .ghostButton {
   color: #dbeafe !important;
-  background: rgba(15, 23, 42, 0.14);
-  border: 1px solid rgba(191, 219, 254, 0.18);
+  background: rgba(15, 23, 42, 0.16);
+  border: 1px solid rgba(191, 219, 254, 0.16);
 }
 
 .heroChips {
@@ -139,10 +162,10 @@
   gap: 8px;
   padding: 11px 16px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.05);
-  color: #1e3a8a;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  box-shadow: 0 16px 30px rgba(15, 23, 42, 0.06);
+  color: #154082;
   font-size: 0.94rem;
   font-weight: 650;
 }
@@ -152,7 +175,7 @@
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  background: linear-gradient(135deg, #0f766e, #f59e0b);
 }
 
 .heroAside {
@@ -164,16 +187,16 @@
   position: relative;
   padding: 26px;
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.72);
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(244, 249, 255, 0.86) 100%);
+  border: 1px solid rgba(96, 165, 250, 0.16);
   box-shadow:
-    0 24px 60px rgba(15, 23, 42, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 0.64);
+    0 24px 58px rgba(37, 99, 235, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(18px);
 }
 
 .panelEyebrow {
-  color: #2563eb;
+  color: #0f766e;
   font-size: 0.84rem;
   font-weight: 700;
   letter-spacing: 0.06em;
@@ -201,8 +224,8 @@
   gap: 16px;
   padding: 16px 18px;
   border-radius: 18px;
-  background: rgba(248, 250, 252, 0.8);
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  background: rgba(247, 250, 255, 0.92);
+  border: 1px solid rgba(96, 165, 250, 0.12);
 }
 
 .rateLabel {
@@ -218,11 +241,49 @@
   line-height: 1.55;
 }
 
+.rateTools,
+.pricingTools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.rateTools {
+  margin-top: 10px;
+}
+
+.pricingTools {
+  margin-top: 16px;
+}
+
+.rateTool,
+.pricingTool {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 680;
+  letter-spacing: -0.01em;
+}
+
+.rateTool {
+  background: rgba(219, 234, 254, 0.7);
+  border: 1px solid rgba(96, 165, 250, 0.1);
+  color: #1e3a8a;
+}
+
+.pricingTool {
+  background: rgba(248, 250, 252, 0.88);
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  color: #334155;
+}
+
 .rateValue {
   font-size: 1.38rem;
   font-weight: 760;
   letter-spacing: -0.05em;
-  color: #2563eb;
+  color: #0f766e;
 }
 
 .workflowList {
@@ -245,8 +306,8 @@
   width: 34px;
   height: 34px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%);
-  color: #1e3a8a;
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.84) 0%, rgba(245, 158, 11, 0.72) 100%);
+  color: #f8fbff;
   font-size: 0.94rem;
   font-weight: 700;
 }
@@ -263,8 +324,9 @@
 
 .sectionMuted {
   background:
-    radial-gradient(circle at 15% 20%, rgba(191, 219, 254, 0.38), transparent 26%),
-    linear-gradient(180deg, #f8fbff 0%, #eff6ff 100%);
+    radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.12), transparent 26%),
+    radial-gradient(circle at 86% 18%, rgba(45, 212, 191, 0.1), transparent 24%),
+    linear-gradient(180deg, rgba(236, 246, 255, 0.92) 0%, rgba(246, 250, 255, 0.96) 100%);
 }
 
 .sectionIntro {
@@ -308,11 +370,24 @@
   position: relative;
   overflow: hidden;
   border-radius: 28px;
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(245, 249, 255, 0.92) 100%);
   box-shadow:
-    0 20px 45px rgba(15, 23, 42, 0.06),
-    inset 0 1px 0 rgba(255, 255, 255, 0.64);
+    0 22px 44px rgba(37, 99, 235, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.pricingCard::before,
+.toolCard::before,
+.guideCard::before,
+.capabilityCard::before {
+  content: '';
+  position: absolute;
+  inset: -1px -1px auto;
+  height: 110px;
+  pointer-events: none;
+  background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.16), transparent 58%);
+  opacity: 0.9;
 }
 
 .pricingCard {
@@ -331,7 +406,7 @@
   align-items: center;
   padding: 9px 14px;
   border-radius: 999px;
-  background: rgba(219, 234, 254, 0.7);
+  background: rgba(219, 234, 254, 0.72);
   color: #1e3a8a;
   font-size: 0.84rem;
   font-weight: 700;
@@ -383,7 +458,7 @@
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  background: linear-gradient(135deg, #0f766e, #f59e0b);
 }
 
 .inlineLink,
@@ -392,7 +467,7 @@
   align-items: center;
   gap: 8px;
   margin-top: 22px;
-  color: #2563eb;
+  color: #115e59;
   font-size: 0.95rem;
   font-weight: 700;
   text-decoration: none;
@@ -413,15 +488,15 @@
 .infoBlock {
   padding: 20px 24px;
   border-radius: 24px;
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  background: rgba(248, 250, 252, 0.78);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.62);
+  border: 1px solid rgba(96, 165, 250, 0.14);
+  background: rgba(248, 250, 252, 0.84);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.66);
 }
 
 .infoLabel {
   display: block;
   margin-bottom: 8px;
-  color: #64748b;
+  color: #0f766e;
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -454,18 +529,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   border-radius: 18px;
-  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-  color: #fff;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  box-shadow: 0 18px 36px rgba(59, 130, 246, 0.18);
+  background: linear-gradient(135deg, #0f766e 0%, #22c55e 54%, #f59e0b 100%);
+  color: #f8fafc;
+  box-shadow: 0 18px 36px rgba(15, 118, 110, 0.2);
 }
 
 .toolMark {
   width: 56px;
   height: 56px;
-  font-size: 1.02rem;
 }
 
 .toolName {
@@ -477,7 +550,7 @@
 
 .toolHeadline {
   margin-top: 5px;
-  color: #2563eb;
+  color: #0f766e;
   font-size: 0.94rem;
   font-weight: 680;
 }
@@ -514,7 +587,18 @@
 .guideMark {
   width: 52px;
   height: 52px;
-  font-size: 0.95rem;
+}
+
+.toolMark svg,
+.guideMark svg {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.guideMark svg {
+  width: 26px;
+  height: 26px;
 }
 
 .guideTitle {
@@ -547,7 +631,7 @@
 
 .capabilityIndex {
   display: inline-flex;
-  color: #93c5fd;
+  color: #0f766e;
   font-size: 0.84rem;
   font-weight: 760;
   letter-spacing: 0.08em;
@@ -606,15 +690,16 @@
   padding: 34px;
   border-radius: 34px;
   background:
-    radial-gradient(circle at 85% 12%, rgba(96, 165, 250, 0.18), transparent 24%),
-    linear-gradient(135deg, #0f172a 0%, #1d4ed8 45%, #1e293b 100%);
-  box-shadow: 0 30px 80px rgba(30, 64, 175, 0.22);
+    radial-gradient(circle at 85% 12%, rgba(245, 158, 11, 0.16), transparent 24%),
+    radial-gradient(circle at 12% 78%, rgba(34, 197, 94, 0.16), transparent 30%),
+    linear-gradient(135deg, #111827 0%, #14532d 34%, #0f766e 72%, #a16207 100%);
+  box-shadow: 0 34px 90px rgba(2, 6, 23, 0.3);
 }
 
 .contactCopy .sectionEyebrow {
   background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(191, 219, 254, 0.12);
-  color: #bfdbfe;
+  border-color: rgba(220, 252, 231, 0.14);
+  color: #d9f99d;
   box-shadow: none;
 }
 
@@ -629,7 +714,7 @@
 
 .contactDescription {
   margin: 18px 0 0;
-  color: rgba(219, 234, 254, 0.86);
+  color: rgba(223, 239, 255, 0.86);
   font-size: 1rem;
   line-height: 1.8;
   max-width: 620px;
@@ -653,8 +738,8 @@
   align-items: center;
   padding: 16px 18px;
   border-radius: 22px;
-  background: rgba(15, 23, 42, 0.24);
-  border: 1px solid rgba(191, 219, 254, 0.12);
+  background: rgba(2, 6, 23, 0.32);
+  border: 1px solid rgba(220, 252, 231, 0.14);
   color: #fff;
   text-decoration: none !important;
 }
@@ -667,7 +752,7 @@
   height: 48px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.12);
-  color: #bfdbfe;
+  color: #d9f99d;
   font-size: 0.94rem;
   font-weight: 700;
 }
@@ -695,31 +780,243 @@
 .pricingCard[data-tone='blue'] .toneBadge,
 .toolCard[data-tone='blue'] .toolHeadline,
 .rateItem[data-tone='blue'] .rateValue {
-  color: #1d4ed8;
+  color: #0f766e;
 }
 
 .pricingCard[data-tone='blue'] .toneBadge {
-  background: rgba(219, 234, 254, 0.78);
+  background: rgba(204, 251, 241, 0.92);
 }
 
 .pricingCard[data-tone='violet'] .toneBadge,
 .toolCard[data-tone='violet'] .toolHeadline,
 .rateItem[data-tone='violet'] .rateValue {
-  color: #6d28d9;
+  color: #b45309;
 }
 
 .pricingCard[data-tone='violet'] .toneBadge {
-  background: rgba(237, 233, 254, 0.88);
+  background: rgba(254, 243, 199, 0.94);
 }
 
 .pricingCard[data-tone='green'] .toneBadge,
 .toolCard[data-tone='green'] .toolHeadline,
 .rateItem[data-tone='green'] .rateValue {
-  color: #047857;
+  color: #4d7c0f;
 }
 
 .pricingCard[data-tone='green'] .toneBadge {
-  background: rgba(220, 252, 231, 0.9);
+  background: rgba(236, 252, 203, 0.94);
+}
+
+.toolCard[data-tone='sky'] .toolHeadline,
+.rateItem[data-tone='sky'] .rateValue {
+  color: #166534;
+}
+
+.pricingCard[data-tone='sky'] .toneBadge {
+  color: #166534;
+  background: rgba(220, 252, 231, 0.88);
+}
+
+:global(html[data-theme='dark']) .page {
+  color: #e8f2ea;
+  background:
+    radial-gradient(circle at 10% 8%, rgba(34, 197, 94, 0.12), transparent 24%),
+    radial-gradient(circle at 88% 10%, rgba(245, 158, 11, 0.16), transparent 24%),
+    radial-gradient(circle at 56% 36%, rgba(20, 184, 166, 0.08), transparent 28%),
+    linear-gradient(180deg, #090d0b 0%, #111512 40%, #171a16 100%);
+}
+
+:global(html[data-theme='dark']) .page::before {
+  opacity: 0.24;
+}
+
+:global(html[data-theme='dark']) .hero {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(34, 197, 94, 0.14), transparent 24%),
+    radial-gradient(circle at 82% 14%, rgba(245, 158, 11, 0.16), transparent 22%),
+    linear-gradient(180deg, #0b100d 0%, #121714 60%, #171a16 100%);
+}
+
+:global(html[data-theme='dark']) .hero::before {
+  background:
+    linear-gradient(135deg, rgba(148, 163, 184, 0.08), transparent 48%),
+    linear-gradient(180deg, transparent 0%, rgba(34, 197, 94, 0.1) 100%);
+}
+
+:global(html[data-theme='dark']) .heroEyebrow,
+:global(html[data-theme='dark']) .sectionEyebrow {
+  background: rgba(15, 23, 42, 0.72);
+  border-color: rgba(34, 197, 94, 0.16);
+  box-shadow: 0 18px 40px rgba(2, 6, 23, 0.22);
+  color: #99f6e4;
+}
+
+:global(html[data-theme='dark']) .heroTitle,
+:global(html[data-theme='dark']) .sectionTitle,
+:global(html[data-theme='dark']) .panelTitle,
+:global(html[data-theme='dark']) .pricingRate,
+:global(html[data-theme='dark']) .toolName,
+:global(html[data-theme='dark']) .guideTitle,
+:global(html[data-theme='dark']) .capabilityTitle,
+:global(html[data-theme='dark']) .platformLabel {
+  color: #f8fbff;
+}
+
+:global(html[data-theme='dark']) .heroTitleAccent {
+  color: #99f6e4;
+  background: linear-gradient(90deg, #99f6e4 0%, #86efac 46%, #fbbf24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:global(html[data-theme='dark']) .heroSubtitle,
+:global(html[data-theme='dark']) .sectionDescription,
+:global(html[data-theme='dark']) .pricingSummary,
+:global(html[data-theme='dark']) .toolSummary,
+:global(html[data-theme='dark']) .guideDescription,
+:global(html[data-theme='dark']) .capabilityDescription,
+:global(html[data-theme='dark']) .contactDescription {
+  color: #a9b7cb;
+}
+
+:global(html[data-theme='dark']) .secondaryButton {
+  background: rgba(15, 23, 42, 0.76);
+  border-color: rgba(34, 197, 94, 0.18);
+  box-shadow: 0 18px 36px rgba(2, 6, 23, 0.18);
+  color: #dbeafe !important;
+}
+
+:global(html[data-theme='dark']) .ghostButton {
+  background: rgba(2, 6, 23, 0.28);
+  border-color: rgba(191, 219, 254, 0.14);
+  color: #e0ecff !important;
+}
+
+:global(html[data-theme='dark']) .heroChip,
+:global(html[data-theme='dark']) .rateTool,
+:global(html[data-theme='dark']) .pricingTool,
+:global(html[data-theme='dark']) .platformChip {
+  background: rgba(15, 23, 42, 0.72);
+  border-color: rgba(34, 197, 94, 0.16);
+  color: #d6e6fb;
+  box-shadow: 0 12px 24px rgba(2, 6, 23, 0.14);
+}
+
+:global(html[data-theme='dark']) .glassPanel,
+:global(html[data-theme='dark']) .pricingCard,
+:global(html[data-theme='dark']) .toolCard,
+:global(html[data-theme='dark']) .guideCard,
+:global(html[data-theme='dark']) .capabilityCard,
+:global(html[data-theme='dark']) .infoBlock {
+  background: rgba(8, 15, 29, 0.78);
+  border-color: rgba(34, 197, 94, 0.12);
+  box-shadow:
+    0 22px 48px rgba(2, 6, 23, 0.18),
+    inset 0 1px 0 rgba(148, 163, 184, 0.08);
+}
+
+:global(html[data-theme='dark']) .panelEyebrow,
+:global(html[data-theme='dark']) .infoLabel,
+:global(html[data-theme='dark']) .capabilityIndex {
+  color: #86efac;
+}
+
+:global(html[data-theme='dark']) .rateItem {
+  background: rgba(15, 23, 42, 0.82);
+  border-color: rgba(34, 197, 94, 0.12);
+}
+
+:global(html[data-theme='dark']) .rateLabel,
+:global(html[data-theme='dark']) .infoBlock strong {
+  color: #f8fbff;
+}
+
+:global(html[data-theme='dark']) .rateMeta,
+:global(html[data-theme='dark']) .workflowText,
+:global(html[data-theme='dark']) .pricingPoints li,
+:global(html[data-theme='dark']) .toolBullets li {
+  color: #9fb1c9;
+}
+
+:global(html[data-theme='dark']) .workflowIndex {
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.54) 0%, rgba(245, 158, 11, 0.42) 100%);
+  color: #dbeafe;
+}
+
+:global(html[data-theme='dark']) .sectionMuted {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(34, 197, 94, 0.12), transparent 26%),
+    radial-gradient(circle at 86% 18%, rgba(245, 158, 11, 0.08), transparent 24%),
+    linear-gradient(180deg, #101411 0%, #0b0f0d 100%);
+}
+
+:global(html[data-theme='dark']) .inlineLink,
+:global(html[data-theme='dark']) .guideLink,
+:global(html[data-theme='dark']) .toolHeadline {
+  color: #99f6e4;
+}
+
+:global(html[data-theme='dark']) .toneBadge {
+  background: rgba(30, 41, 59, 0.84);
+  color: #dbeafe;
+}
+
+:global(html[data-theme='dark']) .contactBand {
+  background:
+    radial-gradient(circle at 85% 12%, rgba(245, 158, 11, 0.18), transparent 24%),
+    radial-gradient(circle at 14% 78%, rgba(34, 197, 94, 0.16), transparent 28%),
+    linear-gradient(135deg, #020617 0%, #111827 36%, #115e59 76%, #a16207 100%);
+  box-shadow: 0 30px 80px rgba(2, 6, 23, 0.32);
+}
+
+:global(html[data-theme='dark']) .contactMethod {
+  background: rgba(2, 6, 23, 0.34);
+  border-color: rgba(191, 219, 254, 0.14);
+}
+
+:global(html[data-theme='dark']) .contactMethodLabel {
+  color: rgba(236, 253, 245, 0.84);
+}
+
+:global(html[data-theme='dark']) .pricingCard[data-tone='blue'] .toneBadge,
+:global(html[data-theme='dark']) .toolCard[data-tone='blue'] .toolHeadline,
+:global(html[data-theme='dark']) .rateItem[data-tone='blue'] .rateValue {
+  color: #99f6e4;
+}
+
+:global(html[data-theme='dark']) .pricingCard[data-tone='blue'] .toneBadge {
+  background: rgba(6, 95, 70, 0.34);
+}
+
+:global(html[data-theme='dark']) .pricingCard[data-tone='violet'] .toneBadge,
+:global(html[data-theme='dark']) .toolCard[data-tone='violet'] .toolHeadline,
+:global(html[data-theme='dark']) .rateItem[data-tone='violet'] .rateValue {
+  color: #fcd34d;
+}
+
+:global(html[data-theme='dark']) .pricingCard[data-tone='violet'] .toneBadge {
+  background: rgba(180, 83, 9, 0.28);
+}
+
+:global(html[data-theme='dark']) .pricingCard[data-tone='green'] .toneBadge,
+:global(html[data-theme='dark']) .toolCard[data-tone='green'] .toolHeadline,
+:global(html[data-theme='dark']) .rateItem[data-tone='green'] .rateValue {
+  color: #d9f99d;
+}
+
+:global(html[data-theme='dark']) .pricingCard[data-tone='green'] .toneBadge {
+  background: rgba(77, 124, 15, 0.3);
+}
+
+:global(html[data-theme='dark']) .pricingCard[data-tone='sky'] .toneBadge,
+:global(html[data-theme='dark']) .toolCard[data-tone='sky'] .toolHeadline,
+:global(html[data-theme='dark']) .rateItem[data-tone='sky'] .rateValue {
+  color: #86efac;
+}
+
+:global(html[data-theme='dark']) .pricingCard[data-tone='sky'] .toneBadge {
+  background: rgba(22, 101, 52, 0.28);
 }
 
 @media (max-width: 1100px) {

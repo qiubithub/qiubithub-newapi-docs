@@ -1,23 +1,23 @@
 :root {
   --qiubi-font-sans: 'SF Pro Text', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
   --qiubi-font-display: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
-  --ifm-color-primary: #2563eb;
-  --ifm-color-primary-dark: #1d4ed8;
-  --ifm-color-primary-darker: #1e40af;
-  --ifm-color-primary-darkest: #1e3a8a;
-  --ifm-color-primary-light: #3b82f6;
-  --ifm-color-primary-lighter: #60a5fa;
-  --ifm-color-primary-lightest: #bfdbfe;
-  --ifm-background-color: #f8fbff;
+  --ifm-color-primary: #0f766e;
+  --ifm-color-primary-dark: #115e59;
+  --ifm-color-primary-darker: #134e4a;
+  --ifm-color-primary-darkest: #022c22;
+  --ifm-color-primary-light: #14b8a6;
+  --ifm-color-primary-lighter: #5eead4;
+  --ifm-color-primary-lightest: #ccfbf1;
+  --ifm-background-color: #f7f7f2;
   --ifm-background-surface-color: rgba(255, 255, 255, 0.92);
-  --ifm-navbar-background-color: rgba(248, 250, 255, 0.76);
+  --ifm-navbar-background-color: rgba(250, 249, 244, 0.8);
   --ifm-footer-background-color: transparent;
   --ifm-heading-color: #0f172a;
   --ifm-font-family-base: var(--qiubi-font-sans);
   --ifm-font-family-monospace: 'SFMono-Regular', 'JetBrains Mono', 'Consolas', monospace;
   --ifm-code-font-size: 95%;
   --ifm-global-radius: 18px;
-  --docusaurus-highlighted-code-line-bg: rgba(37, 99, 235, 0.08);
+  --docusaurus-highlighted-code-line-bg: rgba(15, 118, 110, 0.12);
 }
 
 html {
@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  background: linear-gradient(180deg, #edf4ff 0%, #ffffff 46%, #f8fbff 100%);
+  background: linear-gradient(180deg, #f2f7f0 0%, #fffdf7 46%, #f7f5ef 100%);
   color: #11223c;
   font-family: var(--qiubi-font-sans);
   -webkit-font-smoothing: antialiased;
@@ -37,11 +37,22 @@ body {
   letter-spacing: -0.011em;
 }
 
+html[data-theme='dark'] body {
+  background: linear-gradient(180deg, #0c1110 0%, #121816 42%, #171d19 100%);
+  color: #dbe7f6;
+}
+
 .navbar {
   background: rgba(248, 250, 255, 0.78);
   border-bottom: 1px solid rgba(148, 163, 184, 0.14);
   box-shadow: 0 14px 34px rgba(15, 23, 42, 0.04);
   backdrop-filter: blur(18px);
+}
+
+html[data-theme='dark'] .navbar {
+  background: rgba(12, 17, 16, 0.82);
+  border-bottom-color: rgba(45, 212, 191, 0.12);
+  box-shadow: 0 16px 36px rgba(2, 6, 23, 0.18);
 }
 
 .navbar__brand {
@@ -69,7 +80,17 @@ body {
 
 .navbar__link:hover,
 .navbar__link--active {
-  color: #1d4ed8;
+  color: #115e59;
+}
+
+html[data-theme='dark'] .navbar__title,
+html[data-theme='dark'] .navbar__link {
+  color: #dbe7f6;
+}
+
+html[data-theme='dark'] .navbar__link:hover,
+html[data-theme='dark'] .navbar__link--active {
+  color: #99f6e4;
 }
 
 .navbarConsoleLink {
@@ -80,8 +101,8 @@ body {
   padding: 0 16px;
   border-radius: 999px;
   color: #fff !important;
-  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-  box-shadow: 0 14px 28px rgba(59, 130, 246, 0.18);
+  background: linear-gradient(135deg, #0f766e 0%, #22c55e 54%, #f59e0b 100%);
+  box-shadow: 0 14px 28px rgba(15, 118, 110, 0.24);
 }
 
 .navbarConsoleLink:hover {
@@ -96,6 +117,11 @@ body {
   box-shadow: 0 18px 32px rgba(15, 23, 42, 0.05);
 }
 
+html[data-theme='dark'] .menu {
+  background: rgba(8, 15, 29, 0.72);
+  box-shadow: 0 20px 34px rgba(2, 6, 23, 0.16);
+}
+
 .menu__link {
   margin-bottom: 0.3rem;
   border-radius: 14px;
@@ -105,14 +131,23 @@ body {
 }
 
 .menu__link--active {
-  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  background: linear-gradient(135deg, #0f766e 0%, #22c55e 54%, #f59e0b 100%);
   color: #fff;
+}
+
+html[data-theme='dark'] .menu__link {
+  color: #9fb1c9;
 }
 
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
   margin-bottom: 0;
   color: #0f172a;
   font-weight: 700;
+}
+
+html[data-theme='dark'] .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link,
+html[data-theme='dark'] .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link.menu__link--active {
+  color: #f8fbff;
 }
 
 .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link.menu__link--active {
@@ -130,9 +165,17 @@ body {
   border-right: 1px solid rgba(148, 163, 184, 0.12);
 }
 
+html[data-theme='dark'] .theme-doc-sidebar-container {
+  border-right-color: rgba(45, 212, 191, 0.1);
+}
+
 .theme-doc-markdown {
   font-size: 1.02rem;
   line-height: 1.86;
+}
+
+html[data-theme='dark'] .theme-doc-markdown {
+  color: #dbe7f6;
 }
 
 .theme-doc-markdown h1,
@@ -154,6 +197,13 @@ body {
   line-height: 1.16;
 }
 
+html[data-theme='dark'] .theme-doc-markdown h1,
+html[data-theme='dark'] .theme-doc-markdown h2,
+html[data-theme='dark'] .theme-doc-markdown h3,
+html[data-theme='dark'] .theme-doc-markdown h4 {
+  color: #f8fbff;
+}
+
 .theme-doc-markdown .tabs {
   gap: 0.55rem;
   margin-bottom: 1.5rem;
@@ -162,6 +212,12 @@ body {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.76);
   box-shadow: 0 18px 32px rgba(15, 23, 42, 0.05);
+}
+
+html[data-theme='dark'] .theme-doc-markdown .tabs {
+  background: rgba(8, 15, 29, 0.72);
+  border-color: rgba(45, 212, 191, 0.12);
+  box-shadow: 0 18px 32px rgba(2, 6, 23, 0.14);
 }
 
 .theme-doc-markdown .tabs__item {
@@ -174,14 +230,22 @@ body {
   transition: background 160ms ease, color 160ms ease, transform 160ms ease;
 }
 
+html[data-theme='dark'] .theme-doc-markdown .tabs__item {
+  color: #a8b6ca;
+}
+
 .theme-doc-markdown .tabs__item:hover {
-  color: #1d4ed8;
+  color: #115e59;
+}
+
+html[data-theme='dark'] .theme-doc-markdown .tabs__item:hover {
+  color: #d9f99d;
 }
 
 .theme-doc-markdown .tabs__item--active {
   color: #fff;
-  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
-  box-shadow: 0 14px 28px rgba(59, 130, 246, 0.2);
+  background: linear-gradient(135deg, #0f766e 0%, #22c55e 54%, #f59e0b 100%);
+  box-shadow: 0 14px 28px rgba(15, 118, 110, 0.22);
 }
 
 /* Turn Docusaurus Prism blocks into terminal-style cards for setup guides. */
@@ -192,7 +256,7 @@ body {
   padding-top: 2.5rem;
   border: 1px solid rgba(148, 163, 184, 0.14);
   border-radius: 20px;
-  background: linear-gradient(180deg, #1e293b 0%, #0f1c31 18%, #081123 100%) !important;
+  background: linear-gradient(180deg, #1d241e 0%, #111713 18%, #090d0a 100%) !important;
   box-shadow: 0 20px 40px rgba(2, 6, 23, 0.12);
 }
 
@@ -208,7 +272,7 @@ body {
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  background: rgba(30, 41, 59, 0.78);
+  background: rgba(29, 36, 30, 0.82);
   border-bottom: 1px solid rgba(148, 163, 184, 0.14);
 }
 
@@ -315,6 +379,15 @@ body {
 .theme-doc-markdown .theme-code-block [class*='copyButtonSuccessIcon'] {
   width: 0.84rem;
   height: 0.84rem;
+}
+
+html[data-theme='dark'] .theme-doc-markdown a:not(.button) {
+  color: #99f6e4;
+}
+
+html[data-theme='dark'] .theme-doc-markdown strong,
+html[data-theme='dark'] .theme-doc-markdown code {
+  color: #f8fbff;
 }
 
 /* Single-line commands should look compact instead of full-height panels. */

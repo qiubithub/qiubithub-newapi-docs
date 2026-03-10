@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
   customFields: {
     footerData: {
-      description: '为 Claude Code & CodeX & Gemini CLI 用户提供的高质量 API 服务',
+      description: '为 Claude Code & Codex & Gemini CLI 用户提供的高质量 API 服务',
       accentText: '让 AI 编程更高效，让开发更简单',
       badges: ['服务稳定运行', '24/7 技术支持'],
       contactTitle: '联系我们',
@@ -74,7 +74,7 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       defaultMode: 'light',
-      disableSwitch: true,
+      disableSwitch: false,
       respectPrefersColorScheme: false,
     },
     navbar: {
@@ -129,7 +129,7 @@ const config: Config = {
               to: '/docs/claude-code',
             },
             {
-              label: 'CodeX 安装',
+              label: 'Codex 安装',
               to: '/docs/codex',
             },
             {
