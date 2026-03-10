@@ -11,6 +11,9 @@
   --ifm-background-color: #f7f7f2;
   --ifm-background-surface-color: rgba(255, 255, 255, 0.92);
   --ifm-navbar-background-color: rgba(250, 249, 244, 0.8);
+  --ifm-navbar-link-color: #15233b;
+  --ifm-navbar-link-hover-color: #0f766e;
+  --ifm-navbar-link-active-color: #0f766e;
   --ifm-footer-background-color: transparent;
   --ifm-heading-color: #0f172a;
   --ifm-font-family-base: var(--qiubi-font-sans);
@@ -22,6 +25,16 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+html[data-theme='dark'] {
+  --ifm-background-color: #0b100d;
+  --ifm-background-surface-color: rgba(8, 15, 29, 0.92);
+  --ifm-navbar-background-color: rgba(9, 14, 12, 0.84);
+  --ifm-navbar-link-color: #e6eff8;
+  --ifm-navbar-link-hover-color: #99f6e4;
+  --ifm-navbar-link-active-color: #99f6e4;
+  --ifm-heading-color: #f8fbff;
 }
 
 body {
@@ -66,6 +79,16 @@ html[data-theme='dark'] .navbar {
   letter-spacing: -0.035em;
 }
 
+.navbar__brand,
+.navbar__brand:hover,
+.navbar__title,
+.navbar__link,
+.navbar__toggle,
+.colorModeToggle button {
+  color: var(--ifm-navbar-link-color);
+  opacity: 1;
+}
+
 .navbar__logo img {
   height: 32px;
 }
@@ -74,23 +97,12 @@ html[data-theme='dark'] .navbar {
   font-weight: 620;
 }
 
-.navbar__link {
-  color: #334155;
-}
-
 .navbar__link:hover,
-.navbar__link--active {
-  color: #115e59;
-}
-
-html[data-theme='dark'] .navbar__title,
-html[data-theme='dark'] .navbar__link {
-  color: #dbe7f6;
-}
-
-html[data-theme='dark'] .navbar__link:hover,
-html[data-theme='dark'] .navbar__link--active {
-  color: #99f6e4;
+.navbar__link--active,
+.navbar__brand:hover .navbar__title,
+.navbar__toggle:hover,
+.colorModeToggle button:hover {
+  color: var(--ifm-navbar-link-hover-color);
 }
 
 .navbarConsoleLink {
@@ -120,6 +132,14 @@ html[data-theme='dark'] .navbar__link--active {
 html[data-theme='dark'] .menu {
   background: rgba(8, 15, 29, 0.72);
   box-shadow: 0 20px 34px rgba(2, 6, 23, 0.16);
+}
+
+.navbar-sidebar {
+  background: rgba(250, 249, 244, 0.96);
+}
+
+html[data-theme='dark'] .navbar-sidebar {
+  background: rgba(9, 14, 12, 0.98);
 }
 
 .menu__link {
