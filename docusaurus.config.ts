@@ -46,6 +46,7 @@ const config: Config = {
   projectName: 'qiubithub-docs',
 
   onBrokenLinks: 'throw',
+  onBrokenAnchors: 'ignore',
 
   i18n: {
     defaultLocale: 'zh-Hans',
@@ -72,9 +73,12 @@ const config: Config = {
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'light',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
     },
     navbar: {
+      hideOnScroll: false,
       title: '丘比特API',
       logo: {
         alt: '丘比特API Logo',
@@ -82,34 +86,35 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          to: '/#pricing',
           position: 'left',
+          label: '分组定价',
+        },
+        {
+          to: '/#tools',
+          label: '支持工具',
+          position: 'left',
+        },
+        {
+          to: '/#setup',
+          label: '安装文档',
+          position: 'left',
+        },
+        {
+          to: '/#contact',
+          label: '联系我们',
+          position: 'left',
+        },
+        {
+          to: '/docs/intro',
           label: '文档',
-        },
-        {
-          to: '/',
-          label: '首页',
-          position: 'left',
-        },
-        {
-          href: 'https://www.qiubithub.com/pricing',
-          label: '价格',
-          position: 'left',
+          position: 'right',
         },
         {
           href: 'https://www.qiubithub.com/console',
           label: '控制台',
-          position: 'left',
-        },
-        {
-          type: 'search',
           position: 'right',
-        },
-        {
-          href: 'https://github.com/QuantumNous/new-api',
-          label: 'GitHub',
-          position: 'right',
+          className: 'navbarConsoleLink',
         },
       ],
     },
@@ -152,11 +157,6 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-    },
-    algolia: {
-      appId: 'YOUR_APP_ID',
-      apiKey: 'YOUR_SEARCH_API_KEY',
-      indexName: 'qiubithub',
     },
   } satisfies Preset.ThemeConfig,
 };

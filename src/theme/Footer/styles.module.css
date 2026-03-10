@@ -46,14 +46,14 @@
 
 .brandMarkText {
   font-size: 0.96rem;
-  font-weight: 700;
+  font-weight: 650;
   color: #fff;
 }
 
 .brandName {
   font-size: 2.1rem;
-  font-weight: 800;
-  letter-spacing: -0.03em;
+  font-weight: 760;
+  letter-spacing: -0.045em;
   background: linear-gradient(90deg, #f8fafc 0%, #60a5fa 42%, #8b5cf6 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -71,7 +71,7 @@
   margin: 12px 0 0;
   color: #60a5fa;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 650;
   line-height: 1.55;
 }
 
@@ -89,7 +89,7 @@
   border-radius: 999px;
   padding: 10px 14px;
   font-size: 0.96rem;
-  font-weight: 700;
+  font-weight: 650;
   border: 1px solid transparent;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
@@ -125,7 +125,7 @@
   margin-bottom: 22px;
   color: #f8fafc;
   font-size: 1.35rem;
-  font-weight: 800;
+  font-weight: 720;
 }
 
 .sectionIcon {
@@ -146,7 +146,7 @@
 .footerLink {
   color: rgba(226, 232, 240, 0.92);
   font-size: 1.04rem;
-  font-weight: 600;
+  font-weight: 560;
   text-decoration: none;
   transition: color 0.18s ease, transform 0.18s ease;
 }
@@ -177,7 +177,7 @@
 .contactTitle {
   color: #f8fafc;
   font-size: 1.55rem;
-  font-weight: 800;
+  font-weight: 740;
 }
 
 .contactDescription {
@@ -219,12 +219,12 @@
 
 .contactLabel {
   color: rgba(191, 219, 254, 0.86);
-  font-weight: 700;
+  font-weight: 620;
 }
 
 .contactValue {
   color: #f8fafc;
-  font-weight: 700;
+  font-weight: 650;
   letter-spacing: 0.02em;
 }
 
@@ -252,7 +252,7 @@
 
 .copyright {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 560;
   color: rgba(226, 232, 240, 0.92);
 }
 
@@ -291,7 +291,7 @@
 
 .creditLink {
   color: #60a5fa;
-  font-weight: 700;
+  font-weight: 650;
   text-decoration: none;
 }
 

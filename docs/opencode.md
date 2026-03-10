@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# OpenCode 配置教程
+# OpenCode
 
 通过 QiubiHub 插件，在 OpenCode 中使用 GPT、Claude 和 Gemini 模型。
 

@@ -5,7 +5,7 @@ sidebar_position: 5
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-# Gemini
+# Gemini CLI
 
 通过环境变量的方式在电脑上安装和配置 Gemini CLI(命令行工具)
 
@@ -24,7 +24,7 @@ import TabItem from '@theme/TabItem';
 
 验证安装:
 
-```bash
+```powershell
 node --version
 ```
 
@@ -41,7 +41,7 @@ node --version
 
 打开 **PowerShell**(建议以管理员身份运行)并执行:
 
-```bash
+```powershell
 # 通过国内镜像源安装 claude code
 npm install -g @google/gemini-cli --registry=https://registry.npmmirror.com/
 ```
@@ -60,7 +60,7 @@ npm install -g @google/gemini-cli --registry=https://registry.npmmirror.com/
 
 别忘了替换 API KEY
 
-```bash
+```powershell
 # 创建 ~/.gemini 目录(存在不报错)
 mkdir "$env:USERPROFILE\.gemini" -Force | Out-Null
 
@@ -90,7 +90,7 @@ $json = @'
 
 验证是否设置成功:
 
-```bash
+```powershell
 Get-Content "$env:USERPROFILE\.gemini\.env"
 Get-Content "$env:USERPROFILE\.gemini\settings.json"
 ```

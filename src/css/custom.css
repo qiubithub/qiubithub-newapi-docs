@@ -1,137 +1,364 @@
 :root {
-  --ifm-color-primary: #6366f1;
-  --ifm-color-primary-dark: #4f46e5;
-  --ifm-color-primary-darker: #4338ca;
-  --ifm-color-primary-darkest: #3730a3;
-  --ifm-color-primary-light: #818cf8;
-  --ifm-color-primary-lighter: #a5b4fc;
-  --ifm-color-primary-lightest: #c7d2fe;
+  --qiubi-font-sans: 'SF Pro Text', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
+  --qiubi-font-display: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1d4ed8;
+  --ifm-color-primary-darker: #1e40af;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #3b82f6;
+  --ifm-color-primary-lighter: #60a5fa;
+  --ifm-color-primary-lightest: #bfdbfe;
+  --ifm-background-color: #f8fbff;
+  --ifm-background-surface-color: rgba(255, 255, 255, 0.92);
+  --ifm-navbar-background-color: rgba(248, 250, 255, 0.76);
+  --ifm-footer-background-color: transparent;
+  --ifm-heading-color: #0f172a;
+  --ifm-font-family-base: var(--qiubi-font-sans);
+  --ifm-font-family-monospace: 'SFMono-Regular', 'JetBrains Mono', 'Consolas', monospace;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(99, 102, 241, 0.1);
+  --ifm-global-radius: 18px;
+  --docusaurus-highlighted-code-line-bg: rgba(37, 99, 235, 0.08);
 }
 
-.heroBanner {
-  padding: 6rem 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
+html {
+  scroll-behavior: smooth;
 }
 
-.hero__title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  background: linear-gradient(90deg, #fff 0%, #e0e7ff 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero__subtitle {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 2rem;
-}
-
-.buttons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 2rem;
-}
-
-.buttons .button {
-  border-radius: 8px;
-  padding: 0.75rem 2rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.buttons .button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.features {
-  padding: 5rem 0;
-  background: var(--ifm-color-emphasis-100);
-}
-
-.featureCard {
-  background: white;
-  border-radius: 16px;
-  padding: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  height: 100%;
-}
-
-.featureCard:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-}
-
-.featureCard h3 {
-  color: var(--ifm-color-primary);
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-
-.featureCard p {
-  color: var(--ifm-color-emphasis-700);
-  line-height: 1.6;
+body {
+  background: linear-gradient(180deg, #edf4ff 0%, #ffffff 46%, #f8fbff 100%);
+  color: #11223c;
+  font-family: var(--qiubi-font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  font-optical-sizing: auto;
+  font-feature-settings: 'kern' 1, 'liga' 1;
+  letter-spacing: -0.011em;
 }
 
 .navbar {
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  background: rgba(248, 250, 255, 0.78);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.04);
+  backdrop-filter: blur(18px);
 }
 
 .navbar__brand {
-  font-weight: 700;
+  gap: 0.72rem;
 }
 
-.footer {
-  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+.navbar__title {
+  font-family: var(--qiubi-font-display);
+  font-size: 1.08rem;
+  font-weight: 760;
+  letter-spacing: -0.035em;
 }
 
-.docMainContainer {
-  background: var(--ifm-background-color);
+.navbar__logo img {
+  height: 32px;
+}
+
+.navbar__item {
+  font-weight: 620;
+}
+
+.navbar__link {
+  color: #334155;
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: #1d4ed8;
+}
+
+.navbarConsoleLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 16px;
+  border-radius: 999px;
+  color: #fff !important;
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  box-shadow: 0 14px 28px rgba(59, 130, 246, 0.18);
+}
+
+.navbarConsoleLink:hover {
+  color: #fff !important;
+  transform: translateY(-1px);
 }
 
 .menu {
-  background: var(--ifm-color-emphasis-100);
-  padding: 1rem;
+  padding: 0.85rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 18px 32px rgba(15, 23, 42, 0.05);
 }
 
 .menu__link {
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.3rem;
+  border-radius: 14px;
+  padding: 0.8rem 1rem;
+  font-weight: 620;
+  color: #5b6472;
 }
 
 .menu__link--active {
-  background: var(--ifm-color-primary);
-  color: white;
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  color: #fff;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 3rem 1rem;
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
+  margin-bottom: 0;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link.menu__link--active {
+  background: transparent;
+  color: #0f172a;
+  box-shadow: none;
+}
+
+.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link--sublist-caret::after {
+  opacity: 0.62;
+  filter: grayscale(1) brightness(0.45);
+}
+
+.theme-doc-sidebar-container {
+  border-right: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.theme-doc-markdown {
+  font-size: 1.02rem;
+  line-height: 1.86;
+}
+
+.theme-doc-markdown h1,
+.theme-doc-markdown h2,
+.theme-doc-markdown h3,
+.theme-doc-markdown h4 {
+  font-family: var(--qiubi-font-display);
+  letter-spacing: -0.04em;
+  font-weight: 740;
+}
+
+.theme-doc-markdown h1 {
+  line-height: 1.05;
+}
+
+.theme-doc-markdown h2,
+.theme-doc-markdown h3,
+.theme-doc-markdown h4 {
+  line-height: 1.16;
+}
+
+.theme-doc-markdown .tabs {
+  gap: 0.55rem;
+  margin-bottom: 1.5rem;
+  padding: 0.45rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 18px 32px rgba(15, 23, 42, 0.05);
+}
+
+.theme-doc-markdown .tabs__item {
+  margin: 0;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.78rem 1.15rem;
+  color: #5b6472;
+  font-weight: 620;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.theme-doc-markdown .tabs__item:hover {
+  color: #1d4ed8;
+}
+
+.theme-doc-markdown .tabs__item--active {
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  box-shadow: 0 14px 28px rgba(59, 130, 246, 0.2);
+}
+
+/* Turn Docusaurus Prism blocks into terminal-style cards for setup guides. */
+.theme-doc-markdown .theme-code-block {
+  position: relative;
+  overflow: hidden;
+  margin: 1rem 0 1.35rem;
+  padding-top: 2.5rem;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #1e293b 0%, #0f1c31 18%, #081123 100%) !important;
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.12);
+}
+
+.theme-doc-markdown .theme-code-block::before {
+  content: 'Terminal';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  color: rgba(226, 232, 240, 0.82);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  background: rgba(30, 41, 59, 0.78);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.theme-doc-markdown .theme-code-block[class*='language-powershell']::before {
+  content: 'PowerShell（管理员）';
+}
+
+.theme-doc-markdown .theme-code-block[class*='language-bash']::before,
+.theme-doc-markdown .theme-code-block[class*='language-shell']::before,
+.theme-doc-markdown .theme-code-block[class*='language-sh']::before {
+  content: 'Terminal';
+}
+
+.theme-doc-markdown .theme-code-block[class*='language-json']::before {
+  content: 'JSON';
+}
+
+.theme-doc-markdown .theme-code-block[class*='language-text']::before {
+  content: 'Output';
+}
+
+.theme-doc-markdown .theme-code-block [class*='codeBlockContent'] {
+  background: transparent !important;
+}
+
+.theme-doc-markdown .theme-code-block pre {
+  margin: 0;
+  padding: 0.8rem 1rem 0.86rem !important;
+  background: transparent !important;
+  color: #baf7c8 !important;
+  font-size: 0.99rem;
+  line-height: 1.62;
+}
+
+.theme-doc-markdown .theme-code-block code {
+  color: inherit !important;
+}
+
+.theme-doc-markdown .theme-code-block .token-line,
+.theme-doc-markdown .theme-code-block .token-line span {
+  color: #baf7c8 !important;
+}
+
+.theme-doc-markdown .theme-code-block .token.comment,
+.theme-doc-markdown .theme-code-block .token.prolog,
+.theme-doc-markdown .theme-code-block .token.doctype,
+.theme-doc-markdown .theme-code-block .token.cdata {
+  color: #73d59b !important;
+}
+
+.theme-doc-markdown .theme-code-block .token.keyword,
+.theme-doc-markdown .theme-code-block .token.operator,
+.theme-doc-markdown .theme-code-block .token.punctuation {
+  color: #d8ffe0 !important;
+}
+
+.theme-doc-markdown .theme-code-block .token.string,
+.theme-doc-markdown .theme-code-block .token.attr-value {
+  color: #d9ff9f !important;
+}
+
+.theme-doc-markdown .theme-code-block .token.property,
+.theme-doc-markdown .theme-code-block .token.function,
+.theme-doc-markdown .theme-code-block .token.boolean,
+.theme-doc-markdown .theme-code-block .token.number {
+  color: #8ef2ae !important;
+}
+
+.theme-doc-markdown .theme-code-block [class*='buttonGroup'] {
+  top: 0.34rem;
+  right: 0.42rem;
+}
+
+.theme-doc-markdown .theme-code-block [class*='buttonGroup'] button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  width: auto;
+  height: 1.72rem;
+  padding: 0 0.62rem;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.26);
+  color: #dbe5f4;
+  box-shadow: none;
+  backdrop-filter: blur(10px);
+  opacity: 1 !important;
+}
+
+.theme-doc-markdown .theme-code-block [class*='buttonGroup'] button::after {
+  content: '复制';
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.theme-doc-markdown .theme-code-block [class*='buttonGroup'] button:hover,
+.theme-doc-markdown .theme-code-block [class*='buttonGroup'] button:focus-visible {
+  background: rgba(30, 41, 59, 0.74);
+  color: #fff;
+}
+
+.theme-doc-markdown .theme-code-block [class*='copyButtonIcon'],
+.theme-doc-markdown .theme-code-block [class*='copyButtonSuccessIcon'] {
+  width: 0.84rem;
+  height: 0.84rem;
+}
+
+/* Single-line commands should look compact instead of full-height panels. */
+.theme-doc-markdown .theme-code-block:has(.token-line:only-child) {
+  padding-top: 2.3rem;
+}
+
+.theme-doc-markdown .theme-code-block:has(.token-line:only-child)::before {
+  height: 2.3rem;
+}
+
+.theme-doc-markdown .theme-code-block:has(.token-line:only-child) pre {
+  padding: 0.58rem 0.95rem 0.64rem !important;
+  font-size: 1.02rem;
+  line-height: 1.45;
+}
+
+.footer {
+  background: transparent;
+}
+
+@media (max-width: 996px) {
+  .navbarConsoleLink {
+    width: 100%;
+    justify-content: center;
   }
-  
-  .hero__title {
-    font-size: 2.5rem;
+
+  .theme-doc-markdown .tabs {
+    border-radius: 22px;
   }
-  
-  .hero__subtitle {
-    font-size: 1.25rem;
+
+  .theme-doc-markdown .theme-code-block {
+    border-radius: 18px;
   }
-  
-  .buttons {
-    flex-direction: column;
+
+  .theme-doc-markdown .theme-code-block::before {
+    padding: 0 0.88rem;
+  }
+
+  .theme-doc-markdown .theme-code-block pre {
+    padding: 0.72rem 0.88rem 0.78rem !important;
+  }
+
+  .theme-doc-markdown .theme-code-block:has(.token-line:only-child) pre {
+    padding: 0.54rem 0.82rem 0.58rem !important;
   }
 }

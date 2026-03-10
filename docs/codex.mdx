@@ -24,7 +24,7 @@ import TabItem from '@theme/TabItem';
 
 验证安装:
 
-```bash
+```powershell
 node --version
 ```
 
@@ -41,7 +41,7 @@ node --version
 
 打开 **PowerShell** 并执行:
 
-```bash
+```powershell
 npm install -g @openai/codex
 ```
 
@@ -51,7 +51,7 @@ npm install -g @openai/codex
 
 先复制下面的命令到本地,将其中的 `在这里替换成你的_API_KEY` 改成你自己的 API Key,然后再执行即可
 
-```json
+```powershell
 # 目标目录
 $dir = Join-Path $env:USERPROFILE ".codex"
 
@@ -95,7 +95,7 @@ wire_api = "responses"
 
 验证是否设置成功:
 
-```bash
+```powershell
 Get-Content "$env:USERPROFILE\.codex\auth.json"
 Get-Content "$env:USERPROFILE\.codex\config.toml"
 ```
