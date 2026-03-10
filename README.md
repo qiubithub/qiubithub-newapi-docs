@@ -24,6 +24,10 @@ yarn build
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
 
+## QIUBIT Production Deployment
+
+The production deployment for `docs.qiubithub.com` is documented in [`DEPLOY_CF_SERVER.md`](./DEPLOY_CF_SERVER.md).
+
 ## Deployment
 
 Using SSH:

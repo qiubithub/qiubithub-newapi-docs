@@ -117,12 +117,6 @@ export default function Home(): ReactNode {
                 description="Google Gemini CLI 工具配置指南"
                 to="/docs/gemini-cli"
               />
-              <DocCard
-                icon="⚡"
-                title="创建 API Key"
-                description="注册账户并生成您的 API 密钥"
-                to="/docs/create-api-key"
-              />
             </div>
           </div>
         </div>
@@ -143,18 +137,6 @@ export default function Home(): ReactNode {
                 title="OpenCode"
                 description="OpenCode 配置指南"
                 to="/docs/opencode"
-              />
-              <DocCard
-                icon="📖"
-                title="OpenAI SDK"
-                description="使用 OpenAI Python/Node.js SDK"
-                to="/docs/openai-sdk"
-              />
-              <DocCard
-                icon="❓"
-                title="常见问题"
-                description="使用过程中常见问题解答"
-                to="/docs/faq"
               />
             </div>
           </div>

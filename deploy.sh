@@ -2,15 +2,8 @@
 # 构建并部署到 GitHub Pages
 
 # 配置 Git
- git config --global user.name "QIUBIT Bot"
-git config --global user.email "bot@qiubithub.com"
-
-# 初始化 git（如果没有）
-if [ ! -d .git ]; then
-  git init
-  git add .
-  git commit -m "Initial commit"
-fi
+git config --global user.name "qiu"
+git config --global user.email "qiuchuanzeha@gmail.com"
 
 # 安装 gh-pages
  npm install --save-dev gh-pages
