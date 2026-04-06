@@ -1,0 +1,25 @@
+Task 8 verification evidence
+
+Scope:
+- Rewrite the homepage information architecture into a docs-first routing portal.
+
+Implementation summary:
+- Reframed the hero around a docs-first portal message: what the product is, why docs is the first stop, and when to use the console.
+- Promoted `文档总览` into the primary hero CTA and early portal card, with tool-routing as the second action.
+- Reordered homepage sections into: hero -> docs entry -> tool path -> pricing -> supporting advantages -> contact.
+- Reduced repeated routing information across pricing, tool cards, setup, and contact sections.
+- Synced navbar homepage anchors to the new section order (`文档入口`, `工具路径`, `分组定价`, `联系我们`).
+
+Fresh verification run:
+- `npm run build` -> exit 0
+- Task 8 targeted Playwright tests -> 2 passed
+- `npm run qa:golden-pages` -> all 12 tests passed
+
+Browser evidence:
+- `.sisyphus/evidence/task-8-home-ia.png`
+- `.sisyphus/evidence/task-8-home-mobile.png`
+
+Verification notes:
+- Desktop homepage now surfaces `文档总览` as the clear first action and keeps tool path selection visible within one to two screens.
+- Mobile homepage remains readable without horizontal overflow and keeps the docs-first CTA visible in the hero.
+- The temporary `EADDRINUSE` message seen during full golden QA came from keeping a manually started preview server on port 4173 for browser verification; the Playwright assertions still ran successfully against the fresh built content and all 12 tests passed.

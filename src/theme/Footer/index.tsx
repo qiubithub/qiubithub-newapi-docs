@@ -29,8 +29,6 @@ type FooterCredit = {
 };
 
 type FooterData = {
-  description?: string;
-  accentText?: string;
   badges?: string[];
   contactTitle?: string;
   contactDescription?: string;
@@ -39,10 +37,26 @@ type FooterData = {
   credit?: FooterCredit;
 };
 
+type SiteBranding = {
+  name?: string;
+  tagline?: string;
+  footerDescription?: string;
+  footerAccentText?: string;
+};
+
 type FooterThemeConfig = {
   style?: 'light' | 'dark';
   links?: FooterLinkSection[];
   copyright?: string;
+};
+
+type SiteCustomFields = {
+  footerData?: FooterData;
+  siteBranding?: SiteBranding;
+  siteUrls?: {
+    docs?: string;
+    mainSite?: string;
+  };
 };
 
 function BriefcaseIcon(): ReactNode {
@@ -109,8 +123,12 @@ function FooterNavLink({item}: {item: FooterLinkItem}): ReactNode {
     );
   }
 
+  if (!item.href) {
+    return <span className={styles.footerLink}>{item.label}</span>;
+  }
+
   return (
-    <Link className={styles.footerLink} href={item.href ?? '#'}>
+    <Link className={styles.footerLink} href={item.href}>
       {item.label}
     </Link>
   );
@@ -141,11 +159,16 @@ function ContactMethod({method}: {method: FooterMethod}): ReactNode {
 export default function Footer(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
   const themeConfig = (siteConfig.themeConfig ?? {}) as {footer?: FooterThemeConfig};
+  const customFields = (siteConfig.customFields ?? {}) as SiteCustomFields;
   const footerConfig = themeConfig.footer ?? {};
   const footerLinks = footerConfig.links ?? [];
-  const footerData = ((siteConfig.customFields ?? {}) as {footerData?: FooterData}).footerData ?? {};
+  const footerData = customFields.footerData ?? {};
+  const siteBranding = customFields.siteBranding ?? {};
   const footerStyle = footerConfig.style === 'dark' ? 'footer--dark' : undefined;
-  const copyright = footerConfig.copyright ?? `Copyright © ${new Date().getFullYear()} ${siteConfig.title}`;
+  const siteTitle = siteBranding.name ?? siteConfig.title;
+  const footerDescription = siteBranding.footerDescription ?? siteBranding.tagline ?? siteConfig.tagline;
+  const footerAccentText = siteBranding.footerAccentText ?? '让 AI 编程更高效，让开发更简单';
+  const copyright = footerConfig.copyright ?? `Copyright © ${new Date().getFullYear()} ${siteTitle}`;
   const badges = footerData.badges ?? [];
   const contactMethods = footerData.contactMethods ?? [];
   const metaItems = footerData.metaItems ?? [];
@@ -159,14 +182,10 @@ export default function Footer(): ReactNode {
               <span className={styles.brandMark} aria-hidden="true">
                 <span className={styles.brandMarkText}>{'</>'}</span>
               </span>
-              <span className={styles.brandName}>{siteConfig.title}</span>
+              <span className={styles.brandName}>{siteTitle}</span>
             </Link>
-            <p className={styles.brandDescription}>
-              {footerData.description ?? siteConfig.tagline}
-            </p>
-            <p className={styles.brandAccent}>
-              {footerData.accentText ?? '让 AI 编程更高效，让开发更简单'}
-            </p>
+            <p className={styles.brandDescription}>{footerDescription}</p>
+            <p className={styles.brandAccent}>{footerAccentText}</p>
             {badges.length > 0 && (
               <div className={styles.badges}>
                 {badges.map((badge, index) => (

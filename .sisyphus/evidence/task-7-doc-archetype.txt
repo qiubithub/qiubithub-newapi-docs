@@ -1,0 +1,25 @@
+Task 7 verification evidence
+
+Scope:
+- Normalize the priority docs archetype across Claude Code, Codex, Gemini CLI, OpenClaw, and OpenCode.
+- Bring OpenCode into the same tab-based OS presentation family as the other setup guides.
+
+Implementation summary:
+- Added `## 系统要求` / `## 常见问题` / `## 获取帮助` / `## 相关链接` structure to the non-canonical guides that were missing them.
+- Kept Claude Code as the closest canonical reference.
+- Treated OpenClaw as an explicit exception: core setup remains first, Telegram stays as a follow-up workflow section instead of replacing FAQ/help.
+- Migrated `docs/opencode.md` to `docs/opencode.mdx` and rebuilt it around `Tabs` with Windows/macOS/Linux platform flows.
+
+Fresh verification run:
+- `npm run build` -> exit 0
+- Targeted Task 7 tests -> pass
+- `npm run qa:golden-pages` -> all 10 tests passed
+
+Browser evidence:
+- `.sisyphus/evidence/task-7-doc-archetype.png`
+- `.sisyphus/evidence/task-7-tabs-longpage.png`
+
+Verification notes:
+- Codex now shows the same recognizable top/bottom rhythm as Claude Code and OpenCode: intro -> system requirements -> platform tabs -> FAQ/help.
+- OpenCode now exposes OS tabs and keeps its longer “如何使用” section after the core setup flow, improving scanability without deleting useful content.
+- The temporary `EADDRINUSE` message seen during golden QA came from keeping a manually started local preview on port 4173 for browser verification; Playwright still ran successfully against the fresh built content and all assertions passed.

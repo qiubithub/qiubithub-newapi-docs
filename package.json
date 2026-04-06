@@ -10,6 +10,11 @@
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
+    "qa:golden-pages:install": "playwright install chromium",
+    "qa:golden-pages:list": "playwright test -c playwright.golden-pages.config.ts --list",
+    "qa:golden-pages:test": "playwright test -c playwright.golden-pages.config.ts",
+    "qa:golden-pages:serve": "docusaurus serve --host 127.0.0.1 --port 4173",
+    "qa:golden-pages": "bash -lc 'mkdir -p .sisyphus/evidence/task-1-golden-pages || exit $?; { npm run build && start-server-and-test \"npm run qa:golden-pages:serve\" http://127.0.0.1:4173 \"npm run qa:golden-pages:test\"; } 2>&1 | tee .sisyphus/evidence/task-1-golden-pages/run.log; exit ${PIPESTATUS[0]}'",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc"
@@ -24,9 +29,11 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.54.2",
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/tsconfig": "3.9.2",
     "@docusaurus/types": "3.9.2",
+    "start-server-and-test": "^2.0.10",
     "typescript": "~5.6.2"
   },
   "browserslist": {

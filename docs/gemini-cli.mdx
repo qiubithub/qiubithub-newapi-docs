@@ -9,6 +9,12 @@ import TabItem from '@theme/TabItem';
 
 通过环境变量的方式在电脑上安装和配置 Gemini CLI(命令行工具)
 
+## 系统要求
+
+- **操作系统**: Windows 10/11、macOS 12+ 或 Ubuntu 20.04+
+- **Node.js**: v18.0.0 或更高版本
+- **网络**: 稳定的互联网连接
+
 :::info
 如果遇到问题,可以将本页全部内容和问题截图,复制给[豆包](https://www.doubao.com/chat/)或者[deepseek](https://chat.deepseek.com/)等AI,按照他的提示执行对应命令即可
 
@@ -284,3 +290,35 @@ cat "$HOME/.gemini/settings.json"
 
   </TabItem>
 </Tabs>
+
+## 常见问题
+
+### 1. 安装时提示脚本或权限错误
+
+如果你在 Windows 下遇到“在此系统上禁止运行脚本”，请使用管理员权限重新打开 PowerShell，然后执行：
+
+```powershell
+Set-ExecutionPolicy Unrestricted
+```
+
+如果在 macOS 或 Linux 下遇到安装失败，优先检查 Node.js 版本是否为 18+，并确认 npm 安装命令是否完整执行。
+
+### 2. 配置后无法正常调用模型
+
+重点检查以下三项：
+
+- `GEMINI_API_KEY` 是否已经替换成你自己的 API Key
+- `GOOGLE_GEMINI_BASE_URL` 是否保持为 `https://api.aicodewith.com/gemini_cli`
+- `settings.json` 中的 `selectedType` 是否仍为 `gemini-api-key`
+
+## 获取帮助
+
+如果你已经完成文档步骤，但 Gemini CLI 仍然无法正常使用：
+
+1. **先问 AI**：把报错信息、配置文件内容和本页截图发给豆包或 DeepSeek，让它先帮你定位问题。
+2. **联系客服**：整理好你的系统环境、执行过的命令和报错截图，再联系人工支持继续排查。
+
+## 相关链接
+
+- Gemini CLI: https://github.com/google-gemini/gemini-cli
+- npm: https://www.npmjs.com/package/@google/gemini-cli

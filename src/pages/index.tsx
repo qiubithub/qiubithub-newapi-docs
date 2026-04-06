@@ -35,7 +35,15 @@ type GuideCard = {
   to: string;
 };
 
-type IconName = 'docs' | 'anthropic' | 'openai' | 'gemini' | 'openclaw' | 'opencode';
+type PortalEntry = {
+  name: string;
+  icon: IconName;
+  description: string;
+  to: string;
+  linkLabel: string;
+};
+
+type IconName = 'docs' | 'route' | 'anthropic' | 'openai' | 'gemini' | 'openclaw' | 'opencode';
 
 type CapabilityCard = {
   index: string;
@@ -53,12 +61,33 @@ type FooterData = {
   contactMethods?: FooterMethod[];
 };
 
-const heroChips = ['Claude 系 1.5×', 'Codex 0.8×', 'Gemini 1.5×', 'OpenCode 按模型归组'];
+type SiteBranding = {
+  homepageEyebrow?: string;
+};
+
+const heroChips = ['默认入口：文档总览', '按工具分流', '配置完成后再进控制台', '国内直连与统一网关'];
 
 const workflowSteps = [
-  '先确认你在用的是 Claude Code、Codex、Gemini CLI、OpenClaw 还是 OpenCode。',
-  '按首页给出的工具归属选择分组，倍率和适用场景在这里直接看清。',
-  '进入对应文档完成配置，最后在控制台统一管理 API Key、用量和账单。',
+  '先打开文档总览，确认整体接入方式和文档结构。',
+  '如果已经知道自己在用什么工具，就直接进入对应工具文档；不确定时再看下方工具路径。',
+  '配置完成后，再进入控制台统一管理 API Key、用量和账单。',
+];
+
+const portalEntries: PortalEntry[] = [
+  {
+    name: '文档总览',
+    icon: 'docs',
+    description: '默认入口，先看整体接入方式，再进入具体工具文档。',
+    to: '/docs/intro',
+    linkLabel: '前往 /docs/intro',
+  },
+  {
+    name: '按工具选择路线',
+    icon: 'route',
+    description: '如果你已经知道自己在用什么工具，下一屏就能直接进入对应文档。',
+    to: '#setup',
+    linkLabel: '查看工具路径',
+  },
 ];
 
 const pricingGroups: PricingGroup[] = [
@@ -148,37 +177,37 @@ const guideCards: GuideCard[] = [
   {
     name: '文档总览',
     icon: 'docs',
-    description: '先看总览，再决定走哪条安装路线。',
+    description: '默认入口，先确认整体接入方式，再进入具体工具文档。',
     to: '/docs/intro',
   },
   {
     name: 'Claude Code',
     icon: 'anthropic',
-    description: '面向 Anthropic CLI 的接入说明。',
+    description: 'Claude / Anthropic 路线，适合长上下文和复杂 Agent 工作流。',
     to: '/docs/claude-code',
   },
   {
     name: 'Codex',
     icon: 'openai',
-    description: '面向 OpenAI 代码助手的接入说明。',
+    description: 'OpenAI 路线，适合高频编码、补全和低倍率场景。',
     to: '/docs/codex',
   },
   {
     name: 'Gemini CLI',
     icon: 'gemini',
-    description: '面向 Gemini CLI 的接入说明。',
+    description: 'Gemini 路线，适合大上下文检索和长文档理解。',
     to: '/docs/gemini-cli',
   },
   {
     name: 'OpenClaw',
     icon: 'openclaw',
-    description: 'OpenClaw 的配置方式和接入步骤。',
+    description: '默认归入 Claude 系分组，适合偏 Agent 形态的调用流程。',
     to: '/docs/openclaw',
   },
   {
     name: 'OpenCode',
     icon: 'opencode',
-    description: 'OpenCode 的配置方式和接入步骤。',
+    description: '多模型客户端，按你实际选择的模型归到对应分组。',
     to: '/docs/opencode',
   },
 ];
@@ -186,23 +215,23 @@ const guideCards: GuideCard[] = [
 const capabilityCards: CapabilityCard[] = [
   {
     index: '01',
-    title: '工具归属更清楚',
-    description: '首页先告诉你哪个工具该走哪一组，不需要先翻半天文档再猜倍率和入口。',
+    title: '首页只负责分流',
+    description: '首页先解释产品是什么、文档怎么走，再把你送到正确入口，不把安装细节塞满首屏。',
   },
   {
     index: '02',
-    title: '倍率直接摆在首页',
-    description: 'Claude、Codex、Gemini 的倍率直接放在首页，减少咨询成本，也避免接错分组。',
+    title: '文档继续负责安装',
+    description: '文档总览先讲整体结构，每个工具页再继续展开 Windows、macOS、Linux 的具体步骤。',
   },
   {
     index: '03',
-    title: '文档按平台拆开',
-    description: 'Windows、macOS、Linux 都有独立步骤，首页只负责分流，文档负责真正安装。',
+    title: '控制台不再抢第一入口',
+    description: '控制台保留给 API Key、用量和账单管理，避免用户还没判断路线就先被带去后台。',
   },
   {
     index: '04',
     title: '兼顾成本和稳定性',
-    description: '国内直连、缓存计费、统一网关，让长期使用的体验和成本都更可控。',
+    description: '国内直连、缓存计费和统一网关仍然保留，但放在完成分流之后再补充说明。',
   },
 ];
 
@@ -270,6 +299,27 @@ function MarkIcon({icon}: {icon: IconName}): ReactNode {
           />
           <path d="M14.25 3.75V8.4H19" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" />
           <path d="M9.2 12h5.6M9.2 15.3h5.6M9.2 18.6h3.2" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
+        </svg>
+      );
+    case 'route':
+      return (
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <path
+            d="M6 5.25A1.75 1.75 0 1 1 6 8.75a1.75 1.75 0 0 1 0-3.5Zm0 10.5A1.75 1.75 0 1 1 6 19.25a1.75 1.75 0 0 1 0-3.5ZM18 10.5A1.75 1.75 0 1 1 18 14a1.75 1.75 0 0 1 0-3.5Z"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.8"
+          />
+          <path
+            d="M7.75 7h3.1a4.4 4.4 0 0 1 3.11 1.29l1.8 1.8M7.75 17h3.1a4.4 4.4 0 0 0 3.11-1.29l1.8-1.8"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="1.8"
+          />
         </svg>
       );
     case 'anthropic':
@@ -346,8 +396,10 @@ function MarkIcon({icon}: {icon: IconName}): ReactNode {
 
 export default function Home(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
+  const siteBranding = ((siteConfig.customFields ?? {}) as {siteBranding?: SiteBranding}).siteBranding ?? {};
   const footerData = ((siteConfig.customFields ?? {}) as {footerData?: FooterData}).footerData ?? {};
   const contactMethods = footerData.contactMethods ?? [];
+  const heroEyebrow = siteBranding.homepageEyebrow ?? 'AI CLI 接入页';
 
   return (
     <Layout
@@ -358,26 +410,26 @@ export default function Home(): ReactNode {
           <div className="container">
             <div className={styles.heroGrid}>
               <div className={styles.heroContent}>
-                <div className={styles.heroEyebrow}>丘比特API · AI CLI 接入页</div>
+                <div className={styles.heroEyebrow}>{`${siteConfig.title} · ${heroEyebrow}`}</div>
                 <h1 className={styles.heroTitle}>
-                  不同 AI 编码工具，
-                  <span className={styles.heroTitleAccent}>走不同专用分组</span>
+                  AI CLI 接入门户，
+                  <span className={styles.heroTitleAccent}>先看文档总览，再走正确路线</span>
                 </h1>
                 <p className={styles.heroSubtitle}>
-                  Claude Code、Codex、Gemini CLI、OpenClaw、OpenCode 不再共用一套模糊说明。
-                  我们把工具归属、倍率、安装入口和联系方式直接摆在首页，先看清，再接入。
+                  丘比特API 为 Claude Code、Codex、Gemini CLI、OpenClaw、OpenCode 提供统一网关和专用分组。
+                  首页现在先回答三件事：这是什么、你该走哪条文档路径、什么时候再进入控制台。
                 </p>
 
                 <div className={styles.heroActions}>
                   <Link
-                    className={clsx(styles.ctaButton, styles.primaryButton)}
-                    href="https://www.qiubithub.com/console">
-                    进入控制台
-                  </Link>
-                  <Link
                     className={clsx(styles.ctaButton, styles.secondaryButton)}
                     to="/docs/intro">
-                    查看文档
+                    文档总览
+                  </Link>
+                  <Link
+                    className={clsx(styles.ctaButton, styles.primaryButton)}
+                    to="#setup">
+                    按工具选路径
                   </Link>
                 </div>
 
@@ -392,31 +444,27 @@ export default function Home(): ReactNode {
 
               <div className={styles.heroAside}>
                 <div className={styles.glassPanel}>
-                  <div className={styles.panelEyebrow}>倍率速览</div>
-                  <div className={styles.panelTitle}>先看工具归属，再看它对应的倍率。</div>
-                  <div className={styles.rateList}>
-                    {pricingGroups.map((group) => (
-                      <div key={group.name} className={styles.rateItem} data-tone={group.tone}>
-                        <div>
-                          <div className={styles.rateLabel}>{group.name}</div>
-                          <div className={styles.rateMeta}>{group.summary}</div>
-                          <div className={styles.rateTools}>
-                            {group.tools.map((tool) => (
-                              <span key={tool} className={styles.rateTool}>
-                                {tool}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                        <div className={styles.rateValue}>{group.rate}</div>
-                      </div>
+                  <div className={styles.panelEyebrow}>文档入口</div>
+                  <div className={styles.panelTitle}>文档总览是默认起点，工具文档是分流终点。</div>
+                  <div className={styles.portalEntryList}>
+                    {portalEntries.map((entry) => (
+                      <Link key={entry.name} className={styles.portalEntryCard} to={entry.to}>
+                        <span className={styles.portalEntryMark}>
+                          <MarkIcon icon={entry.icon} />
+                        </span>
+                        <span className={styles.portalEntryBody}>
+                          <span className={styles.portalEntryName}>{entry.name}</span>
+                          <span className={styles.portalEntryDescription}>{entry.description}</span>
+                          <span className={styles.portalEntryLink}>{entry.linkLabel}</span>
+                        </span>
+                      </Link>
                     ))}
                   </div>
                 </div>
 
                 <div className={styles.glassPanel}>
                   <div className={styles.panelEyebrow}>接入步骤</div>
-                  <div className={styles.panelTitle}>先选工具，再进对应文档。</div>
+                  <div className={styles.panelTitle}>先从文档入口判断路线，再继续配置。</div>
                   <div className={styles.workflowList}>
                     {workflowSteps.map((step, index) => (
                       <div key={step} className={styles.workflowItem}>
@@ -431,53 +479,42 @@ export default function Home(): ReactNode {
           </div>
         </section>
 
-        <section className={styles.section} id="pricing">
+        <section className={styles.section} id="setup">
           <div className="container">
             <SectionIntro
-              eyebrow="分组定价"
-              title="工具对应哪一组、倍率是多少，首页先讲清楚"
-              description="不是把用户直接丢进文档，而是先把工具归属、倍率和适用场景说清楚，再引导到正确配置页。"
+              eyebrow="文档入口"
+              title="先从文档总览进入，再按工具进入正确路线"
+              description="如果你已经知道自己在用什么工具，直接点对应卡片即可；如果还不确定，就先从文档总览进入 /docs/intro，再继续分流。"
             />
 
-            <div className={styles.pricingGrid}>
-              {pricingGroups.map((group) => (
-                <article key={group.name} className={styles.pricingCard} data-tone={group.tone}>
-                  <div className={styles.cardTopRow}>
-                    <span className={styles.toneBadge}>{group.name}</span>
-                    <span className={styles.pricingRate}>{group.rate}</span>
-                  </div>
-                  <p className={styles.pricingSummary}>{group.summary}</p>
-                  <div className={styles.pricingTools}>
-                    {group.tools.map((tool) => (
-                      <span key={tool} className={styles.pricingTool}>
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                  <ul className={styles.pricingPoints}>
-                    {group.points.map((point) => (
-                      <li key={point}>{point}</li>
-                    ))}
-                  </ul>
-                  <Link className={styles.inlineLink} to={group.to}>
-                    查看接入指南
-                  </Link>
-                </article>
+            <div className={styles.guidesGrid}>
+              {guideCards.map((guide) => (
+                <Link
+                  key={guide.name}
+                  to={guide.to}
+                  className={clsx(styles.guideCard, guide.name === '文档总览' && styles.guideCardPrimary)}>
+                  <span className={styles.guideMark}>
+                    <MarkIcon icon={guide.icon} />
+                  </span>
+                  <span className={styles.guideTitle}>{guide.name}</span>
+                  <span className={styles.guideDescription}>{guide.description}</span>
+                  <span className={styles.guideLink}>打开指南</span>
+                </Link>
               ))}
             </div>
 
             <div className={styles.infoBand}>
               <div className={styles.infoBlock}>
+                <span className={styles.infoLabel}>默认起点</span>
+                <strong>文档总览负责解释整体入口和分流逻辑</strong>
+              </div>
+              <div className={styles.infoBlock}>
+                <span className={styles.infoLabel}>已知工具</span>
+                <strong>可直接进入对应工具文档，不必先翻完整首页</strong>
+              </div>
+              <div className={styles.infoBlock}>
                 <span className={styles.infoLabel}>多模型工具</span>
-                <strong>OpenCode 按实际所选模型归组结算</strong>
-              </div>
-              <div className={styles.infoBlock}>
-                <span className={styles.infoLabel}>统一汇率</span>
-                <strong>1 人民币 = 1 美元</strong>
-              </div>
-              <div className={styles.infoBlock}>
-                <span className={styles.infoLabel}>计费能力</span>
-                <strong>支持缓存计费与统一网关管理</strong>
+                <strong>OpenCode 按实际所选模型归组，不单独设一档倍率</strong>
               </div>
             </div>
           </div>
@@ -486,9 +523,9 @@ export default function Home(): ReactNode {
         <section className={clsx(styles.section, styles.sectionMuted)} id="tools">
           <div className="container">
             <SectionIntro
-              eyebrow="支持工具"
-              title="五种常见工具，各自适合不同工作流"
-              description="首页不只是放入口，而是先告诉你每个工具更适合什么，再带你去对应文档完成配置。"
+              eyebrow="工具路径"
+              title="如果你只知道工具名，就先在这里判断自己该走哪条文档路线"
+              description="这一段不重复安装步骤，只帮你快速判断哪个工具对应哪种工作流，再进入相应文档。"
             />
 
             <div className={styles.toolGrid}>
@@ -518,24 +555,38 @@ export default function Home(): ReactNode {
           </div>
         </section>
 
-        <section className={styles.section} id="setup">
+        <section className={styles.section} id="pricing">
           <div className="container">
             <SectionIntro
-              eyebrow="安装文档"
-              title="所有配置入口集中在这里，文档继续按平台拆开"
-              description="首页负责判断方向，文档负责实际安装。Windows、macOS、Linux 都有对应步骤，不需要再来回猜。"
+              eyebrow="分组定价"
+              title="路线确定以后，再看对应分组和倍率"
+              description="定价信息保留在首页，但放到文档入口之后。先确定自己该走哪份文档，再确认分组、倍率和计费口径。"
             />
 
-            <div className={styles.guidesGrid}>
-              {guideCards.map((guide) => (
-                <Link key={guide.name} to={guide.to} className={styles.guideCard}>
-                  <span className={styles.guideMark}>
-                    <MarkIcon icon={guide.icon} />
-                  </span>
-                  <span className={styles.guideTitle}>{guide.name}</span>
-                  <span className={styles.guideDescription}>{guide.description}</span>
-                  <span className={styles.guideLink}>打开指南</span>
-                </Link>
+            <div className={styles.pricingGrid}>
+              {pricingGroups.map((group) => (
+                <article key={group.name} className={styles.pricingCard} data-tone={group.tone}>
+                  <div className={styles.cardTopRow}>
+                    <span className={styles.toneBadge}>{group.name}</span>
+                    <span className={styles.pricingRate}>{group.rate}</span>
+                  </div>
+                  <p className={styles.pricingSummary}>{group.summary}</p>
+                  <div className={styles.pricingTools}>
+                    {group.tools.map((tool) => (
+                      <span key={tool} className={styles.pricingTool}>
+                        {tool}
+                      </span>
+                    ))}
+                  </div>
+                  <ul className={styles.pricingPoints}>
+                    {group.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                  <Link className={styles.inlineLink} to={group.to}>
+                    查看接入指南
+                  </Link>
+                </article>
               ))}
             </div>
           </div>
@@ -545,8 +596,8 @@ export default function Home(): ReactNode {
           <div className="container">
             <SectionIntro
               eyebrow="产品优势"
-              title="为什么要按工具拆分分组"
-              description="不同工具的请求风格、上下文长度和调用习惯都不一样，分开管理才能让价格、稳定性和接入体验都更清晰。"
+              title="为什么首页现在先做文档分流，再补充价格与能力说明"
+              description="不同工具的请求风格、上下文长度和调用习惯都不一样，先把路线判断清楚，后面的价格、平台和能力说明才真正有意义。"
             />
 
             <div className={styles.capabilityGrid}>
@@ -573,10 +624,10 @@ export default function Home(): ReactNode {
             <div className={styles.contactBand}>
               <div className={styles.contactCopy}>
                 <div className={styles.sectionEyebrow}>联系我们</div>
-                <h2 className={styles.contactTitle}>不确定自己该走哪一组，直接联系我们。</h2>
+                <h2 className={styles.contactTitle}>走到最后还是拿不准，再联系我们。</h2>
                 <p className={styles.contactDescription}>
-                  告诉我们你在用哪个工具、准备接入什么模型，我们可以直接告诉你该走哪条文档、
-                  该看哪组倍率，以及配置时最容易踩到的地方。
+                  联系区现在只做最后兜底支持。告诉我们你在用哪个工具、准备接入什么模型，
+                  我们会直接帮你判断该看哪份文档，以及配置时最容易踩到的地方。
                 </p>
               </div>
 
@@ -585,15 +636,6 @@ export default function Home(): ReactNode {
                   {contactMethods.map((method, index) => (
                     <ContactMethod key={`${method.label}-${method.value}`} method={method} index={index} />
                   ))}
-                </div>
-
-                <div className={styles.contactActions}>
-                  <Link className={clsx(styles.ctaButton, styles.primaryButton)} href="https://www.qiubithub.com/console">
-                    立即开始
-                  </Link>
-                  <Link className={clsx(styles.ctaButton, styles.ghostButton)} to="/docs/intro">
-                    先看文档
-                  </Link>
                 </div>
               </div>
             </div>

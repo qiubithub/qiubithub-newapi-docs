@@ -1,25 +1,136 @@
 :root {
   --qiubi-font-sans: 'SF Pro Text', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
   --qiubi-font-display: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Helvetica Neue', 'Microsoft YaHei', sans-serif;
-  --ifm-color-primary: #0f766e;
+  --qiubi-font-mono: 'SFMono-Regular', 'JetBrains Mono', 'Consolas', monospace;
+  --qiubi-font-size-body: 1.02rem;
+  --qiubi-font-size-lead: 1.1rem;
+  --qiubi-font-size-title-1: clamp(2.75rem, 5vw, 4.5rem);
+  --qiubi-font-size-title-2: clamp(2.15rem, 4vw, 3.4rem);
+  --qiubi-font-size-title-3: 1.75rem;
+  --qiubi-font-size-title-4: 1.32rem;
+  --qiubi-line-height-body: 1.82;
+  --qiubi-line-height-heading: 1.12;
+  --qiubi-reading-width: 70ch;
+
+  --qiubi-space-1: 0.25rem;
+  --qiubi-space-2: 0.5rem;
+  --qiubi-space-3: 0.75rem;
+  --qiubi-space-4: 1rem;
+  --qiubi-space-5: 1.25rem;
+  --qiubi-space-6: 1.5rem;
+  --qiubi-space-7: 1.75rem;
+  --qiubi-space-8: 2rem;
+  --qiubi-space-10: 2.5rem;
+  --qiubi-space-12: 3rem;
+
+  --qiubi-radius-sm: 14px;
+  --qiubi-radius-md: 18px;
+  --qiubi-radius-lg: 24px;
+  --qiubi-radius-xl: 28px;
+  --qiubi-radius-pill: 999px;
+
+  --qiubi-transition-fast: 160ms ease;
+  --qiubi-transition-base: 200ms ease;
+
+  --qiubi-color-brand: #0f766e;
+  --qiubi-color-brand-strong: #115e59;
+  --qiubi-color-brand-soft: #ccfbf1;
+  --qiubi-color-accent: #f59e0b;
+  --qiubi-color-accent-soft: #fef3c7;
+  --qiubi-color-signal: #2563eb;
+
+  --qiubi-color-canvas: #f5f7f4;
+  --qiubi-color-canvas-alt: #fafbf8;
+  --qiubi-color-surface: rgba(255, 255, 255, 0.84);
+  --qiubi-color-surface-strong: rgba(255, 255, 255, 0.94);
+  --qiubi-color-surface-muted: rgba(244, 248, 252, 0.92);
+  --qiubi-color-surface-shell: rgba(250, 251, 248, 0.82);
+  --qiubi-color-surface-shell-strong: rgba(255, 255, 255, 0.9);
+  --qiubi-color-border: rgba(148, 163, 184, 0.16);
+  --qiubi-color-border-strong: rgba(148, 163, 184, 0.24);
+  --qiubi-color-divider: rgba(148, 163, 184, 0.12);
+
+  --qiubi-color-text: #102136;
+  --qiubi-color-text-muted: #526072;
+  --qiubi-color-text-soft: #6a7789;
+  --qiubi-color-heading: #0b1628;
+  --qiubi-color-inverse: #f8fbff;
+  --qiubi-color-inverse-muted: rgba(226, 232, 240, 0.92);
+  --qiubi-color-inverse-soft: rgba(191, 219, 254, 0.78);
+
+  --qiubi-text-body: var(--qiubi-color-text);
+  --qiubi-text-muted: var(--qiubi-color-text-muted);
+  --qiubi-text-soft: var(--qiubi-color-text-soft);
+  --qiubi-text-heading: var(--qiubi-color-heading);
+  --qiubi-text-inverse: var(--qiubi-color-inverse);
+  --qiubi-text-inverse-muted: var(--qiubi-color-inverse-muted);
+  --qiubi-text-inverse-soft: var(--qiubi-color-inverse-soft);
+
+  --qiubi-surface-page: var(--qiubi-color-canvas);
+  --qiubi-surface-page-alt: var(--qiubi-color-canvas-alt);
+  --qiubi-surface-panel: var(--qiubi-color-surface);
+  --qiubi-surface-panel-strong: var(--qiubi-color-surface-strong);
+  --qiubi-surface-panel-muted: var(--qiubi-color-surface-muted);
+  --qiubi-surface-shell: var(--qiubi-color-surface-shell);
+  --qiubi-surface-shell-strong: var(--qiubi-color-surface-shell-strong);
+  --qiubi-border-subtle: var(--qiubi-color-border);
+  --qiubi-border-strong: var(--qiubi-color-border-strong);
+  --qiubi-divider: var(--qiubi-color-divider);
+
+  --qiubi-shell-bg: linear-gradient(180deg, #f3f7f2 0%, #fcfcf8 44%, #f5f3ed 100%);
+
+  --qiubi-shell-inverse-bg: linear-gradient(180deg, #0f172a 0%, #101827 100%);
+  --qiubi-shell-inverse-surface: rgba(24, 39, 75, 0.92);
+  --qiubi-shell-inverse-surface-strong: rgba(15, 23, 42, 0.28);
+  --qiubi-shell-inverse-border: rgba(96, 165, 250, 0.14);
+
+  --qiubi-shadow-xs: 0 10px 24px rgba(15, 23, 42, 0.04);
+  --qiubi-shadow-sm: 0 16px 32px rgba(15, 23, 42, 0.06);
+  --qiubi-shadow-md: 0 22px 44px rgba(15, 23, 42, 0.08);
+  --qiubi-shadow-lg: 0 30px 60px rgba(15, 23, 42, 0.12);
+  --qiubi-shadow-shell: 0 14px 34px rgba(15, 23, 42, 0.05);
+  --qiubi-shadow-brand: 0 20px 44px rgba(15, 118, 110, 0.18);
+  --qiubi-shadow-brand-hover: 0 24px 50px rgba(15, 118, 110, 0.22);
+
+  --qiubi-gradient-brand: linear-gradient(135deg, var(--qiubi-color-brand) 0%, #22c55e 54%, var(--qiubi-color-accent) 100%);
+  --qiubi-gradient-brand-text: linear-gradient(90deg, var(--qiubi-color-brand) 0%, #16a34a 46%, var(--qiubi-color-accent) 100%);
+  --qiubi-gradient-doc-surface: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(246, 249, 252, 0.9) 100%);
+  --qiubi-gradient-code: linear-gradient(180deg, #1d241e 0%, #111713 18%, #090d0a 100%);
+  --qiubi-gradient-code-bar: rgba(29, 36, 30, 0.82);
+  --qiubi-doc-surface: var(--qiubi-gradient-doc-surface);
+  --qiubi-doc-code-surface: var(--qiubi-gradient-code);
+  --qiubi-doc-code-bar: var(--qiubi-gradient-code-bar);
+
+  --qiubi-color-code-text: #baf7c8;
+  --qiubi-color-code-muted: #73d59b;
+  --qiubi-color-code-strong: #d8ffe0;
+  --qiubi-color-code-accent: #d9ff9f;
+  --qiubi-color-code-signal: #8ef2ae;
+
+  --ifm-color-primary: var(--qiubi-color-brand);
   --ifm-color-primary-dark: #115e59;
   --ifm-color-primary-darker: #134e4a;
   --ifm-color-primary-darkest: #022c22;
   --ifm-color-primary-light: #14b8a6;
   --ifm-color-primary-lighter: #5eead4;
   --ifm-color-primary-lightest: #ccfbf1;
-  --ifm-background-color: #f7f7f2;
-  --ifm-background-surface-color: rgba(255, 255, 255, 0.92);
-  --ifm-navbar-background-color: rgba(250, 249, 244, 0.8);
-  --ifm-navbar-link-color: #15233b;
-  --ifm-navbar-link-hover-color: #0f766e;
-  --ifm-navbar-link-active-color: #0f766e;
+  --ifm-background-color: var(--qiubi-surface-page);
+  --ifm-background-surface-color: var(--qiubi-surface-panel);
+  --ifm-navbar-background-color: var(--qiubi-surface-shell);
+  --ifm-navbar-link-color: var(--qiubi-text-heading);
+  --ifm-navbar-link-hover-color: var(--qiubi-color-brand-strong);
+  --ifm-navbar-link-active-color: var(--qiubi-color-brand-strong);
   --ifm-footer-background-color: transparent;
-  --ifm-heading-color: #0f172a;
+  --ifm-heading-color: var(--qiubi-text-heading);
+  --ifm-font-color-base: var(--qiubi-text-body);
+  --ifm-font-color-secondary: var(--qiubi-text-muted);
   --ifm-font-family-base: var(--qiubi-font-sans);
-  --ifm-font-family-monospace: 'SFMono-Regular', 'JetBrains Mono', 'Consolas', monospace;
+  --ifm-heading-font-family: var(--qiubi-font-display);
+  --ifm-font-family-monospace: var(--qiubi-font-mono);
   --ifm-code-font-size: 95%;
-  --ifm-global-radius: 18px;
+  --ifm-line-height-base: var(--qiubi-line-height-body);
+  --ifm-global-radius: var(--qiubi-radius-md);
+  --ifm-button-border-radius: var(--qiubi-radius-md);
   --docusaurus-highlighted-code-line-bg: rgba(15, 118, 110, 0.12);
 }
 
@@ -28,19 +139,68 @@ html {
 }
 
 html[data-theme='dark'] {
-  --ifm-background-color: #0b100d;
-  --ifm-background-surface-color: rgba(8, 15, 29, 0.92);
-  --ifm-navbar-background-color: rgba(9, 14, 12, 0.84);
+  --qiubi-color-brand: #5eead4;
+  --qiubi-color-brand-strong: #99f6e4;
+  --qiubi-color-brand-soft: rgba(45, 212, 191, 0.2);
+  --qiubi-color-accent: #fbbf24;
+  --qiubi-color-accent-soft: rgba(245, 158, 11, 0.18);
+  --qiubi-color-signal: #38bdf8;
+
+  --qiubi-color-canvas: #0c1110;
+  --qiubi-color-canvas-alt: #141a17;
+  --qiubi-color-surface: rgba(8, 15, 29, 0.78);
+  --qiubi-color-surface-strong: rgba(15, 23, 42, 0.82);
+  --qiubi-color-surface-muted: rgba(15, 23, 42, 0.72);
+  --qiubi-color-surface-shell: rgba(9, 14, 12, 0.84);
+  --qiubi-color-surface-shell-strong: rgba(9, 14, 12, 0.96);
+  --qiubi-color-border: rgba(45, 212, 191, 0.14);
+  --qiubi-color-border-strong: rgba(134, 239, 172, 0.2);
+  --qiubi-color-divider: rgba(45, 212, 191, 0.1);
+
+  --qiubi-color-text: #dbe7f6;
+  --qiubi-color-text-muted: #a9b7cb;
+  --qiubi-color-text-soft: #9fb1c9;
+  --qiubi-color-heading: #f8fbff;
+  --qiubi-color-inverse: #f8fbff;
+  --qiubi-color-inverse-muted: rgba(226, 232, 240, 0.92);
+  --qiubi-color-inverse-soft: rgba(191, 219, 254, 0.78);
+
+  --qiubi-shell-bg: linear-gradient(180deg, #0c1110 0%, #131816 42%, #171d19 100%);
+
+  --qiubi-shell-inverse-bg: linear-gradient(180deg, #020617 0%, #101827 100%);
+  --qiubi-shell-inverse-surface: rgba(17, 24, 39, 0.9);
+  --qiubi-shell-inverse-surface-strong: rgba(2, 6, 23, 0.34);
+  --qiubi-shell-inverse-border: rgba(191, 219, 254, 0.14);
+
+  --qiubi-shadow-xs: 0 12px 24px rgba(2, 6, 23, 0.14);
+  --qiubi-shadow-sm: 0 18px 32px rgba(2, 6, 23, 0.16);
+  --qiubi-shadow-md: 0 22px 48px rgba(2, 6, 23, 0.18);
+  --qiubi-shadow-lg: 0 30px 80px rgba(2, 6, 23, 0.28);
+  --qiubi-shadow-shell: 0 16px 36px rgba(2, 6, 23, 0.18);
+  --qiubi-shadow-brand: 0 22px 46px rgba(6, 95, 70, 0.28);
+  --qiubi-shadow-brand-hover: 0 24px 52px rgba(6, 95, 70, 0.34);
+
+  --qiubi-gradient-brand: linear-gradient(135deg, var(--qiubi-color-brand) 0%, #86efac 54%, var(--qiubi-color-accent) 100%);
+  --qiubi-gradient-brand-text: linear-gradient(90deg, var(--qiubi-color-brand-strong) 0%, #86efac 46%, var(--qiubi-color-accent) 100%);
+  --qiubi-gradient-doc-surface: linear-gradient(180deg, rgba(8, 15, 29, 0.82) 0%, rgba(15, 23, 42, 0.76) 100%);
+
+  --ifm-background-color: var(--qiubi-surface-page);
+  --ifm-background-surface-color: var(--qiubi-surface-panel);
+  --ifm-navbar-background-color: var(--qiubi-surface-shell);
   --ifm-navbar-link-color: #e6eff8;
-  --ifm-navbar-link-hover-color: #99f6e4;
-  --ifm-navbar-link-active-color: #99f6e4;
-  --ifm-heading-color: #f8fbff;
+  --ifm-navbar-link-hover-color: var(--qiubi-color-brand-strong);
+  --ifm-navbar-link-active-color: var(--qiubi-color-brand-strong);
+  --ifm-heading-color: var(--qiubi-text-heading);
+  --ifm-font-color-base: var(--qiubi-text-body);
+  --ifm-font-color-secondary: var(--qiubi-text-muted);
+  --docusaurus-highlighted-code-line-bg: rgba(94, 234, 212, 0.12);
 }
 
 body {
-  background: linear-gradient(180deg, #f2f7f0 0%, #fffdf7 46%, #f7f5ef 100%);
-  color: #11223c;
+  background: var(--qiubi-shell-bg);
+  color: var(--qiubi-text-body);
   font-family: var(--qiubi-font-sans);
+  line-height: var(--qiubi-line-height-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -50,22 +210,11 @@ body {
   letter-spacing: -0.011em;
 }
 
-html[data-theme='dark'] body {
-  background: linear-gradient(180deg, #0c1110 0%, #121816 42%, #171d19 100%);
-  color: #dbe7f6;
-}
-
 .navbar {
-  background: rgba(248, 250, 255, 0.78);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.04);
+  background: var(--ifm-navbar-background-color);
+  border-bottom: 1px solid var(--qiubi-divider);
+  box-shadow: var(--qiubi-shadow-shell);
   backdrop-filter: blur(18px);
-}
-
-html[data-theme='dark'] .navbar {
-  background: rgba(12, 17, 16, 0.82);
-  border-bottom-color: rgba(45, 212, 191, 0.12);
-  box-shadow: 0 16px 36px rgba(2, 6, 23, 0.18);
 }
 
 .navbar__brand {
@@ -97,6 +246,16 @@ html[data-theme='dark'] .navbar {
   font-weight: 620;
 }
 
+.navbar__link {
+  border-radius: var(--qiubi-radius-pill);
+  transition:
+    color var(--qiubi-transition-fast),
+    background var(--qiubi-transition-fast),
+    box-shadow var(--qiubi-transition-fast),
+    border-color var(--qiubi-transition-fast),
+    transform var(--qiubi-transition-fast);
+}
+
 .navbar__link:hover,
 .navbar__link--active,
 .navbar__brand:hover .navbar__title,
@@ -105,97 +264,119 @@ html[data-theme='dark'] .navbar {
   color: var(--ifm-navbar-link-hover-color);
 }
 
+.navbarDocsLink,
 .navbarConsoleLink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 40px;
   padding: 0 16px;
-  border-radius: 999px;
-  color: #fff !important;
-  background: linear-gradient(135deg, #0f766e 0%, #22c55e 54%, #f59e0b 100%);
-  box-shadow: 0 14px 28px rgba(15, 118, 110, 0.24);
+  border-radius: var(--qiubi-radius-pill);
+  border: 1px solid transparent;
+}
+
+.navbarDocsLink,
+.navbarDocsLink:hover,
+.navbarDocsLink.navbar__link--active {
+  color: var(--qiubi-text-inverse) !important;
+  background: var(--qiubi-gradient-brand);
+  box-shadow: var(--qiubi-shadow-brand);
+}
+
+.navbarDocsLink:hover,
+.navbarDocsLink.navbar__link--active {
+  transform: translateY(-1px);
+  box-shadow: var(--qiubi-shadow-brand-hover);
+}
+
+.navbarConsoleLink {
+  color: var(--qiubi-color-brand-strong) !important;
+  background: var(--qiubi-surface-panel-strong);
+  border-color: var(--qiubi-border-subtle);
+  box-shadow: var(--qiubi-shadow-xs);
+  transition:
+    transform var(--qiubi-transition-fast),
+    box-shadow var(--qiubi-transition-fast),
+    border-color var(--qiubi-transition-fast),
+    background var(--qiubi-transition-fast),
+    color var(--qiubi-transition-fast);
 }
 
 .navbarConsoleLink:hover {
-  color: #fff !important;
+  color: var(--qiubi-color-brand-strong) !important;
+  background: var(--qiubi-surface-panel-muted);
+  border-color: var(--qiubi-border-strong);
   transform: translateY(-1px);
+  box-shadow: var(--qiubi-shadow-sm);
 }
 
 .menu {
   padding: 0.85rem;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 18px 32px rgba(15, 23, 42, 0.05);
-}
-
-html[data-theme='dark'] .menu {
-  background: rgba(8, 15, 29, 0.72);
-  box-shadow: 0 20px 34px rgba(2, 6, 23, 0.16);
+  border-radius: var(--qiubi-radius-md);
+  background: var(--qiubi-surface-panel);
+  box-shadow: var(--qiubi-shadow-sm);
 }
 
 .navbar-sidebar {
-  background: rgba(250, 249, 244, 0.96);
-}
-
-html[data-theme='dark'] .navbar-sidebar {
-  background: rgba(9, 14, 12, 0.98);
+  background: var(--qiubi-surface-shell-strong);
 }
 
 .menu__link {
   margin-bottom: 0.3rem;
-  border-radius: 14px;
+  border-radius: var(--qiubi-radius-sm);
   padding: 0.8rem 1rem;
   font-weight: 620;
-  color: #5b6472;
+  color: var(--qiubi-text-muted);
+  transition: background var(--qiubi-transition-fast), color var(--qiubi-transition-fast), box-shadow var(--qiubi-transition-fast);
+}
+
+.menu__link:hover {
+  background: var(--qiubi-surface-panel-muted);
+  color: var(--qiubi-text-heading);
 }
 
 .menu__link--active {
-  background: linear-gradient(135deg, #0f766e 0%, #22c55e 54%, #f59e0b 100%);
-  color: #fff;
+  background: var(--qiubi-gradient-brand);
+  color: var(--qiubi-text-inverse);
+  box-shadow: var(--qiubi-shadow-brand);
 }
 
-html[data-theme='dark'] .menu__link {
-  color: #9fb1c9;
-}
-
-.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link {
+.theme-doc-sidebar-item-category .menu__link--sublist {
   margin-bottom: 0;
-  color: #0f172a;
+  background: transparent;
+  box-shadow: none;
+  color: var(--qiubi-text-heading);
   font-weight: 700;
 }
 
-html[data-theme='dark'] .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link,
-html[data-theme='dark'] .theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link.menu__link--active {
-  color: #f8fbff;
-}
-
-.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link.menu__link--active {
-  background: transparent;
-  color: #0f172a;
-  box-shadow: none;
-}
-
-.theme-doc-sidebar-item-category > .menu__list-item-collapsible > .menu__link--sublist-caret::after {
+.theme-doc-sidebar-item-category .menu__link--sublist-caret::after {
   opacity: 0.62;
   filter: grayscale(1) brightness(0.45);
 }
 
 .theme-doc-sidebar-container {
-  border-right: 1px solid rgba(148, 163, 184, 0.12);
-}
-
-html[data-theme='dark'] .theme-doc-sidebar-container {
-  border-right-color: rgba(45, 212, 191, 0.1);
+  border-right: 1px solid var(--qiubi-divider);
 }
 
 .theme-doc-markdown {
-  font-size: 1.02rem;
-  line-height: 1.86;
+  color: var(--qiubi-text-body);
+  font-size: var(--qiubi-font-size-body);
+  line-height: var(--qiubi-line-height-body);
 }
 
-html[data-theme='dark'] .theme-doc-markdown {
-  color: #dbe7f6;
+.theme-doc-markdown :is(p, blockquote) {
+  max-width: min(100%, var(--qiubi-reading-width));
+}
+
+.theme-doc-markdown a:not(.button) {
+  color: var(--qiubi-color-brand-strong);
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.14em;
+}
+
+.theme-doc-markdown strong,
+.theme-doc-markdown code {
+  color: var(--qiubi-text-heading);
 }
 
 .theme-doc-markdown h1,
@@ -205,67 +386,58 @@ html[data-theme='dark'] .theme-doc-markdown {
   font-family: var(--qiubi-font-display);
   letter-spacing: -0.04em;
   font-weight: 740;
+  color: var(--qiubi-text-heading);
 }
 
 .theme-doc-markdown h1 {
+  max-width: 18ch;
+  font-size: var(--qiubi-font-size-title-2);
   line-height: 1.05;
 }
 
-.theme-doc-markdown h2,
-.theme-doc-markdown h3,
-.theme-doc-markdown h4 {
+.theme-doc-markdown h2 {
+  font-size: clamp(1.75rem, 2.4vw, 2.35rem);
+  line-height: 1.12;
+}
+
+.theme-doc-markdown h3 {
+  font-size: 1.45rem;
   line-height: 1.16;
 }
 
-html[data-theme='dark'] .theme-doc-markdown h1,
-html[data-theme='dark'] .theme-doc-markdown h2,
-html[data-theme='dark'] .theme-doc-markdown h3,
-html[data-theme='dark'] .theme-doc-markdown h4 {
-  color: #f8fbff;
+.theme-doc-markdown h4 {
+  font-size: 1.18rem;
+  line-height: 1.18;
 }
 
 .theme-doc-markdown .tabs {
   gap: 0.55rem;
   margin-bottom: 1.5rem;
   padding: 0.45rem;
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.76);
-  box-shadow: 0 18px 32px rgba(15, 23, 42, 0.05);
-}
-
-html[data-theme='dark'] .theme-doc-markdown .tabs {
-  background: rgba(8, 15, 29, 0.72);
-  border-color: rgba(45, 212, 191, 0.12);
-  box-shadow: 0 18px 32px rgba(2, 6, 23, 0.14);
+  border: 1px solid var(--qiubi-border-subtle);
+  border-radius: var(--qiubi-radius-pill);
+  background: var(--qiubi-doc-surface);
+  box-shadow: var(--qiubi-shadow-xs);
 }
 
 .theme-doc-markdown .tabs__item {
   margin: 0;
   border: 0;
-  border-radius: 999px;
+  border-radius: var(--qiubi-radius-pill);
   padding: 0.78rem 1.15rem;
-  color: #5b6472;
+  color: var(--qiubi-text-muted);
   font-weight: 620;
-  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
-}
-
-html[data-theme='dark'] .theme-doc-markdown .tabs__item {
-  color: #a8b6ca;
+  transition: background var(--qiubi-transition-fast), color var(--qiubi-transition-fast), transform var(--qiubi-transition-fast);
 }
 
 .theme-doc-markdown .tabs__item:hover {
-  color: #115e59;
-}
-
-html[data-theme='dark'] .theme-doc-markdown .tabs__item:hover {
-  color: #d9f99d;
+  color: var(--qiubi-color-brand-strong);
 }
 
 .theme-doc-markdown .tabs__item--active {
-  color: #fff;
-  background: linear-gradient(135deg, #0f766e 0%, #22c55e 54%, #f59e0b 100%);
-  box-shadow: 0 14px 28px rgba(15, 118, 110, 0.22);
+  color: var(--qiubi-text-inverse);
+  background: var(--qiubi-gradient-brand);
+  box-shadow: var(--qiubi-shadow-brand);
 }
 
 /* Turn Docusaurus Prism blocks into terminal-style cards for setup guides. */
@@ -274,10 +446,10 @@ html[data-theme='dark'] .theme-doc-markdown .tabs__item:hover {
   overflow: hidden;
   margin: 1rem 0 1.35rem;
   padding-top: 2.5rem;
-  border: 1px solid rgba(148, 163, 184, 0.14);
-  border-radius: 20px;
-  background: linear-gradient(180deg, #1d241e 0%, #111713 18%, #090d0a 100%) !important;
-  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.12);
+  border: 1px solid var(--qiubi-border-subtle);
+  border-radius: var(--qiubi-radius-md);
+  background: var(--qiubi-doc-code-surface) !important;
+  box-shadow: var(--qiubi-shadow-md);
 }
 
 .theme-doc-markdown .theme-code-block::before {
@@ -288,33 +460,31 @@ html[data-theme='dark'] .theme-doc-markdown .tabs__item:hover {
   display: flex;
   align-items: center;
   padding: 0 1rem;
-  color: rgba(226, 232, 240, 0.82);
+  color: var(--qiubi-text-inverse-muted);
   font-size: 0.88rem;
   font-weight: 600;
   letter-spacing: -0.02em;
-  background: rgba(29, 36, 30, 0.82);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+  background: var(--qiubi-doc-code-bar);
+  border-bottom: 1px solid var(--qiubi-border-subtle);
 }
 
-.theme-doc-markdown .theme-code-block[class*='language-powershell']::before {
+.theme-doc-markdown .theme-code-block.language-powershell::before {
   content: 'PowerShell（管理员）';
 }
 
-.theme-doc-markdown .theme-code-block[class*='language-bash']::before,
-.theme-doc-markdown .theme-code-block[class*='language-shell']::before,
-.theme-doc-markdown .theme-code-block[class*='language-sh']::before {
+.theme-doc-markdown .theme-code-block:is(.language-bash, .language-shell, .language-sh)::before {
   content: 'Terminal';
 }
 
-.theme-doc-markdown .theme-code-block[class*='language-json']::before {
+.theme-doc-markdown .theme-code-block.language-json::before {
   content: 'JSON';
 }
 
-.theme-doc-markdown .theme-code-block[class*='language-text']::before {
+.theme-doc-markdown .theme-code-block.language-text::before {
   content: 'Output';
 }
 
-.theme-doc-markdown .theme-code-block [class*='codeBlockContent'] {
+.theme-doc-markdown .qiubi-code-block-content {
   background: transparent !important;
 }
 
@@ -322,7 +492,7 @@ html[data-theme='dark'] .theme-doc-markdown .tabs__item:hover {
   margin: 0;
   padding: 0.8rem 1rem 0.86rem !important;
   background: transparent !important;
-  color: #baf7c8 !important;
+  color: var(--qiubi-color-code-text) !important;
   font-size: 0.99rem;
   line-height: 1.62;
 }
@@ -333,81 +503,79 @@ html[data-theme='dark'] .theme-doc-markdown .tabs__item:hover {
 
 .theme-doc-markdown .theme-code-block .token-line,
 .theme-doc-markdown .theme-code-block .token-line span {
-  color: #baf7c8 !important;
+  color: var(--qiubi-color-code-text) !important;
 }
 
 .theme-doc-markdown .theme-code-block .token.comment,
 .theme-doc-markdown .theme-code-block .token.prolog,
 .theme-doc-markdown .theme-code-block .token.doctype,
 .theme-doc-markdown .theme-code-block .token.cdata {
-  color: #73d59b !important;
+  color: var(--qiubi-color-code-muted) !important;
 }
 
 .theme-doc-markdown .theme-code-block .token.keyword,
 .theme-doc-markdown .theme-code-block .token.operator,
 .theme-doc-markdown .theme-code-block .token.punctuation {
-  color: #d8ffe0 !important;
+  color: var(--qiubi-color-code-strong) !important;
 }
 
 .theme-doc-markdown .theme-code-block .token.string,
 .theme-doc-markdown .theme-code-block .token.attr-value {
-  color: #d9ff9f !important;
+  color: var(--qiubi-color-code-accent) !important;
 }
 
 .theme-doc-markdown .theme-code-block .token.property,
 .theme-doc-markdown .theme-code-block .token.function,
 .theme-doc-markdown .theme-code-block .token.boolean,
 .theme-doc-markdown .theme-code-block .token.number {
-  color: #8ef2ae !important;
+  color: var(--qiubi-color-code-signal) !important;
 }
 
-.theme-doc-markdown .theme-code-block [class*='buttonGroup'] {
+.theme-doc-markdown .qiubi-code-block-buttons {
   top: 0.34rem;
   right: 0.42rem;
 }
 
-.theme-doc-markdown .theme-code-block [class*='buttonGroup'] button {
+.theme-doc-markdown .qiubi-code-block-buttons button {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
   width: auto;
   height: 1.72rem;
   padding: 0 0.62rem;
-  border: 1px solid rgba(148, 163, 184, 0.16);
-  border-radius: 999px;
-  background: rgba(15, 23, 42, 0.26);
-  color: #dbe5f4;
+  border: 1px solid var(--qiubi-border-subtle);
+  border-radius: var(--qiubi-radius-pill);
+  background: var(--qiubi-shell-inverse-surface-strong);
+  color: var(--qiubi-text-inverse-muted);
   box-shadow: none;
   backdrop-filter: blur(10px);
   opacity: 1 !important;
 }
 
-.theme-doc-markdown .theme-code-block [class*='buttonGroup'] button::after {
+.theme-doc-markdown .qiubi-code-block-buttons button::after {
   content: '复制';
   font-size: 0.74rem;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
-.theme-doc-markdown .theme-code-block [class*='buttonGroup'] button:hover,
-.theme-doc-markdown .theme-code-block [class*='buttonGroup'] button:focus-visible {
-  background: rgba(30, 41, 59, 0.74);
-  color: #fff;
-}
-
-.theme-doc-markdown .theme-code-block [class*='copyButtonIcon'],
-.theme-doc-markdown .theme-code-block [class*='copyButtonSuccessIcon'] {
+.theme-doc-markdown .qiubi-code-block-buttons :where(button > span) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: 0.84rem;
   height: 0.84rem;
 }
 
-html[data-theme='dark'] .theme-doc-markdown a:not(.button) {
-  color: #99f6e4;
+.theme-doc-markdown .qiubi-code-block-buttons :where(button svg) {
+  width: 0.84rem;
+  height: 0.84rem;
 }
 
-html[data-theme='dark'] .theme-doc-markdown strong,
-html[data-theme='dark'] .theme-doc-markdown code {
-  color: #f8fbff;
+.theme-doc-markdown .qiubi-code-block-buttons button:hover,
+.theme-doc-markdown .qiubi-code-block-buttons button:focus-visible {
+  background: var(--qiubi-shell-inverse-surface);
+  color: var(--qiubi-text-inverse);
 }
 
 /* Single-line commands should look compact instead of full-height panels. */
@@ -430,17 +598,10 @@ html[data-theme='dark'] .theme-doc-markdown code {
 }
 
 @media (max-width: 996px) {
+  .navbarDocsLink,
   .navbarConsoleLink {
     width: 100%;
     justify-content: center;
-  }
-
-  .theme-doc-markdown .tabs {
-    border-radius: 22px;
-  }
-
-  .theme-doc-markdown .theme-code-block {
-    border-radius: 18px;
   }
 
   .theme-doc-markdown .theme-code-block::before {

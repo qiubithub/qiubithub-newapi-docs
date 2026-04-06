@@ -9,6 +9,11 @@ const sidebars: SidebarsConfig = {
       items: [
         {
           type: 'doc',
+          id: 'intro',
+          label: '文档总览',
+        },
+        {
+          type: 'doc',
           id: 'claude-code',
           label: 'Claude Code',
         },
@@ -30,7 +35,7 @@ const sidebars: SidebarsConfig = {
         {
           type: 'doc',
           id: 'gemini-cli',
-          label: 'Gemini',
+          label: 'Gemini CLI',
         },
       ],
     },

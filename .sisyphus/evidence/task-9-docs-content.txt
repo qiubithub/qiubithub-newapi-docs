@@ -1,0 +1,22 @@
+Task 9 verification evidence
+
+Scope:
+- Normalize priority-doc content rhythm and convert docs/intro into a true docs landing page.
+
+Implementation summary:
+- Rewrote `docs/intro.md` from a thin welcome page into a real docs landing with `支持工具`, `接入步骤`, `支持模型`, `获取帮助`, and `相关链接`.
+- Added a consistent `相关链接` ending section to `docs/claude-code.mdx` and aligned its help copy with the other priority docs.
+- Preserved the technical setup steps and screenshots; this task focused on content rhythm and scanability, not changing product facts.
+
+Fresh verification run:
+- Task 9 targeted Playwright tests -> 2 passed
+- `npm run qa:golden-pages` -> all 14 tests passed
+
+Browser evidence:
+- `.sisyphus/evidence/task-9-docs-landing.png`
+- `.sisyphus/evidence/task-9-priority-docs-content.png`
+
+Verification notes:
+- `/docs/intro` now behaves like a docs landing page instead of a legacy welcome page.
+- Priority docs now end in a more predictable help/links zone, making the pages feel like one product documentation set.
+- The temporary `EADDRINUSE` message seen during full golden QA came from keeping a manually started preview server on port 4173 for browser verification; the Playwright assertions still ran successfully against the latest built content and all 14 tests passed.

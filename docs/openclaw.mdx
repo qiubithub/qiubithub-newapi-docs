@@ -9,6 +9,12 @@ import TabItem from '@theme/TabItem';
 
 在 OpenClaw 中使用 GPT、Claude 和 Gemini 模型。
 
+## 系统要求
+
+- **操作系统**: macOS 12+ 或常见 Linux 发行版
+- **Node.js**: v18.0.0 或更高版本
+- **网络**: 能正常访问 OpenClaw 与插件相关资源
+
 ---
 
 <Tabs groupId="operating-systems">
@@ -28,7 +34,7 @@ npm install -g openclaw@latest
 openclaw --version
 ```
 
-![验证安装](/img/1769757916311-1653af9a-eca5-4d53-a757-1e8826ad2b13.png)
+![验证安装](/img/openclaw/1769757916311-1653af9a-eca5-4d53-a757-1e8826ad2b13.png)
 
 ### 2. 安装 QiubiHub 插件
 
@@ -38,7 +44,7 @@ openclaw --version
 openclaw plugins install openclaw-aicodewith-auth
 ```
 
-![安装插件](/img/1769759405687-80dcb108-e978-4dbe-8d42-e5d88b25fd5d.png)
+![安装插件](/img/openclaw/1769759405687-80dcb108-e978-4dbe-8d42-e5d88b25fd5d.png)
 
 然后启用插件:
 
@@ -46,7 +52,7 @@ openclaw plugins install openclaw-aicodewith-auth
 openclaw plugins enable openclaw-aicodewith-auth
 ```
 
-![启用插件](/img/1769759499104-bd4ae5cd-2f74-4600-b07b-d001f40e5e5d.png)
+![启用插件](/img/openclaw/1769759499104-bd4ae5cd-2f74-4600-b07b-d001f40e5e5d.png)
 
 :::tip 重启 Gateway
 如果 gateway 正在运行,需要重启一下:
@@ -67,7 +73,7 @@ openclaw models auth login --provider aicodewith-claude --set-default
 
 按提示输入你的 **QiubiHub API Key**
 
-![配置API](/img/1769760309877-1d02351d-0089-4399-aabc-5d5afe6ab166.png)
+![配置API](/img/openclaw/1769760309877-1d02351d-0089-4399-aabc-5d5afe6ab166.png)
 
 查看可用模型:
 
@@ -75,7 +81,7 @@ openclaw models auth login --provider aicodewith-claude --set-default
 openclaw models list | grep aicodewith
 ```
 
-![查看模型](/img/1769760489908-b297df82-d6de-458e-86b5-5ad155771d63.png)
+![查看模型](/img/openclaw/1769760489908-b297df82-d6de-458e-86b5-5ad155771d63.png)
 
 ### 4. 执行初始化配置(第一次装必须要)
 
@@ -87,69 +93,69 @@ openclaw onboard --install-daemon
 
 1. 这个地方选择 **yes**
 
-![初始化配置1](/img/1769760748416-c7f21476-5a88-4689-8676-df6746c50f29.png)
+![初始化配置1](/img/openclaw/1769760748416-c7f21476-5a88-4689-8676-df6746c50f29.png)
 
 2. 选择 **quick start**
 
-![初始化配置2](/img/1769742383554-a1ac71e4-2b77-49e2-859b-8df43875eadd.png)
+![初始化配置2](/img/openclaw/1769742383554-a1ac71e4-2b77-49e2-859b-8df43875eadd.png)
 
 3. 这里选择**使用已有配置**
 
-![初始化配置3](/img/1769742497790-017472fa-92e7-4e82-bf73-0a2363f416a0.png)
+![初始化配置3](/img/openclaw/1769742497790-017472fa-92e7-4e82-bf73-0a2363f416a0.png)
 
 4. 这个模型供应商,选择**跳过**
 
-![初始化配置4](/img/1769742535332-e51d2811-00ca-4292-9a3e-d00cdd4c3a7e.png)
+![初始化配置4](/img/openclaw/1769742535332-e51d2811-00ca-4292-9a3e-d00cdd4c3a7e.png)
 
 5. 这里选择 **aicodewith**,推荐使用 Claude,工具调用能力最强
 
-![初始化配置5](/img/1769742896178-ea6330fb-90fd-4caf-9751-632577039903.png)
+![初始化配置5](/img/openclaw/1769742896178-ea6330fb-90fd-4caf-9751-632577039903.png)
 
 6. 选择默认模型,根据自己情况选择
 
-![初始化配置6](/img/1769743126405-bd7d691b-ef6c-4619-b9ea-6935d26b5fb0.png)
+![初始化配置6](/img/openclaw/1769743126405-bd7d691b-ef6c-4619-b9ea-6935d26b5fb0.png)
 
 7. 接下来选择聊天的渠道,这里暂时**跳过**,后面再配置
 
-![初始化配置7](/img/1769743353371-e40d4e62-b4ec-40d1-8f86-99ffb68441fa.png)
+![初始化配置7](/img/openclaw/1769743353371-e40d4e62-b4ec-40d1-8f86-99ffb68441fa.png)
 
 8. 设置 skill,可以添加一些有用的技能
 
-![初始化配置8](/img/1769743419194-e55f10c3-65f9-4c13-ae05-597d0c8023c4.png)
+![初始化配置8](/img/openclaw/1769743419194-e55f10c3-65f9-4c13-ae05-597d0c8023c4.png)
 
-![初始化配置9](/img/1769743435510-eb40e528-b4fd-4919-a515-e693df343b35.png)
+![初始化配置9](/img/openclaw/1769743435510-eb40e528-b4fd-4919-a515-e693df343b35.png)
 
 推荐这几个 skill,从上到下依次是:监控/阅读博客的、ClawdBot的文档、负责管理mcp的、连接obsidian笔记。按空格选择,选完之后,按回车确认。
 
-![初始化配置10](/img/1769743508654-c2081535-4cbc-47e7-8124-4930b51563d3.png)
+![初始化配置10](/img/openclaw/1769743508654-c2081535-4cbc-47e7-8124-4930b51563d3.png)
 
 9. 接下来耐心等待他安装即可
 
-![初始化配置11](/img/1769743697486-b6c587a2-cb0d-4c0c-bbd4-130c6684ec1a.png)
+![初始化配置11](/img/openclaw/1769743697486-b6c587a2-cb0d-4c0c-bbd4-130c6684ec1a.png)
 
 10. 接下来这些API,自己有啥填啥就好了,基本上都用不到,就都 no 了
 
-![初始化配置12](/img/1769743855315-7cf6e522-166a-46f6-aadc-65c5e53eb6ce.png)
+![初始化配置12](/img/openclaw/1769743855315-7cf6e522-166a-46f6-aadc-65c5e53eb6ce.png)
 
 11. hooks 全开
 
-![初始化配置13](/img/1769743904215-e3ba4808-1073-4923-973f-362edda4b6a0.png)
+![初始化配置13](/img/openclaw/1769743904215-e3ba4808-1073-4923-973f-362edda4b6a0.png)
 
 12. 配置完成,正在启动
 
-![初始化配置14](/img/1769743922408-d0600b28-7036-40bc-9306-2d4c8a5ed8de.png)
+![初始化配置14](/img/openclaw/1769743922408-d0600b28-7036-40bc-9306-2d4c8a5ed8de.png)
 
 13. 电脑会弹出一些权限申请,都同意就好了
 
-![初始化配置15](/img/1769743936212-c042107f-8193-44e6-a608-1bb5da517a65.png)
+![初始化配置15](/img/openclaw/1769743936212-c042107f-8193-44e6-a608-1bb5da517a65.png)
 
 14. 这个步骤问的是你想现在连接机器人吗?不用了,咱们直接按照后面的教程用 TG 连接即可
 
-![初始化配置16](/img/1769743961447-9acc3c83-701f-4bdc-b166-fd1dd6806f7d.png)
+![初始化配置16](/img/openclaw/1769743961447-9acc3c83-701f-4bdc-b166-fd1dd6806f7d.png)
 
 15. 配置完成!
 
-![初始化配置17](/img/1769744016214-1d7d1348-25c6-4dd7-b0e6-20b6d753f7db.png)
+![初始化配置17](/img/openclaw/1769744016214-1d7d1348-25c6-4dd7-b0e6-20b6d753f7db.png)
 
   </TabItem>
   <TabItem value="linux" label="Linux">
@@ -168,7 +174,7 @@ npm install -g openclaw@latest
 openclaw --version
 ```
 
-![验证安装](/img/1769757916311-1653af9a-eca5-4d53-a757-1e8826ad2b13.png)
+![验证安装](/img/openclaw/1769757916311-1653af9a-eca5-4d53-a757-1e8826ad2b13.png)
 
 ### 2. 安装 QiubiHub 插件
 
@@ -178,7 +184,7 @@ openclaw --version
 openclaw plugins install openclaw-aicodewith-auth
 ```
 
-![安装插件](/img/1769759405687-80dcb108-e978-4dbe-8d42-e5d88b25fd5d.png)
+![安装插件](/img/openclaw/1769759405687-80dcb108-e978-4dbe-8d42-e5d88b25fd5d.png)
 
 然后启用插件:
 
@@ -186,7 +192,7 @@ openclaw plugins install openclaw-aicodewith-auth
 openclaw plugins enable openclaw-aicodewith-auth
 ```
 
-![启用插件](/img/1769759499104-bd4ae5cd-2f74-4600-b07b-d001f40e5e5d.png)
+![启用插件](/img/openclaw/1769759499104-bd4ae5cd-2f74-4600-b07b-d001f40e5e5d.png)
 
 :::tip 重启 Gateway
 如果 gateway 正在运行,需要重启一下:
@@ -207,7 +213,7 @@ openclaw models auth login --provider aicodewith-claude --set-default
 
 按提示输入你的 **QiubiHub API Key**
 
-![配置API](/img/1769760309877-1d02351d-0089-4399-aabc-5d5afe6ab166.png)
+![配置API](/img/openclaw/1769760309877-1d02351d-0089-4399-aabc-5d5afe6ab166.png)
 
 查看可用模型:
 
@@ -215,7 +221,7 @@ openclaw models auth login --provider aicodewith-claude --set-default
 openclaw models list | grep aicodewith
 ```
 
-![查看模型](/img/1769760489908-b297df82-d6de-458e-86b5-5ad155771d63.png)
+![查看模型](/img/openclaw/1769760489908-b297df82-d6de-458e-86b5-5ad155771d63.png)
 
 ### 4. 执行初始化配置(第一次装必须要)
 
@@ -227,69 +233,69 @@ openclaw onboard --install-daemon
 
 1. 这个地方选择 **yes**
 
-![初始化配置1](/img/1769760748416-c7f21476-5a88-4689-8676-df6746c50f29.png)
+![初始化配置1](/img/openclaw/1769760748416-c7f21476-5a88-4689-8676-df6746c50f29.png)
 
 2. 选择 **quick start**
 
-![初始化配置2](/img/1769742383554-a1ac71e4-2b77-49e2-859b-8df43875eadd.png)
+![初始化配置2](/img/openclaw/1769742383554-a1ac71e4-2b77-49e2-859b-8df43875eadd.png)
 
 3. 这里选择**使用已有配置**
 
-![初始化配置3](/img/1769742497790-017472fa-92e7-4e82-bf73-0a2363f416a0.png)
+![初始化配置3](/img/openclaw/1769742497790-017472fa-92e7-4e82-bf73-0a2363f416a0.png)
 
 4. 这个模型供应商,选择**跳过**
 
-![初始化配置4](/img/1769742535332-e51d2811-00ca-4292-9a3e-d00cdd4c3a7e.png)
+![初始化配置4](/img/openclaw/1769742535332-e51d2811-00ca-4292-9a3e-d00cdd4c3a7e.png)
 
 5. 这里选择 **aicodewith**,推荐使用 Claude,工具调用能力最强
 
-![初始化配置5](/img/1769742896178-ea6330fb-90fd-4caf-9751-632577039903.png)
+![初始化配置5](/img/openclaw/1769742896178-ea6330fb-90fd-4caf-9751-632577039903.png)
 
 6. 选择默认模型,根据自己情况选择
 
-![初始化配置6](/img/1769743126405-bd7d691b-ef6c-4619-b9ea-6935d26b5fb0.png)
+![初始化配置6](/img/openclaw/1769743126405-bd7d691b-ef6c-4619-b9ea-6935d26b5fb0.png)
 
 7. 接下来选择聊天的渠道,这里暂时**跳过**,后面再配置
 
-![初始化配置7](/img/1769743353371-e40d4e62-b4ec-40d1-8f86-99ffb68441fa.png)
+![初始化配置7](/img/openclaw/1769743353371-e40d4e62-b4ec-40d1-8f86-99ffb68441fa.png)
 
 8. 设置 skill,可以添加一些有用的技能
 
-![初始化配置8](/img/1769743419194-e55f10c3-65f9-4c13-ae05-597d0c8023c4.png)
+![初始化配置8](/img/openclaw/1769743419194-e55f10c3-65f9-4c13-ae05-597d0c8023c4.png)
 
-![初始化配置9](/img/1769743435510-eb40e528-b4fd-4919-a515-e693df343b35.png)
+![初始化配置9](/img/openclaw/1769743435510-eb40e528-b4fd-4919-a515-e693df343b35.png)
 
 推荐这几个 skill,从上到下依次是:监控/阅读博客的、ClawdBot的文档、负责管理mcp的、连接obsidian笔记。按空格选择,选完之后,按回车确认。
 
-![初始化配置10](/img/1769743508654-c2081535-4cbc-47e7-8124-4930b51563d3.png)
+![初始化配置10](/img/openclaw/1769743508654-c2081535-4cbc-47e7-8124-4930b51563d3.png)
 
 9. 接下来耐心等待他安装即可
 
-![初始化配置11](/img/1769743697486-b6c587a2-cb0d-4c0c-bbd4-130c6684ec1a.png)
+![初始化配置11](/img/openclaw/1769743697486-b6c587a2-cb0d-4c0c-bbd4-130c6684ec1a.png)
 
 10. 接下来这些API,自己有啥填啥就好了,基本上都用不到,就都 no 了
 
-![初始化配置12](/img/1769743855315-7cf6e522-166a-46f6-aadc-65c5e53eb6ce.png)
+![初始化配置12](/img/openclaw/1769743855315-7cf6e522-166a-46f6-aadc-65c5e53eb6ce.png)
 
 11. hooks 全开
 
-![初始化配置13](/img/1769743904215-e3ba4808-1073-4923-973f-362edda4b6a0.png)
+![初始化配置13](/img/openclaw/1769743904215-e3ba4808-1073-4923-973f-362edda4b6a0.png)
 
 12. 配置完成,正在启动
 
-![初始化配置14](/img/1769743922408-d0600b28-7036-40bc-9306-2d4c8a5ed8de.png)
+![初始化配置14](/img/openclaw/1769743922408-d0600b28-7036-40bc-9306-2d4c8a5ed8de.png)
 
 13. 电脑会弹出一些权限申请,都同意就好了
 
-![初始化配置15](/img/1769743936212-c042107f-8193-44e6-a608-1bb5da517a65.png)
+![初始化配置15](/img/openclaw/1769743936212-c042107f-8193-44e6-a608-1bb5da517a65.png)
 
 14. 这个步骤问的是你想现在连接机器人吗?不用了,咱们直接按照后面的教程用 TG 连接即可
 
-![初始化配置16](/img/1769743961447-9acc3c83-701f-4bdc-b166-fd1dd6806f7d.png)
+![初始化配置16](/img/openclaw/1769743961447-9acc3c83-701f-4bdc-b166-fd1dd6806f7d.png)
 
 15. 配置完成!
 
-![初始化配置17](/img/1769744016214-1d7d1348-25c6-4dd7-b0e6-20b6d753f7db.png)
+![初始化配置17](/img/openclaw/1769744016214-1d7d1348-25c6-4dd7-b0e6-20b6d753f7db.png)
 
   </TabItem>
 </Tabs>
@@ -313,7 +319,7 @@ openclaw onboard --install-daemon
 3. 按提示设置 bot 名称
 4. 获得 Bot Token(格式:`123456789:ABCdefGHIjklMNOpqrsTUVwxyz`)
 
-![获取Bot Token](/img/1769524863859-91f7f2d8-acbc-4412-8a4e-aa79b5864ec9.png)
+![获取Bot Token](/img/openclaw/1769524863859-91f7f2d8-acbc-4412-8a4e-aa79b5864ec9.png)
 
 ### 2. 启用 Telegram 插件
 
@@ -323,7 +329,7 @@ openclaw onboard --install-daemon
 openclaw plugins enable telegram
 ```
 
-![启用Telegram插件](/img/1769524968139-d01a1a4f-420f-47a6-8170-f839f05f917b.png)
+![启用Telegram插件](/img/openclaw/1769524968139-d01a1a4f-420f-47a6-8170-f839f05f917b.png)
 
 ### 3. 配置 Bot Token
 
@@ -333,7 +339,7 @@ openclaw plugins enable telegram
 openclaw config set channels.telegram.botToken "你的Bot_Token"
 ```
 
-![配置Bot Token](/img/1769524959959-39914d50-a9f8-4bb2-aea9-6e77266facde.png)
+![配置Bot Token](/img/openclaw/1769524959959-39914d50-a9f8-4bb2-aea9-6e77266facde.png)
 
 ### 4. 启动 Gateway
 
@@ -347,13 +353,13 @@ openclaw gateway run
 openclaw gateway stop
 ```
 
-![启动Gateway](/img/1769525461250-dec9b757-ff98-4711-ae1b-657fd3548af8.png)
+![启动Gateway](/img/openclaw/1769525461250-dec9b757-ff98-4711-ae1b-657fd3548af8.png)
 
 ### 5. 测试
 
 在 Telegram 中找到你的 bot,发送任意消息,bot 会给你一个验证码:
 
-![Telegram验证码](/img/1769525324221-d3cd4443-5abd-4bc0-9fcc-a8698e028385.jpg)
+![Telegram验证码](/img/openclaw/1769525324221-d3cd4443-5abd-4bc0-9fcc-a8698e028385.jpg)
 
 然后你需要在电脑上执行下面的命令:
 
@@ -361,7 +367,7 @@ openclaw gateway stop
 openclaw pairing approve telegram 你的验证码
 ```
 
-![配对成功](/img/1769525412735-43273a57-a1ee-4da1-8f01-0c01622cf011.png)
+![配对成功](/img/openclaw/1769525412735-43273a57-a1ee-4da1-8f01-0c01622cf011.png)
 
 ---
 
@@ -375,6 +381,35 @@ openclaw pairing approve telegram 你的验证码
 - 项目文档自动生成
 - 代码解释和翻译
 - 多文件协同编辑
+
+## 常见问题
+
+### 1. 插件安装后没有生效
+
+先确认插件已经安装并启用：
+
+```bash
+openclaw plugins install openclaw-aicodewith-auth
+openclaw plugins enable openclaw-aicodewith-auth
+```
+
+如果 gateway 已经在运行，记得执行一次重启：
+
+```bash
+openclaw gateway stop
+openclaw gateway run
+```
+
+### 2. 初始化流程太长，不确定是否配对成功
+
+OpenClaw 本身就是一个偏 Agent / Gateway 的工具，初始化步骤会明显多于 Claude Code 或 Codex。这一页保留了 Telegram 配置作为**明确的后续扩展流程**，不是基础安装失败；请先完成前面的核心安装、插件、认证和初始化，再继续 Telegram 部分。
+
+## 获取帮助
+
+如果你已经完成本页的核心安装流程，但仍然无法调用模型：
+
+1. **先问 AI**：把当前报错、执行过的命令和截图整理后发给豆包或 DeepSeek。
+2. **联系客服**：把 OpenClaw 版本、系统环境和认证失败截图一起发给人工支持，方便继续排查。
 
 ## 相关链接
 

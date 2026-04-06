@@ -1,0 +1,24 @@
+Task 5 verification evidence
+
+Scope:
+- Unified navbar, homepage shell, docs shell, and footer language without changing IA or doc content.
+
+Implementation summary:
+- Promoted the docs nav item into the primary shell CTA (`navbarDocsLink`) and toned the console action into a secondary shell action.
+- Reduced homepage-only stage lighting and card drama so homepage surfaces inherit the docs shell rhythm more closely.
+- Softened footer gradients, headline treatment, badge styling, and contact-card contrast so the footer reads as shell continuation instead of a separate brand stage.
+- Preserved restrained docs reading surfaces and kept the priority doc page calm in dark mode.
+
+Fresh verification run:
+- npm run typecheck -> exit 0
+- npm run build -> exit 0
+
+Browser evidence:
+- Homepage shell: .sisyphus/evidence/task-5-shell-unification-home.png
+- Docs landing shell: .sisyphus/evidence/task-5-shell-unification-docs-intro.png
+- Priority doc dark-mode shell: .sisyphus/evidence/task-5-docs-shell-dark.png
+
+Verification notes:
+- Homepage and /docs/intro now share the same navbar CTA hierarchy and a calmer, more consistent surface/border rhythm.
+- Footer no longer reads like a separate campaign block; it visually follows the shell instead of overpowering it.
+- /docs/claude-code remains docs-first: sidebar, tabs, code blocks, and正文阅读区 are intact and not visually contaminated by homepage-style marketing treatment.

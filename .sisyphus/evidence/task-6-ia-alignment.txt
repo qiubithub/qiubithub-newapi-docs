@@ -1,0 +1,23 @@
+Task 6 verification evidence
+
+Scope:
+- Align docs landing path, sidebar visibility, and entry naming across navbar, homepage, and docs sidebar.
+
+Implementation summary:
+- Added `intro` as the first explicit item in `tutorialSidebar` with label `文档总览`.
+- Normalized the sidebar label `Gemini` -> `Gemini CLI` to match homepage and doc naming.
+- Added `title` and `description` to `docs/intro.md` so the landing page metadata and breadcrumb context match its role as the docs overview.
+
+Fresh verification run:
+- lsp_diagnostics sidebars.ts -> no diagnostics
+- npm run build -> exit 0
+- Task 6 targeted regression test -> pass
+- npm run qa:golden-pages -> all 8 tests passed (executed against a manually started fresh local server; the temporary EADDRINUSE message came from the script trying to start an additional server on the same port, not from a failing test run)
+
+Browser evidence:
+- .sisyphus/evidence/task-6-docs-landing-sidebar.png
+
+Verification notes:
+- `/docs/intro` now renders within the left docs sidebar context instead of appearing detached from docs navigation.
+- Navbar `文档`, homepage `文档总览`, and the sidebar `文档总览` all resolve to `/docs/intro`.
+- Sidebar naming is more consistent with page naming and homepage entry labels.

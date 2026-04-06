@@ -1,0 +1,31 @@
+Task 2.1 verification evidence
+
+Files reviewed:
+- docusaurus.config.ts
+- README.md
+- DEPLOY_CF_SERVER.md
+- build/index.html
+- build/docs/intro/index.html
+
+Config lock summary:
+- Canonical docs host source of truth: https://docs.qiubithub.com
+- Main site source of truth: https://www.qiubithub.com
+- Main-site-only external links normalized through config constants:
+  - console -> https://www.qiubithub.com/console
+  - terms -> https://www.qiubithub.com/terms
+  - privacy-policy -> https://www.qiubithub.com/privacy-policy
+
+Fresh verification run:
+- lsp_diagnostics docusaurus.config.ts -> No diagnostics found
+- npm run build -> exit 0, Generated static files in "build"
+
+Build artifact checks:
+- build/index.html contains rel="canonical" href="https://docs.qiubithub.com/"
+- build/docs/intro/index.html contains rel="canonical" href="https://docs.qiubithub.com/docs/intro"
+- build/index.html og:url points to https://docs.qiubithub.com/
+- build/docs/intro/index.html og:url points to https://docs.qiubithub.com/docs/intro
+- build/docs/intro/index.html still links console to https://www.qiubithub.com/console, which is expected main-site responsibility
+
+Conclusion:
+- Docs canonical host and deployment docs are aligned on docs.qiubithub.com.
+- Main site remains the explicit origin for console and legal flows.

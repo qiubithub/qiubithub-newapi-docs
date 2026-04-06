@@ -2,16 +2,17 @@
   padding: 0 !important;
   margin-top: 4rem;
   background:
-    radial-gradient(circle at top left, rgba(59, 130, 246, 0.28), transparent 30%),
-    radial-gradient(circle at top right, rgba(139, 92, 246, 0.22), transparent 24%),
-    linear-gradient(180deg, #0f172a 0%, #101827 100%) !important;
+    radial-gradient(circle at top left, rgba(15, 118, 110, 0.16), transparent 30%),
+    radial-gradient(circle at top right, rgba(245, 158, 11, 0.12), transparent 24%),
+    var(--qiubi-shell-inverse-bg) !important;
+  border-top: 1px solid var(--qiubi-shell-inverse-border);
   overflow: hidden;
 }
 
 .inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 72px 24px 30px;
+  padding: 64px 24px 30px;
 }
 
 .topGrid {
@@ -39,39 +40,36 @@
   justify-content: center;
   width: 42px;
   height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-  box-shadow: 0 16px 30px rgba(59, 130, 246, 0.24);
+  border-radius: var(--qiubi-radius-sm);
+  background: linear-gradient(135deg, rgba(94, 234, 212, 0.18) 0%, rgba(15, 118, 110, 0.84) 100%);
+  box-shadow: var(--qiubi-shadow-sm);
 }
 
 .brandMarkText {
   font-size: 0.96rem;
   font-weight: 650;
-  color: #fff;
+  color: var(--qiubi-color-inverse);
 }
 
 .brandName {
   font-size: 2.1rem;
   font-weight: 760;
   letter-spacing: -0.045em;
-  background: linear-gradient(90deg, #f8fafc 0%, #60a5fa 42%, #8b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--qiubi-color-inverse);
 }
 
 .brandDescription {
   margin: 0;
-  color: rgba(226, 232, 240, 0.92);
+  color: var(--qiubi-color-inverse-muted);
   font-size: 1.08rem;
   line-height: 1.65;
 }
 
 .brandAccent {
   margin: 12px 0 0;
-  color: #60a5fa;
-  font-size: 1.2rem;
-  font-weight: 650;
+  color: var(--qiubi-color-inverse-soft);
+  font-size: 1.06rem;
+  font-weight: 600;
   line-height: 1.55;
 }
 
@@ -86,12 +84,12 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  border-radius: 999px;
+  border-radius: var(--qiubi-radius-pill);
   padding: 10px 14px;
   font-size: 0.96rem;
   font-weight: 650;
   border: 1px solid transparent;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .badge::before {
@@ -103,15 +101,15 @@
 }
 
 .badgeSuccess {
-  color: #34d399;
-  background: rgba(15, 118, 110, 0.22);
-  border-color: rgba(52, 211, 153, 0.14);
+  color: #7dd3fc;
+  background: rgba(15, 23, 42, 0.24);
+  border-color: var(--qiubi-shell-inverse-border);
 }
 
 .badgeTech {
-  color: #60a5fa;
-  background: rgba(37, 99, 235, 0.18);
-  border-color: rgba(96, 165, 250, 0.14);
+  color: var(--qiubi-color-brand-strong);
+  background: rgba(15, 23, 42, 0.22);
+  border-color: var(--qiubi-shell-inverse-border);
 }
 
 .sectionBlock {
@@ -122,15 +120,15 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 22px;
-  color: #f8fafc;
-  font-size: 1.35rem;
-  font-weight: 720;
+  margin-bottom: 20px;
+  color: var(--qiubi-color-inverse);
+  font-size: 1.16rem;
+  font-weight: 700;
 }
 
 .sectionIcon {
   display: inline-flex;
-  color: #60a5fa;
+  color: var(--qiubi-color-brand-strong);
 }
 
 .linkList {
@@ -144,16 +142,16 @@
 }
 
 .footerLink {
-  color: rgba(226, 232, 240, 0.92);
-  font-size: 1.04rem;
+  color: var(--qiubi-color-inverse-muted);
+  font-size: 0.98rem;
   font-weight: 560;
   text-decoration: none;
   transition: color 0.18s ease, transform 0.18s ease;
 }
 
 .footerLink:hover {
-  color: #ffffff;
-  transform: translateX(3px);
+  color: var(--qiubi-color-inverse);
+  transform: translateX(2px);
 }
 
 .contactCard {
@@ -164,10 +162,13 @@
   gap: 20px;
   flex-wrap: wrap;
   padding: 28px 30px;
-  border-radius: 24px;
-  border: 1px solid rgba(99, 102, 241, 0.16);
-  background: linear-gradient(135deg, rgba(24, 39, 75, 0.92), rgba(49, 46, 129, 0.86));
-  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.28);
+  border-radius: var(--qiubi-radius-lg);
+  border: 1px solid var(--qiubi-shell-inverse-border);
+  background:
+    radial-gradient(circle at 90% 10%, rgba(245, 158, 11, 0.08), transparent 24%),
+    radial-gradient(circle at 12% 82%, rgba(94, 234, 212, 0.08), transparent 26%),
+    var(--qiubi-shell-inverse-surface);
+  box-shadow: var(--qiubi-shadow-md);
 }
 
 .contactIntro {
@@ -175,14 +176,14 @@
 }
 
 .contactTitle {
-  color: #f8fafc;
+  color: var(--qiubi-color-inverse);
   font-size: 1.55rem;
   font-weight: 740;
 }
 
 .contactDescription {
   margin-top: 8px;
-  color: rgba(226, 232, 240, 0.86);
+  color: var(--qiubi-color-inverse-muted);
   font-size: 1rem;
   line-height: 1.55;
 }
@@ -198,32 +199,34 @@
   align-items: center;
   gap: 10px;
   padding: 12px 18px;
-  border-radius: 14px;
-  border: 1px solid rgba(96, 165, 250, 0.12);
-  background: rgba(15, 23, 42, 0.28);
-  color: #e2e8f0;
+  border-radius: var(--qiubi-radius-sm);
+  border: 1px solid var(--qiubi-shell-inverse-border);
+  background: var(--qiubi-shell-inverse-surface-strong);
+  color: var(--qiubi-color-inverse-muted);
   text-decoration: none;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
 }
 
 .contactPill:hover {
-  color: #ffffff;
+  color: var(--qiubi-color-inverse);
   text-decoration: none;
-  border-color: rgba(129, 140, 248, 0.28);
+  background: rgba(15, 23, 42, 0.42);
+  border-color: rgba(94, 234, 212, 0.22);
 }
 
 .contactIcon {
   display: inline-flex;
-  color: #34d399;
+  color: var(--qiubi-color-brand-strong);
 }
 
 .contactLabel {
-  color: rgba(191, 219, 254, 0.86);
+  color: var(--qiubi-color-inverse-soft);
   font-weight: 620;
 }
 
 .contactValue {
-  color: #f8fafc;
+  color: var(--qiubi-color-inverse);
   font-weight: 650;
   letter-spacing: 0.02em;
 }
@@ -231,7 +234,7 @@
 .divider {
   height: 1px;
   margin: 32px 0 24px;
-  background: linear-gradient(90deg, rgba(96, 165, 250, 0.12), rgba(255, 255, 255, 0.06), rgba(139, 92, 246, 0.12));
+  background: linear-gradient(90deg, rgba(94, 234, 212, 0.08), rgba(255, 255, 255, 0.08), rgba(251, 191, 36, 0.08));
 }
 
 .bottomRow {
@@ -240,7 +243,7 @@
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
-  color: rgba(191, 219, 254, 0.78);
+  color: var(--qiubi-color-inverse-soft);
 }
 
 .bottomLeft {
@@ -253,7 +256,7 @@
 .copyright {
   font-size: 1rem;
   font-weight: 560;
-  color: rgba(226, 232, 240, 0.92);
+  color: var(--qiubi-color-inverse-muted);
 }
 
 .metaList {
@@ -268,7 +271,7 @@
   align-items: center;
   gap: 10px;
   font-size: 0.95rem;
-  color: rgba(191, 219, 254, 0.72);
+  color: var(--qiubi-color-inverse-soft);
 }
 
 .statusWithIcon {
@@ -281,22 +284,22 @@
   width: 4px;
   height: 4px;
   border-radius: 999px;
-  background: rgba(148, 163, 184, 0.8);
+  background: rgba(148, 163, 184, 0.6);
 }
 
 .credit {
   font-size: 0.95rem;
-  color: rgba(191, 219, 254, 0.72);
+  color: var(--qiubi-color-inverse-soft);
 }
 
 .creditLink {
-  color: #60a5fa;
+  color: var(--qiubi-color-brand-strong);
   font-weight: 650;
   text-decoration: none;
 }
 
 .creditLink:hover {
-  color: #93c5fd;
+  color: var(--qiubi-color-inverse);
 }
 
 .inlineIcon {
