@@ -103,7 +103,7 @@ const config: Config = {
   themeConfig: {
     image: 'img/site-social-card.jpg',
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: 'light',
       disableSwitch: false,
       respectPrefersColorScheme: false,
     },
