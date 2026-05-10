@@ -96,12 +96,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1954,
+                  "duration": 3216,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:19:07.226Z",
+                  "startTime": "2026-05-10T15:55:38.968Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -112,6 +112,40 @@
           "id": "c72376d67cb9fa764e51-3e0ab06cd181c62848ca",
           "file": "golden-pages.spec.ts",
           "line": 40,
+          "column": 5
+        },
+        {
+          "title": "www homepage supports a manual dark mode",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "desktop",
+              "projectName": "desktop",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1919,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-05-10T15:55:42.525Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c72376d67cb9fa764e51-974642d4c38740050c90",
+          "file": "golden-pages.spec.ts",
+          "line": 75,
           "column": 5
         },
         {
@@ -130,12 +164,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2168,
+                  "duration": 1679,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:19:09.610Z",
+                  "startTime": "2026-05-10T15:55:44.459Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -145,7 +179,7 @@
           ],
           "id": "c72376d67cb9fa764e51-ea3c3232cd9ed4eba4ab",
           "file": "golden-pages.spec.ts",
-          "line": 74,
+          "line": 88,
           "column": 5
         },
         {
@@ -164,12 +198,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4874,
+                  "duration": 2928,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:19:11.787Z",
+                  "startTime": "2026-05-10T15:55:46.153Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -179,7 +213,7 @@
           ],
           "id": "c72376d67cb9fa764e51-f56bd268792d32ec7f20",
           "file": "golden-pages.spec.ts",
-          "line": 93,
+          "line": 107,
           "column": 5
         },
         {
@@ -198,12 +232,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 4331,
+                  "duration": 2338,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:19:17.751Z",
+                  "startTime": "2026-05-10T15:55:49.629Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -214,6 +248,40 @@
           "id": "c72376d67cb9fa764e51-e5043e65cef199c27dd7",
           "file": "golden-pages.spec.ts",
           "line": 40,
+          "column": 5
+        },
+        {
+          "title": "www homepage supports a manual dark mode",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mobile",
+              "projectName": "mobile",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2681,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-05-10T15:55:52.095Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "c72376d67cb9fa764e51-a5a6fd5c001401724085",
+          "file": "golden-pages.spec.ts",
+          "line": 75,
           "column": 5
         },
         {
@@ -232,12 +300,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2557,
+                  "duration": 3007,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:19:22.308Z",
+                  "startTime": "2026-05-10T15:55:54.785Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -247,7 +315,7 @@
           ],
           "id": "c72376d67cb9fa764e51-adb1b7fdaccb413b3b61",
           "file": "golden-pages.spec.ts",
-          "line": 74,
+          "line": 88,
           "column": 5
         },
         {
@@ -266,12 +334,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3223,
+                  "duration": 3485,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:19:24.878Z",
+                  "startTime": "2026-05-10T15:55:57.809Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -281,7 +349,7 @@
           ],
           "id": "c72376d67cb9fa764e51-1b542a1b12acc65400df",
           "file": "golden-pages.spec.ts",
-          "line": 93,
+          "line": 107,
           "column": 5
         }
       ]
@@ -289,9 +357,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-10T15:19:06.669Z",
-    "duration": 21485.418999999998,
-    "expected": 6,
+    "startTime": "2026-05-10T15:55:38.461Z",
+    "duration": 22901.714,
+    "expected": 8,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

@@ -12,6 +12,7 @@ import {
   ReceiptText,
   X,
 } from 'lucide-react';
+import {ThemeToggle} from './theme-toggle';
 
 const docsUrl = 'https://docs.qiubithub.com';
 const consoleUrl = 'https://www.qiubithub.com/console';
@@ -181,9 +182,12 @@ function Header() {
           ))}
         </nav>
 
-        <a href={consoleUrl} className="header-cta">
-          立刻体验
-        </a>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <a href={consoleUrl} className="header-cta">
+            立刻体验
+          </a>
+        </div>
       </div>
     </header>
   );

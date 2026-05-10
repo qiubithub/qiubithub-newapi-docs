@@ -8,6 +8,26 @@
   --ink: #0f172a;
   --muted: #64748b;
   --line: #e2e8f0;
+  --page-bg: #ffffff;
+  --section-bg: #f8fafc;
+  --surface-bg: #ffffff;
+  --accent-soft: #eff6ff;
+  --accent-line: #bfdbfe;
+}
+
+html.dark {
+  color-scheme: dark;
+  background: #05070b;
+  --brand-blue: #d6a23a;
+  --brand-blue-dark: #f0b94a;
+  --ink: #f8fafc;
+  --muted: #94a3b8;
+  --line: rgba(148, 163, 184, 0.24);
+  --page-bg: #05070b;
+  --section-bg: #080d16;
+  --surface-bg: #0d1420;
+  --accent-soft: rgba(214, 162, 58, 0.12);
+  --accent-line: rgba(214, 162, 58, 0.34);
 }
 
 html {
@@ -18,7 +38,7 @@ html {
 body {
   margin: 0;
   overflow-x: clip;
-  background: #ffffff;
+  background: var(--page-bg);
   color: var(--ink);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
@@ -46,6 +66,31 @@ img {
   border-bottom: 1px solid rgba(226, 232, 240, 0.72);
   background: rgba(255, 255, 255, 0.78);
   backdrop-filter: blur(18px);
+}
+
+.theme-toggle {
+  display: inline-grid;
+  width: 38px;
+  height: 38px;
+  place-items: center;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.76);
+  color: #0f172a;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease,
+    color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(37, 99, 235, 0.38);
+  color: var(--brand-blue);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
 }
 
 .brand-icon {
@@ -363,6 +408,206 @@ img {
   .tool-marquee {
     gap: 18px;
   }
+}
+
+html.dark .site-header {
+  border-bottom-color: rgba(148, 163, 184, 0.18);
+  background: rgba(5, 7, 11, 0.78);
+}
+
+html.dark .theme-toggle {
+  border-color: rgba(214, 162, 58, 0.26);
+  background: rgba(255, 255, 255, 0.06);
+  color: #f8fafc;
+}
+
+html.dark .theme-toggle:hover {
+  border-color: rgba(214, 162, 58, 0.54);
+  color: var(--brand-blue-dark);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+}
+
+html.dark .brand-icon {
+  border-color: rgba(214, 162, 58, 0.28);
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.32);
+}
+
+html.dark .header-cta {
+  background: #f2c365;
+  color: #120e08;
+}
+
+html.dark .primary-button {
+  background: linear-gradient(180deg, #f2c365, #d6a23a);
+  color: #120e08;
+  box-shadow: 0 18px 38px rgba(214, 162, 58, 0.22);
+}
+
+html.dark .header-cta:hover,
+html.dark .primary-button:hover {
+  background: #f0b94a;
+}
+
+html.dark .secondary-button,
+html.dark .outline-button {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.04);
+  color: #f8fafc;
+}
+
+html.dark .secondary-button:hover,
+html.dark .outline-button:hover {
+  border-color: rgba(214, 162, 58, 0.48);
+  color: var(--brand-blue-dark);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+html.dark .hero-section {
+  background:
+    linear-gradient(180deg, rgba(10, 13, 18, 0.98), rgba(7, 10, 16, 0.98) 48%, #05070b 100%),
+    linear-gradient(90deg, rgba(214, 162, 58, 0.14), transparent 44%, rgba(255, 255, 255, 0.04));
+}
+
+html.dark .hero-section::before {
+  background-image:
+    linear-gradient(rgba(214, 162, 58, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(214, 162, 58, 0.07) 1px, transparent 1px);
+}
+
+html.dark .hero-badge {
+  border-color: var(--accent-line);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--brand-blue-dark);
+  box-shadow: 0 12px 30px rgba(214, 162, 58, 0.08);
+}
+
+html.dark .model-chip {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  box-shadow: none;
+}
+
+html.dark .hero-stat + .hero-stat {
+  border-left-color: var(--line);
+}
+
+html.dark .terminal-window {
+  border-color: rgba(214, 162, 58, 0.2);
+  background: #05070b;
+  box-shadow:
+    0 32px 86px rgba(0, 0, 0, 0.44),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+html.dark .tool-marquee {
+  border-color: var(--line);
+}
+
+html.dark .tool-logo-pill {
+  color: #cbd5e1;
+}
+
+html.dark .tool-logo-mark {
+  border-color: rgba(214, 162, 58, 0.28);
+  background: var(--accent-soft);
+  color: var(--brand-blue-dark);
+}
+
+html.dark .problem-card,
+html.dark .solution-card,
+html.dark .price-card,
+html.dark .faq-item {
+  border-color: rgba(148, 163, 184, 0.2);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.035));
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.26);
+}
+
+html.dark .problem-icon {
+  background: rgba(248, 113, 113, 0.13);
+  color: #fca5a5;
+}
+
+html.dark .solution-icon {
+  background: var(--accent-soft);
+  color: var(--brand-blue-dark);
+}
+
+html.dark .pricing-includes {
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+html.dark .price-card-featured {
+  border-color: rgba(214, 162, 58, 0.66);
+  box-shadow: 0 24px 70px rgba(214, 162, 58, 0.12);
+}
+
+html.dark .price-badge {
+  background: #f2c365;
+  color: #120e08;
+}
+
+html.dark .cta-section {
+  background:
+    linear-gradient(180deg, rgba(214, 162, 58, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%),
+    #070a10;
+}
+
+html.dark .site-footer {
+  background: #030508;
+}
+
+html.dark .footer-brand-icon {
+  border-color: rgba(214, 162, 58, 0.26);
+}
+
+html.dark .footer-contact-link {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+html.dark .footer-contact-link:hover {
+  background: rgba(214, 162, 58, 0.16);
+}
+
+html.dark .bg-white {
+  background-color: var(--page-bg) !important;
+}
+
+html.dark .bg-slate-50 {
+  background-color: var(--section-bg) !important;
+}
+
+html.dark .text-slate-950 {
+  color: #f8fafc !important;
+}
+
+html.dark .text-slate-700 {
+  color: #cbd5e1 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #a7b3c5 !important;
+}
+
+html.dark .text-slate-500,
+html.dark .text-slate-400 {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-blue-600,
+html.dark .text-blue-300 {
+  color: var(--brand-blue-dark) !important;
+}
+
+html.dark .hover\:text-blue-600:hover,
+html.dark .hover\:text-blue-700:hover {
+  color: #f7d58b !important;
+}
+
+html.dark .border-slate-200 {
+  border-color: var(--line) !important;
 }
 
 @media (prefers-reduced-motion: reduce) {

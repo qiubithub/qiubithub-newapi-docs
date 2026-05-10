@@ -46,6 +46,7 @@ test('www homepage presents the new product landing page', async ({page}, testIn
   await expect(page.getByText('QiubiHub')).toHaveCount(0);
   await expect(page.getByRole('link', {name: /开始使用/})).toHaveAttribute('href', 'https://www.qiubithub.com/console');
   await expect(page.getByRole('link', {name: /查看文档/}).first()).toHaveAttribute('href', 'https://docs.qiubithub.com');
+  await expect(page.getByRole('button', {name: '切换颜色模式'})).toBeVisible();
   await expect(page.getByText('Claude Code', {exact: true}).first()).toBeVisible();
   await expect(page.getByText('0.8x').first()).toBeVisible();
   await expect(page.getByText('https://www.qiubithub.com/v1')).toHaveCount(0);
@@ -69,6 +70,19 @@ test('www homepage presents the new product landing page', async ({page}, testIn
   await expectNoHorizontalOverflow(page);
 
   await saveEvidence(page, `www-home-${testInfo.project.name}.png`);
+});
+
+test('www homepage supports a manual dark mode', async ({page}, testInfo) => {
+  await page.goto('/');
+
+  await page.getByRole('button', {name: '切换颜色模式'}).click();
+  await expect(page.locator('html')).toHaveClass(/dark/);
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  await expect(page.getByRole('heading', {name: /面向开发者的 AI 编程 统一接入平台/})).toBeVisible();
+  await expect(page.getByRole('link', {name: /开始使用/})).toBeVisible();
+  await expectNoHorizontalOverflow(page);
+
+  await saveEvidence(page, `www-home-dark-${testInfo.project.name}.png`);
 });
 
 test('www homepage keeps key sections usable on every viewport', async ({page}, testInfo) => {
