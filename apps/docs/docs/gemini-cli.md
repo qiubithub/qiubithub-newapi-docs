@@ -45,7 +45,7 @@ node --version
 打开 **PowerShell**(建议以管理员身份运行)并执行:
 
 ```powershell
-# 通过国内镜像源安装 claude code
+# 通过国内镜像源安装 Gemini CLI
 npm install -g @google/gemini-cli --registry=https://registry.npmmirror.com/
 ```
 
