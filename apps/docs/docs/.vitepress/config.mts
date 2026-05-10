@@ -18,8 +18,10 @@ export default defineConfig({
   head: [
     ['link', {rel: 'icon', href: brandLogoUrl}],
     ['link', {rel: 'apple-touch-icon', href: brandLogoUrl}],
-    ['meta', {name: 'theme-color', content: '#2563eb'}],
+    ['meta', {name: 'theme-color', media: '(prefers-color-scheme: light)', content: '#ffffff'}],
+    ['meta', {name: 'theme-color', media: '(prefers-color-scheme: dark)', content: '#05070b'}],
   ],
+  appearance: true,
   themeConfig: {
     logo: brandLogoUrl,
     siteTitle: '丘比特 API 文档',
