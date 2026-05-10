@@ -435,42 +435,42 @@ img {
 .pricing-benefit-panel {
   border-radius: 8px;
   background: #f8fafc;
-  padding: 56px 66px 58px;
+  padding: 32px;
   text-align: left;
 }
 
 .pricing-benefit-title {
-  margin-bottom: 34px;
+  margin-bottom: 26px;
   text-align: center;
   color: #020617;
-  font-size: 1.55rem;
-  font-weight: 950;
+  font-size: 1.125rem;
+  font-weight: 850;
   line-height: 1.25;
 }
 
 .pricing-benefit-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
-  column-gap: 64px;
-  row-gap: 26px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 40px;
+  row-gap: 18px;
 }
 
 .pricing-benefit-item {
   display: flex;
   min-width: 0;
   align-items: flex-start;
-  gap: 20px;
+  gap: 12px;
   color: #020617;
-  font-size: 1.45rem;
-  font-weight: 850;
-  line-height: 1.35;
+  font-size: 0.95rem;
+  font-weight: 750;
+  line-height: 1.5;
 }
 
 .pricing-check {
   display: inline-grid;
-  width: 28px;
-  min-width: 28px;
-  height: 32px;
+  width: 20px;
+  min-width: 20px;
+  height: 22px;
   place-items: center;
   color: var(--brand-blue);
 }
@@ -545,13 +545,13 @@ img {
   }
 
   .pricing-benefit-panel {
-    margin-top: 48px;
-    padding: 32px 22px 34px;
+    margin-top: 38px;
+    padding: 26px 20px 28px;
   }
 
   .pricing-benefit-title {
-    margin-bottom: 26px;
-    font-size: 1.2rem;
+    margin-bottom: 22px;
+    font-size: 1.05rem;
   }
 
   .pricing-benefit-grid {
@@ -560,14 +560,14 @@ img {
   }
 
   .pricing-benefit-item {
-    gap: 14px;
-    font-size: 1.05rem;
+    gap: 10px;
+    font-size: 0.95rem;
   }
 
   .pricing-check {
-    width: 24px;
-    min-width: 24px;
-    height: 28px;
+    width: 20px;
+    min-width: 20px;
+    height: 22px;
   }
 }
 

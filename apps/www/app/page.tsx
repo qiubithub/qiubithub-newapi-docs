@@ -355,22 +355,22 @@ function SolutionSection() {
 
 function PricingSection() {
   return (
-    <section id="pricing" className="bg-white px-5 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-7xl text-center">
-        <h2 className="text-[2.4rem] font-black leading-tight text-slate-950 sm:text-5xl md:text-[4rem]">
+    <section id="pricing" className="bg-white px-5 py-20 md:px-8 md:py-24">
+      <div className="mx-auto max-w-6xl text-center">
+        <h2 className="text-3xl font-black leading-tight text-slate-950 md:text-4xl">
           一份额度，解锁所有 AI 模型
         </h2>
-        <p className="mx-auto mt-6 max-w-3xl text-xl font-black leading-8 text-slate-500 md:text-3xl">
+        <p className="mx-auto mt-4 max-w-3xl text-lg font-bold leading-8 text-slate-500">
           所有套餐额度均全站通用，一年有效
         </p>
 
-        <div className="pricing-benefit-panel mx-auto mt-20 max-w-6xl">
+        <div className="pricing-benefit-panel mx-auto mt-12 max-w-5xl">
           <div className="pricing-benefit-title">所有套餐均享：</div>
           <div className="pricing-benefit-grid">
             {pricingBenefits.map((item) => (
               <div key={item} className="pricing-benefit-item">
                 <span className="pricing-check">
-                  <Check size={26} strokeWidth={3} aria-hidden />
+                  <Check size={20} strokeWidth={3} aria-hidden />
                 </span>
                 <span>{item}</span>
               </div>
