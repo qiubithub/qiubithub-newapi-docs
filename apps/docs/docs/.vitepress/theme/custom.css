@@ -1,0 +1,95 @@
+:root {
+  --vp-c-brand-1: #2563eb;
+  --vp-c-brand-2: #0ea5e9;
+  --vp-c-brand-3: #dbeafe;
+  --vp-c-brand-soft: #eff6ff;
+  --vp-c-bg: #fbfdff;
+  --vp-c-bg-alt: #f3f7fb;
+  --vp-c-bg-soft: #eef6ff;
+  --vp-c-text-1: #0f172a;
+  --vp-c-text-2: #475569;
+  --vp-c-border: #dbe6f0;
+  --vp-button-brand-bg: #2563eb;
+  --vp-button-brand-hover-bg: #1d4ed8;
+  --vp-button-brand-active-bg: #1e40af;
+  --vp-custom-block-tip-border: #99f6e4;
+  --vp-custom-block-tip-bg: #f0fdfa;
+  --vp-custom-block-tip-text: #134e4a;
+}
+
+html,
+body {
+  letter-spacing: 0;
+}
+
+body {
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+.VPNavBarTitle .title {
+  font-weight: 850;
+}
+
+.VPDoc h1 {
+  font-weight: 900;
+}
+
+.VPDoc h2 {
+  border-top: 0;
+  margin-top: 40px;
+  padding-top: 0;
+}
+
+.VPDoc img {
+  border: 1px solid var(--vp-c-border);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.platform-tabs {
+  margin: 28px 0;
+}
+
+.platform-tabs-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 6px;
+  border: 1px solid var(--vp-c-border);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.platform-tabs-trigger {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 6px;
+  color: var(--vp-c-text-2);
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.platform-tabs-trigger:hover,
+.platform-tabs-trigger.is-active {
+  color: #ffffff;
+  background: #2563eb;
+}
+
+.platform-tab-panel {
+  padding: 18px 0 0;
+}
+
+.platform-tab-panel[hidden] {
+  display: none;
+}
+
+.custom-block {
+  border-radius: 8px;
+}

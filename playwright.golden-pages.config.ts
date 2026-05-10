@@ -2,7 +2,7 @@ import path from 'node:path';
 
 import {defineConfig, devices} from '@playwright/test';
 
-const evidenceDir = path.join(process.cwd(), '.sisyphus', 'evidence', 'task-1-golden-pages');
+const evidenceDir = path.join(process.cwd(), '.sisyphus', 'evidence', 'frontend-migration');
 
 export default defineConfig({
   testDir: './tests/golden-pages',
@@ -17,17 +17,23 @@ export default defineConfig({
   ],
   outputDir: path.join(evidenceDir, 'test-results'),
   use: {
-    baseURL: process.env.PLAYWRIGHT_BASE_URL ?? 'http://127.0.0.1:4173',
+    baseURL: process.env.WWW_BASE_URL ?? 'http://127.0.0.1:3000',
     trace: 'retain-on-failure',
     video: 'retain-on-failure',
     screenshot: 'off',
   },
   projects: [
     {
-      name: 'chromium',
+      name: 'desktop',
       use: {
         ...devices['Desktop Chrome'],
         viewport: {width: 1440, height: 900},
+      },
+    },
+    {
+      name: 'mobile',
+      use: {
+        ...devices['Pixel 7'],
       },
     },
   ],

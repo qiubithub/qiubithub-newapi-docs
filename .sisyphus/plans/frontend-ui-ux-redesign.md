@@ -192,7 +192,7 @@ Wave 3: Tasks 8-10 — homepage IA rewrite, priority-doc normalization, cleanup 
 
 - [ ] 2. 锁定 canonical host、品牌词与站点配置单一真相源
 
-  **What to do**: 在 `docusaurus.config.ts` 中统一 docs 站的 canonical host、navbar/footer 品牌文案、support/legal 链接、footer 数据契约，并明确 docs 与主站的域名分工。修复“部署文档写 docs.qiubithub.com，但 config 里是 www.qiubithub.com”的冲突；同时统一 QIUBIT / QiubiHub / 丘比特API 的品牌表达边界，至少保证 docs shell 内一致。若 footer 继续采用 `themeConfig.footer + customFields.footerData` 双源结构，需明确哪个字段负责什么，避免后续漂移。
+  **What to do**: 在 `docusaurus.config.ts` 中统一 docs 站的 canonical host、navbar/footer 品牌文案、support/legal 链接、footer 数据契约，并明确 docs 与主站的域名分工。修复“部署文档写 docs.qiubithub.com，但 config 里是 www.qiubithub.com”的冲突；同时统一 QIUBIT / QiubitHub / 丘比特API 的品牌表达边界，至少保证 docs shell 内一致。若 footer 继续采用 `themeConfig.footer + customFields.footerData` 双源结构，需明确哪个字段负责什么，避免后续漂移。
   **Must NOT do**: 不要顺手修改控制台、后端 API、外部法律页面内容；不要在本任务中新增复杂的 SEO/analytics 逻辑。
 
   **Recommended Agent Profile**:

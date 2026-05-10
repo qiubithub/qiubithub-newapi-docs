@@ -1,14 +1,9 @@
-#!/bin/bash
-# 构建并部署到 GitHub Pages
+#!/usr/bin/env bash
+set -euo pipefail
 
-# 配置 Git
-git config --global user.name "qiu"
-git config --global user.email "qiuchuanzeha@gmail.com"
+npm ci
+npm run build
 
-# 安装 gh-pages
- npm install --save-dev gh-pages
-
-# 更新 package.json 添加部署脚本
- npm pkg set scripts.deploy="docusaurus deploy"
-
-# 配置 docusaurus.config.ts 使用 GitHub Pages
+echo "官网产物: apps/www/out"
+echo "文档产物: apps/docs/docs/.vitepress/dist"
+echo "按 DEPLOY_CF_SERVER.md 中的 rsync 命令同步到服务器。"

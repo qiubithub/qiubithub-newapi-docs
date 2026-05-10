@@ -1,6 +1,15 @@
 node_modules/
+.npm-cache/
 build/
+output/
 .docusaurus/
+.next/
+out/
+apps/www/.next/
+apps/www/out/
+apps/docs/docs/.vitepress/cache/
+apps/docs/docs/.vitepress/dist/
 .env
 .env.local
 *.log
+.omx/

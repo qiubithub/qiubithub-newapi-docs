@@ -1,12 +1,10 @@
-# QiubiHub Docs
+# QiubitHub Frontend
 
-QiubiHub Docs 是一个基于 Docusaurus 构建的开发者文档站，面向 Claude Code、Codex、Gemini CLI、OpenClaw、OpenCode 等 AI CLI 工具的接入与使用说明。
+QiubitHub 前台现在拆成三层：
 
-当前站点的目标不是通用官网，而是一个 **docs-first 的接入门户**：
-
-- 首页先帮助用户判断应该走哪条文档路线
-- `/docs/intro` 作为文档总览入口
-- 核心工具文档分别覆盖不同工具的安装、配置、验证与排障
+- `apps/www`：官网，Next.js + Tailwind，负责品牌首页、价格、支持工具、FAQ 和控制台入口。
+- `apps/docs`：文档，VitePress，负责 Claude Code、Codex、Gemini CLI、OpenClaw、OpenCode 的接入教程。
+- New API 后台：不在本仓库内，继续负责注册、充值、API Key、渠道、用量和账单。
 
 ## 本地开发
 
@@ -16,69 +14,66 @@ QiubiHub Docs 是一个基于 Docusaurus 构建的开发者文档站，面向 Cl
 npm ci
 ```
 
-启动开发环境：
+启动官网：
 
 ```bash
-npm start
+npm run dev:www
 ```
 
-## 构建与本地预览
+启动文档：
 
-生成静态产物：
+```bash
+npm run dev:docs
+```
+
+默认地址：
+
+- 官网：`http://127.0.0.1:3000`
+- 文档：`http://127.0.0.1:5173`
+
+## 构建
+
+构建全部前台：
 
 ```bash
 npm run build
 ```
 
-本地预览构建结果：
+单独构建：
 
 ```bash
-npm run serve
+npm run build:www
+npm run build:docs
 ```
 
-## 文档 QA
+产物路径：
 
-安装 Playwright 浏览器依赖：
+- 官网：`apps/www/out`
+- 文档：`apps/docs/docs/.vitepress/dist`
+
+## 验证
+
+类型检查：
 
 ```bash
-npm run qa:golden-pages:install
+npm run typecheck
 ```
 
-查看当前 golden-page 用例：
+Playwright 基础视觉回归需要先启动两个预览服务：
 
 ```bash
-npm run qa:golden-pages:list
+npm run preview:www
+npm run preview:docs
 ```
 
-执行完整 golden-page 回归：
+然后执行：
 
 ```bash
-npm run qa:golden-pages
+npm run qa:visual
 ```
 
-## 部署说明
+## 内容维护
 
-当前生产部署域名为：
+文档内容在 `apps/docs/docs`，图片资源在 `apps/docs/docs/public/img`。
 
-- `https://docs.qiubithub.com`
-
-详细部署流程见：
-
-- [`DEPLOY_CF_SERVER.md`](./DEPLOY_CF_SERVER.md)
-
-## 当前优先文档
-
-- `docs/intro.md`
-- `docs/claude-code.mdx`
-- `docs/codex.mdx`
-- `docs/gemini-cli.mdx`
-- `docs/openclaw.mdx`
-- `docs/opencode.mdx`
-
-这些页面构成当前 docs-first 产品流的主要入口和核心内容。
-
-## 静态资源约定
-
-- 站点级资源放在 `static/img/` 根目录，例如 `logo.svg`、`favicon.ico`、社交分享图。
-- priority docs 的截图按工具归档到 `static/img/<tool>/`，例如 `static/img/claude-code/`、`static/img/opencode/`。
-- 新增截图请优先放到对应工具目录，避免继续把时间戳文件直接散落在 `static/img/` 根目录。
+官网首页在 `apps/www/app/page.tsx`，全局样式在 `apps/www/app/globals.css`。

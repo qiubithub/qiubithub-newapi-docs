@@ -1,52 +1,27 @@
 {
-  "name": "qiubithub-docs",
-  "version": "0.0.0",
+  "name": "qiubithub-frontend",
+  "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@11.11.1",
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear",
-    "serve": "docusaurus serve",
-    "qa:golden-pages:install": "playwright install chromium",
-    "qa:golden-pages:list": "playwright test -c playwright.golden-pages.config.ts --list",
-    "qa:golden-pages:test": "playwright test -c playwright.golden-pages.config.ts",
-    "qa:golden-pages:serve": "docusaurus serve --host 127.0.0.1 --port 4173",
-    "qa:golden-pages": "bash -lc 'mkdir -p .sisyphus/evidence/task-1-golden-pages || exit $?; { npm run build && start-server-and-test \"npm run qa:golden-pages:serve\" http://127.0.0.1:4173 \"npm run qa:golden-pages:test\"; } 2>&1 | tee .sisyphus/evidence/task-1-golden-pages/run.log; exit ${PIPESTATUS[0]}'",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
-  },
-  "dependencies": {
-    "@docusaurus/core": "3.9.2",
-    "@docusaurus/preset-classic": "3.9.2",
-    "@mdx-js/react": "^3.0.0",
-    "clsx": "^2.0.0",
-    "prism-react-renderer": "^2.3.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "dev:www": "npm run dev -w @qiubithub/www",
+    "dev:docs": "npm run dev -w @qiubithub/docs",
+    "build:www": "npm run build -w @qiubithub/www",
+    "build:docs": "npm run build -w @qiubithub/docs",
+    "build": "npm run build:www && npm run build:docs",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "qa:install": "playwright install chromium",
+    "qa:visual": "playwright test -c playwright.golden-pages.config.ts",
+    "preview:www": "npm run preview -w @qiubithub/www",
+    "preview:docs": "npm run preview -w @qiubithub/docs"
   },
   "devDependencies": {
     "@playwright/test": "^1.54.2",
-    "@docusaurus/module-type-aliases": "3.9.2",
-    "@docusaurus/tsconfig": "3.9.2",
-    "@docusaurus/types": "3.9.2",
     "start-server-and-test": "^2.0.10",
     "typescript": "~5.6.2"
-  },
-  "browserslist": {
-    "production": [
-      ">0.5%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 3 chrome version",
-      "last 3 firefox version",
-      "last 5 safari version"
-    ]
   },
   "engines": {
     "node": ">=20.0"
