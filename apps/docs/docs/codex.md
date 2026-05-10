@@ -75,8 +75,8 @@ $auth = @'
 
 # 写 config.toml(UTF-8 无 BOM,覆盖)
 $config = @'
-model_provider = "aicodewith"
-model = "gpt-5.2-codex"
+model_provider = "qiubithub"
+model = "gpt-5.3-codex"
 model_reasoning_effort = "high"
 disable_response_storage = true
 preferred_auth_method = "apikey"
@@ -84,8 +84,8 @@ requires_openai_auth = true
 
 enableRouteSelection = true
 
-[model_providers.aicodewith]
-name = "aicodewith"
+[model_providers.qiubithub]
+name = "QiubitHub"
 base_url = "https://www.qiubithub.com/v1"
 wire_api = "responses"
 '@
@@ -177,8 +177,8 @@ EOF
 
 # 写 config.toml(覆盖)
 cat > "$dir/config.toml" << 'EOF'
-model_provider = "aicodewith"
-model = "gpt-5.2-codex"
+model_provider = "qiubithub"
+model = "gpt-5.3-codex"
 model_reasoning_effort = "high"
 disable_response_storage = true
 preferred_auth_method = "apikey"
@@ -186,8 +186,8 @@ requires_openai_auth = true
 
 enableRouteSelection = true
 
-[model_providers.aicodewith]
-name = "aicodewith"
+[model_providers.qiubithub]
+name = "QiubitHub"
 base_url = "https://www.qiubithub.com/v1"
 wire_api = "responses"
 EOF
@@ -263,8 +263,8 @@ EOF
 
 # 写 config.toml(覆盖)
 cat > "$dir/config.toml" << 'EOF'
-model_provider = "aicodewith"
-model = "gpt-5.2-codex"
+model_provider = "qiubithub"
+model = "gpt-5.3-codex"
 model_reasoning_effort = "high"
 disable_response_storage = true
 preferred_auth_method = "apikey"
@@ -272,8 +272,8 @@ requires_openai_auth = true
 
 enableRouteSelection = true
 
-[model_providers.aicodewith]
-name = "aicodewith"
+[model_providers.qiubithub]
+name = "QiubitHub"
 base_url = "https://www.qiubithub.com/v1"
 wire_api = "responses"
 EOF

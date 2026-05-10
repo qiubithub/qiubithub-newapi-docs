@@ -2,7 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 
 const siteTitle = '丘比特 API | AI 编程工具 API 服务';
-const siteDescription = '让 Claude Code、Codex、Gemini CLI、OpenCode 在国内稳定可用，一个账号管理 Key、余额和调用记录。';
+const siteDescription = '统一接入 ChatGPT / GPT、Claude、Gemini、DeepSeek 等模型能力，一个账号管理 Key、余额和调用记录。';
 const defaultBrandLogoUrl =
   'https://qiubithub-1396711629.cos.ap-guangzhou.myqcloud.com/qiubitHub-icon.png';
 const brandLogoUrl =

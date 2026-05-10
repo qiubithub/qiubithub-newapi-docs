@@ -2,8 +2,7 @@ import {
   ArrowRight,
   BadgeCheck,
   BookOpen,
-  CheckCircle2,
-  ChevronRight,
+  Check,
   Gauge,
   KeyRound,
   Mail,
@@ -32,26 +31,32 @@ const navItems = [
   {label: '联系我们', href: '#contact'},
 ] as const;
 
-const modelChips = ['Claude Code', 'Codex', 'Gemini CLI', 'OpenClaw', 'OpenCode', '+ 更多'];
+const modelChips = ['ChatGPT / GPT', 'Claude', 'Gemini', 'DeepSeek', 'GLM', '+ 更多'];
 
 const heroStats = [
-  {value: '5+', label: '编程工具'},
-  {value: '0.8x', label: 'Codex 低至'},
+  {value: '多模型', label: '主流模型能力'},
   {value: '按量', label: '统一计费'},
+  {value: '≈2min', label: '从拿 Key 到调用'},
 ] as const;
 
-const supportedTools = [
-  {name: 'Claude Code', tag: '复杂改动 / 长上下文', rate: '1.5x', href: `${docsUrl}/claude-code`},
-  {name: 'Codex', tag: '高频编码 / 日常任务', rate: '0.8x', href: `${docsUrl}/codex`},
-  {name: 'Gemini CLI', tag: '大上下文 / 文档分析', rate: '1.5x', href: `${docsUrl}/gemini-cli`},
-  {name: 'OpenClaw', tag: 'Claude 系插件认证', rate: '1.5x', href: `${docsUrl}/openclaw`},
-  {name: 'OpenCode', tag: '多模型客户端', rate: '按模型', href: `${docsUrl}/opencode`},
+const featuredModels = [
+  {name: 'DeepSeek', mark: 'D'},
+  {name: '通义千问', mark: 'Q'},
+  {name: 'Kimi', mark: 'K'},
+  {name: 'GLM', mark: 'Z'},
+  {name: '+ 更多', mark: '+'},
+] as const;
+
+const modelHighlights = [
+  {value: '主流模型', label: '持续接入'},
+  {value: '一份额度', label: '统一管理'},
+  {value: '控制台为准', label: '开放与倍率实时更新'},
 ] as const;
 
 const problems = [
   {
-    title: '工具配置分散',
-    text: '每个 CLI 的入口、鉴权、模型名都不一样，新用户容易卡在第一步。',
+    title: '多供应商集成复杂',
+    text: 'ChatGPT / GPT、Claude、Gemini、DeepSeek 等模型接口、鉴权和模型名各不相同，接入成本高。',
   },
   {
     title: '国内链路不稳',
@@ -63,7 +68,7 @@ const problems = [
   },
   {
     title: '不知道先看哪篇',
-    text: '文档太多时，很难判断自己该从 Claude、Codex 还是 Gemini 开始。',
+    text: '文档太多时，很难判断自己该从 Claude Code、Codex CLI 还是 Gemini CLI 开始。',
   },
   {
     title: '成本口径不清楚',
@@ -77,69 +82,52 @@ const problems = [
 
 const solutions = [
   {
-    title: '按工具分入口',
-    text: 'Claude Code、Codex、Gemini CLI、OpenClaw、OpenCode 分别给教程，用户不用先理解底层差异。',
+    title: '多模型统一接入',
+    text: 'ChatGPT / GPT、Claude、Gemini、DeepSeek 等模型能力统一到一个入口，前台只讲用户能理解的选择。',
     icon: PlugZap,
   },
   {
     title: '一个控制台管理',
-    text: 'Key、余额、充值、调用记录集中在控制台，团队和个人都能快速判断问题在哪。',
+    text: 'Key、余额、充值、调用记录集中在控制台，模型、倍率和实际消耗一眼能查。',
     icon: KeyRound,
   },
   {
     title: '稳定接入常用 CLI',
-    text: '面向国内使用场景优化接入链路，先保障 AI 编程工具稳定跑起来。',
+    text: '模型能力在后台统一，Claude Code、Codex CLI、Gemini CLI 等工具按文档配置即可使用。',
     icon: Gauge,
   },
   {
     title: '价格和用量看得清',
-    text: '常用工具倍率放在首页，细节留给控制台和文档，决策路径更短。',
+    text: '首页只放核心判断，具体模型名、倍率和调用记录放在控制台，避免用户被路径细节劝退。',
     icon: ReceiptText,
   },
 ] as const;
 
-const pricing = [
-  {
-    name: 'Codex 工具组',
-    rate: '0.8x',
-    desc: '适合高频编码、日常提交、快速问答。',
-    features: ['Codex 教程入口', 'OpenAI 兼容工具', '按量扣费'],
-    href: `${docsUrl}/codex`,
-    featured: false,
-  },
-  {
-    name: 'Claude 工具组',
-    rate: '1.5x',
-    desc: '适合复杂改动、长上下文任务和 Claude 系客户端。',
-    features: ['Claude Code', 'OpenClaw', '长任务更稳'],
-    href: `${docsUrl}/claude-code`,
-    featured: true,
-  },
-  {
-    name: 'Gemini 工具组',
-    rate: '1.5x',
-    desc: '适合大上下文、文档分析和多文件理解。',
-    features: ['Gemini CLI', '大上下文任务', '统一余额'],
-    href: `${docsUrl}/gemini-cli`,
-    featured: false,
-  },
+const pricingBenefits = [
+  '额度全站通用（DeepSeek / 通义千问 / Kimi / GLM / ...）',
+  '按量灵活计费',
+  '额度一年有效',
+  '网络优化，低延迟接入',
+  '免配置，开箱即用',
+  '便捷支付',
+  '持续接入更多模型',
 ] as const;
 
 const faqs = [
   {
-    question: 'QiubitHub 是给哪些工具用的？',
+    question: 'QiubitHub 支持哪些模型？',
     answer:
-      '主要给 Claude Code、Codex、Gemini CLI、OpenClaw、OpenCode 这类 AI 编程工具使用。你用哪个工具，就打开对应教程。',
+      'QiubitHub 会持续接入主流 AI 编程模型。具体可用模型、模型名、倍率和开放状态以控制台为准，新模型上线后会在控制台同步更新。',
   },
   {
     question: '购买后怎么开始？',
     answer:
-      '进入控制台创建 API Key，再打开对应工具教程复制配置。工具能正常回复，并且控制台出现调用记录，就说明已经接好。',
+      '进入控制台创建 API Key，再打开 Claude Code、Codex CLI、Gemini CLI 等对应工具教程复制配置。工具能正常回复，并且控制台出现调用记录，就说明已经接好。',
   },
   {
     question: '额度和价格怎么理解？',
     answer:
-      '额度在控制台统一管理，常用工具按对应倍率扣费。首页只展示最常用分组，具体用量以控制台记录为准。',
+      '额度在控制台统一管理，不同模型按对应倍率扣费。首页只展示最常用分组，具体用量以控制台记录为准。',
   },
   {
     question: '配置失败怎么办？',
@@ -150,7 +138,7 @@ const faqs = [
 
 const footerLinks = [
   {label: 'Claude Code', href: `${docsUrl}/claude-code`},
-  {label: 'Codex', href: `${docsUrl}/codex`},
+  {label: 'Codex CLI', href: `${docsUrl}/codex`},
   {label: 'Gemini CLI', href: `${docsUrl}/gemini-cli`},
   {label: 'OpenClaw', href: `${docsUrl}/openclaw`},
   {label: 'OpenCode', href: `${docsUrl}/opencode`},
@@ -202,14 +190,14 @@ function HeroTerminal() {
           <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
           <span className="h-3 w-3 rounded-full bg-[#28c840]" />
         </div>
-        <span className="truncate">~/projects/api-stream — codex</span>
+        <span className="truncate">~/projects/api-stream — codex-cli</span>
       </div>
       <div className="space-y-4 p-5 font-mono text-[0.86rem] leading-6 text-slate-300 md:p-7">
         <p className="text-slate-500">~/projects/api-stream on main</p>
         <p>
           <span className="text-blue-300">❯</span> qiubithub "把接口改成流式输出"
         </p>
-        <p className="text-blue-300">● routing → Codex · 0.8x · streaming</p>
+        <p className="text-blue-300">● model → ChatGPT / GPT · streaming</p>
         <div className="rounded-[8px] border border-white/10 bg-white/[0.04] p-4 text-slate-200">
           <p className="mb-3 text-white">我会保留现有鉴权逻辑，只改响应流：</p>
           <pre className="overflow-x-auto whitespace-pre-wrap text-[0.78rem] leading-6">
@@ -238,7 +226,7 @@ function Hero() {
         <div>
           <div className="hero-badge">
             <BadgeCheck size={15} aria-hidden />
-            已支持 Claude Code · Codex · Gemini CLI
+            支持 ChatGPT / GPT · DeepSeek · GLM
           </div>
           <h1 className="mt-7 max-w-3xl text-[2.65rem] font-black leading-[1.04] text-slate-950 sm:text-6xl md:text-[4.45rem]">
             面向开发者的
@@ -246,7 +234,7 @@ function Hero() {
             统一接入平台
           </h1>
           <p className="mt-6 max-w-2xl text-lg font-semibold leading-8 text-slate-600 md:text-xl">
-            一个账号接入 Claude Code、Codex、Gemini CLI、OpenClaw、OpenCode。额度统一、按量计费，国内稳定可用。
+            ChatGPT / GPT、Claude、Gemini、DeepSeek 等模型能力统一接入，一份额度管理 Key、余额和调用记录。Claude Code、Codex CLI、Gemini CLI 等客户端按教程配置即可。
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">
@@ -282,14 +270,35 @@ function Hero() {
       </div>
 
       <div id="models" className="mx-auto max-w-7xl px-5 pb-16 md:px-8">
-        <p className="mb-5 text-center text-xs font-black uppercase text-slate-400">支持的工具</p>
-        <div className="tool-marquee">
-          {[...supportedTools, ...supportedTools].map((tool, index) => (
-            <a key={`${tool.name}-${index}`} href={tool.href} className="tool-logo-pill">
-              <span className="tool-logo-mark">{tool.name.slice(0, 1)}</span>
-              {tool.name}
-            </a>
-          ))}
+        <div className="model-panel">
+          <div className="model-heading">
+            <p>支持的模型</p>
+            <span>代表模型展示，具体开放和倍率以控制台为准</span>
+          </div>
+          <div className="model-strip" aria-label="代表模型">
+            <div className="model-strip-track">
+              {[...featuredModels, ...featuredModels, ...featuredModels].map((model, index) => (
+                <a
+                  key={`${model.name}-${index}`}
+                  href={consoleUrl}
+                  className="model-logo-pill"
+                  aria-hidden={index >= featuredModels.length ? true : undefined}
+                  tabIndex={index >= featuredModels.length ? -1 : undefined}
+                >
+                  <span className="model-logo-mark">{model.mark}</span>
+                  {model.name}
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="model-summary-grid">
+            {modelHighlights.map((item) => (
+              <div key={item.label} className="model-summary-item">
+                <strong>{item.value}</strong>
+                <span>{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -302,7 +311,7 @@ function ProblemSection() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           title="您是否也遇到这些问题"
-          subtitle="AI 编程工具接入时，真正劝退用户的通常不是模型能力，而是第一步能不能顺利跑起来。"
+          subtitle="AI 编程工具接入时，真正劝退用户的通常不是底层能力，而是第一步能不能顺利跑起来。"
         />
         <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {problems.map((problem) => (
@@ -346,52 +355,27 @@ function SolutionSection() {
 
 function PricingSection() {
   return (
-    <section id="pricing" className="bg-white px-5 pb-20 md:px-8 md:pb-24">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          title="一份额度，接入常用 AI 编程工具"
-          subtitle="首页只放最常用的价格判断。确认要用，再进控制台创建 Key。"
-        />
+    <section id="pricing" className="bg-white px-5 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl text-center">
+        <h2 className="text-[2.4rem] font-black leading-tight text-slate-950 sm:text-5xl md:text-[4rem]">
+          一份额度，解锁所有 AI 模型
+        </h2>
+        <p className="mx-auto mt-6 max-w-3xl text-xl font-black leading-8 text-slate-500 md:text-3xl">
+          所有套餐额度均全站通用，一年有效
+        </p>
 
-        <div className="pricing-includes mx-auto mt-10 max-w-4xl">
-          <div className="mb-4 text-center text-sm font-black text-slate-700">所有工具组均支持</div>
-          <div className="grid gap-3 text-sm font-bold text-slate-600 sm:grid-cols-2">
-            {['额度统一管理', '按量透明扣费', '控制台查看调用记录', '文档按工具拆分', '微信和邮箱支持', '持续接入更多工具'].map((item) => (
-              <div key={item} className="flex items-center gap-2">
-                <CheckCircle2 size={16} className="text-blue-600" aria-hidden />
-                {item}
+        <div className="pricing-benefit-panel mx-auto mt-20 max-w-6xl">
+          <div className="pricing-benefit-title">所有套餐均享：</div>
+          <div className="pricing-benefit-grid">
+            {pricingBenefits.map((item) => (
+              <div key={item} className="pricing-benefit-item">
+                <span className="pricing-check">
+                  <Check size={26} strokeWidth={3} aria-hidden />
+                </span>
+                <span>{item}</span>
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {pricing.map((item) => (
-            <article key={item.name} className={`price-card ${item.featured ? 'price-card-featured' : ''}`}>
-              {item.featured ? <div className="price-badge">推荐</div> : null}
-              <div className="text-sm font-bold text-slate-500">{item.name}</div>
-              <div className="mt-4 flex items-end gap-2">
-                <span className="text-5xl font-black text-slate-950">{item.rate}</span>
-                <span className="pb-2 text-sm font-bold text-slate-500">倍率</span>
-              </div>
-              <p className="mt-4 min-h-14 text-sm font-semibold leading-6 text-slate-600">{item.desc}</p>
-              <a href={consoleUrl} className={item.featured ? 'primary-button mt-6 w-full' : 'outline-button mt-6 w-full'}>
-                立即体验
-              </a>
-              <div className="mt-6 space-y-3">
-                {item.features.map((feature) => (
-                  <div key={feature} className="flex items-center gap-2 text-sm font-bold text-slate-600">
-                    <CheckCircle2 size={15} className="text-blue-600" aria-hidden />
-                    {feature}
-                  </div>
-                ))}
-              </div>
-              <a href={item.href} className="mt-6 inline-flex items-center gap-1 text-sm font-black text-blue-600 hover:text-blue-700">
-                查看教程
-                <ChevronRight size={15} aria-hidden />
-              </a>
-            </article>
-          ))}
         </div>
       </div>
     </section>
@@ -451,7 +435,7 @@ function Footer() {
               </div>
             </div>
             <p className="mt-5 max-w-sm text-sm font-semibold leading-7 text-slate-400">
-              面向开发者的 AI 编程统一接入平台，让 Claude Code、Codex、Gemini CLI 等工具在国内稳定可用。
+              面向开发者的 AI 编程统一接入平台，让 ChatGPT / GPT、Claude、Gemini 等模型能力在国内稳定可用。
             </p>
           </div>
 

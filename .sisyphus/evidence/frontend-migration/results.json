@@ -96,12 +96,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3216,
+                  "duration": 3604,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:55:38.968Z",
+                  "startTime": "2026-05-10T19:04:49.719Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -130,12 +130,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1919,
+                  "duration": 1697,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:55:42.525Z",
+                  "startTime": "2026-05-10T19:04:53.673Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -145,7 +145,7 @@
           ],
           "id": "c72376d67cb9fa764e51-974642d4c38740050c90",
           "file": "golden-pages.spec.ts",
-          "line": 75,
+          "line": 84,
           "column": 5
         },
         {
@@ -164,12 +164,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1679,
+                  "duration": 1526,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:55:44.459Z",
+                  "startTime": "2026-05-10T19:04:55.377Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -179,7 +179,7 @@
           ],
           "id": "c72376d67cb9fa764e51-ea3c3232cd9ed4eba4ab",
           "file": "golden-pages.spec.ts",
-          "line": 88,
+          "line": 97,
           "column": 5
         },
         {
@@ -198,12 +198,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2928,
+                  "duration": 2539,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:55:46.153Z",
+                  "startTime": "2026-05-10T19:04:56.910Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -213,7 +213,7 @@
           ],
           "id": "c72376d67cb9fa764e51-f56bd268792d32ec7f20",
           "file": "golden-pages.spec.ts",
-          "line": 107,
+          "line": 118,
           "column": 5
         },
         {
@@ -232,12 +232,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2338,
+                  "duration": 2741,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:55:49.629Z",
+                  "startTime": "2026-05-10T19:04:59.990Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -266,12 +266,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2681,
+                  "duration": 3075,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:55:52.095Z",
+                  "startTime": "2026-05-10T19:05:02.852Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -281,7 +281,7 @@
           ],
           "id": "c72376d67cb9fa764e51-a5a6fd5c001401724085",
           "file": "golden-pages.spec.ts",
-          "line": 75,
+          "line": 84,
           "column": 5
         },
         {
@@ -300,12 +300,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3007,
+                  "duration": 2507,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:55:54.785Z",
+                  "startTime": "2026-05-10T19:05:05.948Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -315,7 +315,7 @@
           ],
           "id": "c72376d67cb9fa764e51-adb1b7fdaccb413b3b61",
           "file": "golden-pages.spec.ts",
-          "line": 88,
+          "line": 97,
           "column": 5
         },
         {
@@ -334,12 +334,12 @@
                   "workerIndex": 1,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3485,
+                  "duration": 2615,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-05-10T15:55:57.809Z",
+                  "startTime": "2026-05-10T19:05:08.466Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -349,7 +349,7 @@
           ],
           "id": "c72376d67cb9fa764e51-1b542a1b12acc65400df",
           "file": "golden-pages.spec.ts",
-          "line": 107,
+          "line": 118,
           "column": 5
         }
       ]
@@ -357,8 +357,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-05-10T15:55:38.461Z",
-    "duration": 22901.714,
+    "startTime": "2026-05-10T19:04:49.239Z",
+    "duration": 21891.658000000003,
     "expected": 8,
     "skipped": 0,
     "unexpected": 0,

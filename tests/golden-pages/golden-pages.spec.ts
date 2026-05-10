@@ -47,8 +47,15 @@ test('www homepage presents the new product landing page', async ({page}, testIn
   await expect(page.getByRole('link', {name: /开始使用/})).toHaveAttribute('href', 'https://www.qiubithub.com/console');
   await expect(page.getByRole('link', {name: /查看文档/}).first()).toHaveAttribute('href', 'https://docs.qiubithub.com');
   await expect(page.getByRole('button', {name: '切换颜色模式'})).toBeVisible();
-  await expect(page.getByText('Claude Code', {exact: true}).first()).toBeVisible();
-  await expect(page.getByText('0.8x').first()).toBeVisible();
+  await expect(page.getByText('Claude', {exact: true}).first()).toBeVisible();
+  await expect(page.locator('#models')).toContainText('支持的模型');
+  await expect(page.locator('#models')).toContainText('代表模型展示');
+  await expect(page.locator('#models')).toContainText('DeepSeek');
+  await expect(page.locator('#models')).toContainText('+ 更多');
+  await expect(page.locator('#models')).toContainText('控制台为准');
+  await expect(page.locator('#models')).not.toContainText('模型供应商');
+  await expect(page.locator('#models')).not.toContainText('使用口径');
+  await expect(page.getByText('0.8x')).toHaveCount(0);
   await expect(page.getByText('https://www.qiubithub.com/v1')).toHaveCount(0);
   await expect(page.getByText('Base URL')).toHaveCount(0);
   await expect(page.getByText('配置表')).toHaveCount(0);
@@ -57,14 +64,16 @@ test('www homepage presents the new product landing page', async ({page}, testIn
   await expect(page.getByText('常用工具配置，一行复制')).toHaveCount(0);
   await expect(page.getByRole('heading', {name: '您是否也遇到这些问题'})).toBeVisible();
   await expect(page.getByRole('heading', {name: '我们的解决方案'})).toBeVisible();
-  await expect(page.getByRole('heading', {name: /一份额度，接入常用 AI 编程工具/})).toBeVisible();
-  await expect(page.getByText('所有工具组均支持')).toBeVisible();
+  await expect(page.getByRole('heading', {name: /一份额度，解锁所有 AI 模型/})).toBeVisible();
+  await expect(page.getByText('所有套餐额度均全站通用，一年有效')).toBeVisible();
+  await expect(page.getByText('所有套餐均享：')).toBeVisible();
   await expect(page.getByText('https://www.qiubithub.com/gemini_cli')).toHaveCount(0);
   await expect(page.getByText('openclaw models auth login')).toHaveCount(0);
   await expect(page.getByText(/api\.qiubithub\.com\/v1/)).toHaveCount(0);
   await expect(page.locator('header .brand-logo')).toHaveAttribute('src', expectedBrandLogoUrl);
   await expect(page.locator('header .brand-logo')).toHaveCSS('object-fit', 'contain');
   await expect(page.getByRole('contentinfo')).toContainText('联系我们');
+  await expect(page.getByRole('link', {name: 'Codex CLI'})).toHaveAttribute('href', 'https://docs.qiubithub.com/codex');
   await expect(page.getByRole('contentinfo')).toContainText('15802061870');
   await expect(page.getByRole('contentinfo')).toContainText('qiuchuanzeha@gmail.com');
   await expectNoHorizontalOverflow(page);
@@ -88,13 +97,15 @@ test('www homepage supports a manual dark mode', async ({page}, testInfo) => {
 test('www homepage keeps key sections usable on every viewport', async ({page}, testInfo) => {
   await page.goto('/');
 
-  await expect(page.locator('#models')).toContainText('支持的工具');
+  await expect(page.locator('#models')).toContainText('支持的模型');
   await expect(page.getByRole('heading', {name: /您是否也遇到这些问题/})).toBeVisible();
-  await expect(page.getByText('按工具分入口')).toBeVisible();
+  await expect(page.getByText('多模型统一接入')).toBeVisible();
   await expect(page.getByText('官网负责转化')).toHaveCount(0);
   await expect(page.locator('#pricing')).toContainText('一份额度');
-  await expect(page.locator('#pricing')).toContainText('Codex 工具组');
-  await expect(page.locator('#pricing')).toContainText('Claude 工具组');
+  await expect(page.locator('#pricing')).toContainText('额度全站通用');
+  await expect(page.locator('#pricing')).toContainText('网络优化，低延迟接入');
+  await expect(page.locator('#pricing')).not.toContainText('ChatGPT / GPT 模型组');
+  await expect(page.locator('#pricing')).not.toContainText('Claude 模型组');
   await expect(page.locator('#faq')).toContainText('常见问题');
   await expect(page.locator('a[href="#pricing"]').first()).toContainText('定价');
   await expect(page.locator('a[href="#demo"]')).toHaveCount(0);

@@ -75,11 +75,12 @@ $settingsJson = @'
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "在这里替换成你的_API_KEY",
+    "ANTHROPIC_API_KEY": "",
     "ANTHROPIC_BASE_URL": "https://www.qiubithub.com"
   }
 }
 '@
-[System.IO.File]::WriteAllText($settingsFile, $settingsJson)
+[System.IO.File]::WriteAllText($settingsFile, $settingsJson, (New-Object System.Text.UTF8Encoding($false)))
 
 # 写入 .claude.json
 $claudeJson = @'
@@ -87,9 +88,11 @@ $claudeJson = @'
   "hasCompletedOnboarding": true
 }
 '@
-[System.IO.File]::WriteAllText($claudeJsonFile, $claudeJson)
+[System.IO.File]::WriteAllText($claudeJsonFile, $claudeJson, (New-Object System.Text.UTF8Encoding($false)))
 
 Write-Host "配置完成！"
+Write-Host " - settings.json: $settingsFile"
+Write-Host " - .claude.json: $claudeJsonFile"
 ```
 
 ![配置文件创建](/img/claude-code/1769356582275-c900d57a-858b-47e1-ad85-f855f1f4e8cf.png)
@@ -181,6 +184,7 @@ cat > "$settingsFile" << 'EOF'
 {
   "env": {
     "ANTHROPIC_AUTH_TOKEN": "在这里替换成你的_API_KEY",
+    "ANTHROPIC_API_KEY": "",
     "ANTHROPIC_BASE_URL": "https://www.qiubithub.com"
   }
 }
@@ -194,6 +198,8 @@ cat > "$claudeJsonFile" << 'EOF'
 EOF
 
 echo "配置完成！"
+echo " - settings.json: $settingsFile"
+echo " - .claude.json: $claudeJsonFile"
 ```
 
 ![配置文件macOS](/img/claude-code/1769357049399-c28495e8-69f4-4e76-ad6a-9f3b6d464839.png)
@@ -255,7 +261,8 @@ mkdir -p "$dir"
 cat > "$settingsFile" << 'EOF'
 {
   "env": {
-    "ANTHROPIC_AUTH_TOKEN": "your-api-key-here",
+    "ANTHROPIC_AUTH_TOKEN": "在这里替换成你的_API_KEY",
+    "ANTHROPIC_API_KEY": "",
     "ANTHROPIC_BASE_URL": "https://www.qiubithub.com"
   }
 }
@@ -266,6 +273,16 @@ cat > "$claudeJsonFile" << 'EOF'
   "hasCompletedOnboarding": true
 }
 EOF
+
+echo "配置完成！"
+echo " - settings.json: $settingsFile"
+echo " - .claude.json: $claudeJsonFile"
+```
+
+使用下面命令查看配置文件里的内容，一定别忘了替换 API Key：
+
+```bash
+cat "$HOME/.claude/settings.json"
 ```
 
 ![配置文件Linux](/img/claude-code/1769357370426-87f69229-b7fa-4f62-9079-a696d2810440.png)
@@ -310,6 +327,7 @@ claude
 检查环境变量是否正确设置：
 - `ANTHROPIC_BASE_URL`: `https://www.qiubithub.com`
 - `ANTHROPIC_AUTH_TOKEN`: 你的 API Key
+- `ANTHROPIC_API_KEY`: 保持为空字符串即可
 
 重新执行配置步骤 3。
 

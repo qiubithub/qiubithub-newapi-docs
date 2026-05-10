@@ -2,7 +2,7 @@
 
 QiubitHub 前台现在拆成三层：
 
-- `apps/www`：官网，Next.js + Tailwind，负责品牌首页、价格、支持工具、FAQ 和控制台入口。
+- `apps/www`：官网落地页，Next.js + Tailwind，负责品牌首页、价格、支持工具、FAQ 和控制台入口；线上由 New API 通过 `https://www.qiubithub.com/__landing` 嵌入，`www.qiubithub.com/` 本身默认进入 New API。
 - `apps/docs`：文档，VitePress，负责 Claude Code、Codex、Gemini CLI、OpenClaw、OpenCode 的接入教程。
 - New API 后台：不在本仓库内，继续负责注册、充值、API Key、渠道、用量和账单。
 
